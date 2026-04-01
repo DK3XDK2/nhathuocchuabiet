@@ -1,0 +1,975 @@
+﻿<!doctype html>
+
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#2170e4",
+              surface: "#f8f9ff",
+              "on-tertiary-fixed": "#410005",
+              "on-tertiary-fixed-variant": "#842225",
+              "surface-container-high": "#dce9ff",
+              "surface-tint": "#006c49",
+              outline: "#6c7a71",
+              "primary-container": "#10b981",
+              "secondary-fixed-dim": "#adc6ff",
+              "tertiary-fixed": "#ffdad7",
+              "on-surface-variant": "#3c4a42",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#d3e4fe",
+              primary: "#006c49",
+              "on-primary-fixed-variant": "#005236",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary-container": "#711419",
+              "error-container": "#ffdad6",
+              "outline-variant": "#bbcabf",
+              "inverse-primary": "#4edea3",
+              "tertiary-container": "#fc7c78",
+              "surface-container": "#e5eeff",
+              error: "#ba1a1a",
+              "on-secondary-fixed": "#001a42",
+              background: "#f8f9ff",
+              "on-secondary-container": "#fefcff",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#213145",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#00422b",
+              "surface-dim": "#cbdbf5",
+              tertiary: "#a43a3a",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-background": "#0b1c30",
+              "tertiary-fixed-dim": "#ffb3af",
+              secondary: "#0058be",
+              "on-secondary-fixed-variant": "#004395",
+              "on-surface": "#0b1c30",
+              "on-primary-fixed": "#002113",
+              "secondary-fixed": "#d8e2ff",
+              "primary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#4edea3",
+              "surface-bright": "#f8f9ff",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .font-manrope {
+        font-family: "Manrope", sans-serif;
+      }
+      /* Page Transition */
+      body {
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      body.page-ready {
+        opacity: 1;
+      }
+      body.page-exit {
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <!-- TopNavBar (Shared Component) -->
+    <!-- HEADER ĐỒNG BỘ -->
+    <header
+      class="fixed top-0 w-full z-50 h-[80px] bg-white/80 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between w-full h-full"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-4 sm:gap-12">
+          <a
+            href="index.html"
+            class="text-lg sm:text-2xl font-headline font-bold tracking-tighter text-slate-900 whitespace-nowrap"
+            >Nhà Thuốc Chưa Biết</a
+          >
+          <!-- Mobile Hamburger Menu -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col gap-1.5 hover:opacity-70 transition-opacity"
+            aria-label="Menu"
+          >
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+          </button>
+
+          <!-- Nav -->
+          <nav
+            class="hidden md:flex items-center gap-4 lg:gap-8 font-headline text-sm font-medium tracking-tight"
+          >
+            <a
+              href="danh_muc.html?cat=thuoc"
+              data-nav="thuoc"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thuốc</a
+            >
+            <a
+              href="danh_muc.html?cat=vitamin"
+              data-nav="vitamin"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Vitamin</a
+            >
+            <div class="relative group">
+              <button
+                type="button"
+                class="inline-flex items-center gap-1 text-slate-600 hover:text-emerald-600 transition-colors"
+              >
+                Trang khác
+                <span class="material-symbols-outlined text-base"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="absolute top-full left-0 mt-2 hidden group-hover:block group-focus-within:block w-52 bg-white border border-slate-200 rounded-lg shadow-lg p-2 z-50"
+              >
+                <a
+                  href="don_thuoc.html"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Tải lên đơn thuốc</a
+                >
+                <a
+                  href="danh_muc.html?cat=khuyen-mai"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Ưu đãi hôm nay</a
+                >
+              </div>
+            </div>
+            <a
+              href="danh_muc.html?cat=thiet-bi"
+              data-nav="thiet-bi"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thiết bị</a
+            >
+            <a
+              href="danh_muc.html?cat=cham-soc"
+              data-nav="cham-soc"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Chăm sóc</a
+            >
+            <a
+              href="danh_muc.html?cat=khuyen-mai"
+              data-nav="khuyen-mai"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Khuyến mãi</a
+            >
+          </nav>
+        </div>
+
+        <!-- Right side -->
+        <div class="flex items-center gap-6">
+          <!-- Search -->
+          <div
+            class="hidden lg:flex items-center bg-emerald-50/50 px-4 py-2 rounded-full border border-outline-variant/20"
+          >
+            <span class="material-symbols-outlined text-emerald-600 text-lg"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 outline-none"
+              placeholder="Tìm kiếm sản phẩm..."
+              type="text"
+            />
+          </div>
+
+          <!-- Icons -->
+          <div class="flex items-center gap-4 text-emerald-600">
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">headset_mic</span>
+            </button>
+            <a
+              href="thanh_toan.html"
+              class="active:scale-95 transition-transform relative inline-flex"
+            >
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <span
+                class="cart-badge absolute -top-1 -right-1 bg-tertiary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold"
+                >0</span
+              >
+            </a>
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">account_circle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <nav
+      id="mobile-menu"
+      class="fixed top-[80px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md hidden flex-col border-b border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto px-3 py-4 w-full space-y-2">
+        <a
+          href="danh_muc.html?cat=thuoc"
+          data-nav="thuoc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=vitamin"
+          data-nav="vitamin"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Vitamin</a
+        >
+        <div class="px-4 pt-2 text-[11px] font-bold text-slate-400 uppercase">
+          Trang khác
+        </div>
+        <a
+          href="don_thuoc.html"
+          class="block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Tải lên đơn thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=thiet-bi"
+          data-nav="thiet-bi"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thiết bị</a
+        >
+        <a
+          href="danh_muc.html?cat=cham-soc"
+          data-nav="cham-soc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Chăm sóc</a
+        >
+        <a
+          href="danh_muc.html?cat=khuyen-mai"
+          data-nav="khuyen-mai"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Khuyến mãi</a
+        >
+      </div>
+    </nav>
+
+    <main class="pt-32 pb-24 max-w-7xl mx-auto px-3 sm:px-6">
+      <!-- Steps UI -->
+      <div class="mb-16">
+        <div
+          class="flex items-center justify-center space-x-4 max-w-2xl mx-auto"
+        >
+          <div class="flex flex-col items-center flex-1 opacity-50">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-2"
+            >
+              <span
+                class="material-symbols-outlined text-on-surface text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-on-surface"
+              >Thông tin</span
+            >
+          </div>
+          <div class="h-[2px] w-12 bg-outline-variant/30 mb-6"></div>
+          <div class="flex flex-col items-center flex-1">
+            <div
+              class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-2 shadow-lg shadow-primary/20"
+            >
+              <span class="text-on-primary font-bold text-sm">02</span>
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-primary font-bold"
+              >Vận chuyển</span
+            >
+          </div>
+          <div class="h-[2px] w-12 bg-outline-variant/30 mb-6"></div>
+          <div class="flex flex-col items-center flex-1 opacity-40">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-2"
+            >
+              <span class="text-on-surface font-bold text-sm">03</span>
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-on-surface"
+              >Thanh toán</span
+            >
+          </div>
+          <div class="h-[2px] w-12 bg-outline-variant/30 mb-6"></div>
+          <div class="flex flex-col items-center flex-1 opacity-40">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-2"
+            >
+              <span class="text-on-surface font-bold text-sm">04</span>
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-on-surface"
+              >Xác nhận</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Shipping Information Form (8 Cols) -->
+        <div class="lg:col-span-8 space-y-8">
+          <section
+            class="bg-surface-container-lowest p-10 rounded-xl shadow-sm border border-outline-variant/10"
+          >
+            <div class="mb-10">
+              <h1
+                class="text-3xl font-headline font-extrabold tracking-tight text-on-surface mb-2"
+              >
+                Chi tiết giao hàng
+              </h1>
+              <p class="text-on-surface-variant text-body-md">
+                Vui lòng cung cấp địa chỉ giao hàng chính xác cho đơn hàng dược
+                phẩm của bạn.
+              </p>
+            </div>
+            <form class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex flex-col">
+                  <label
+                    class="text-[11px] font-label font-bold uppercase tracking-widest text-outline mb-2"
+                    >Họ và tên</label
+                  >
+                  <input
+                    class="bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-on-surface transition-all"
+                    placeholder="Nguyễn Văn A"
+                    type="text"
+                  />
+                </div>
+                <div class="flex flex-col">
+                  <label
+                    class="text-[11px] font-label font-bold uppercase tracking-widest text-outline mb-2"
+                    >Số điện thoại</label
+                  >
+                  <input
+                    class="bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-on-surface transition-all"
+                    placeholder="+84 000 000 000"
+                    type="tel"
+                  />
+                </div>
+              </div>
+              <div class="flex flex-col">
+                <label
+                  class="text-[11px] font-label font-bold uppercase tracking-widest text-outline mb-2"
+                  >Địa chỉ nhận hàng</label
+                >
+                <input
+                  class="bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-on-surface transition-all"
+                  placeholder="123 Đường Lâm Sàng, Quận 1"
+                  type="text"
+                />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex flex-col">
+                  <label
+                    class="text-[11px] font-label font-bold uppercase tracking-widest text-outline mb-2"
+                    >Thành phố</label
+                  >
+                  <select
+                    class="bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-on-surface transition-all"
+                  >
+                    <option>TP. Hồ Chí Minh</option>
+                    <option>Hà Nội</option>
+                    <option>Đà Nẵng</option>
+                  </select>
+                </div>
+                <div class="flex flex-col md:col-span-2">
+                  <label
+                    class="text-[11px] font-label font-bold uppercase tracking-widest text-outline mb-2"
+                    >Ghi chú đơn hàng (Tùy chọn)</label
+                  >
+                  <input
+                    class="bg-surface-container-low border-none rounded-lg p-4 focus:ring-2 focus:ring-primary text-on-surface transition-all"
+                    placeholder="Mã cửa, hướng dẫn cụ thể..."
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="pt-4 flex items-center space-x-3">
+                <input
+                  class="rounded border-outline-variant text-primary focus:ring-primary h-5 w-5"
+                  id="save-info"
+                  type="checkbox"
+                />
+                <label
+                  class="text-sm text-on-surface-variant font-medium"
+                  for="save-info"
+                  >Lưu thông tin này cho hồ sơ lâm sàng</label
+                >
+              </div>
+            </form>
+          </section>
+          <!-- Medical Trust Badges -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div
+              class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary mb-3"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >verified_user</span
+              >
+              <span
+                class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface"
+                >Nhà thuốc xác thực</span
+              >
+            </div>
+            <div
+              class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary mb-3"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >medical_services</span
+              >
+              <span
+                class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface"
+                >Tư vấn chuyên nghiệp</span
+              >
+            </div>
+            <div
+              class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary mb-3"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >encrypted</span
+              >
+              <span
+                class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface"
+                >Thanh toán bảo mật</span
+              >
+            </div>
+            <div
+              class="bg-surface-container-low p-6 rounded-lg flex flex-col items-center text-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary mb-3"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >local_shipping</span
+              >
+              <span
+                class="text-[10px] font-label font-bold uppercase tracking-widest text-on-surface"
+                >Kiểm soát nhiệt độ</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Order Summary (4 Cols) -->
+        <div class="lg:col-span-4 sticky top-28">
+          <section
+            class="bg-inverse-surface text-white p-8 rounded-xl shadow-xl"
+          >
+            <h2
+              class="text-xl font-headline font-bold mb-8 border-b border-white/10 pb-4"
+            >
+              Tóm tắt đơn hàng
+            </h2>
+            <div id="checkout-cart-items" class="space-y-6 mb-10"></div>
+            <div class="space-y-3 border-t border-white/10 pt-6 mb-8">
+              <div class="flex justify-between text-sm text-white/70">
+                <span>Tạm tính</span>
+                <span id="checkout-subtotal">0đ</span>
+              </div>
+              <div class="flex justify-between text-sm text-white/70">
+                <span>Phí vận chuyển</span>
+                <span id="checkout-shipping">0đ</span>
+              </div>
+              <div class="flex justify-between text-sm text-white/70">
+                <span>Bảo hiểm</span>
+                <span id="checkout-insurance">0đ</span>
+              </div>
+              <div
+                class="flex justify-between text-xl font-bold pt-4 text-white"
+              >
+                <span>Tổng cộng</span>
+                <span id="checkout-total" class="text-primary-fixed">0đ</span>
+              </div>
+            </div>
+            <button
+              onclick="datHang()"
+              class="w-full py-4 bg-primary hover:bg-primary-fixed-dim text-on-primary font-bold rounded-lg transition-all active:scale-95 flex items-center justify-center group"
+            >
+              ĐẶT HÀNG NGAY
+              <span
+                class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </button>
+            <p
+              class="text-center text-[10px] text-white/40 mt-6 font-label uppercase tracking-widest"
+            >
+              Đã bao gồm thuế. Giao dịch an toàn.
+            </p>
+          </section>
+          <div
+            class="mt-6 p-4 border border-outline-variant/20 rounded-lg flex items-start space-x-3 bg-white/50"
+          >
+            <span class="material-symbols-outlined text-primary text-xl"
+              >info</span
+            >
+            <p class="text-[11px] text-on-surface-variant leading-relaxed">
+              Đơn hàng chứa thuốc kê đơn sẽ được dược sĩ lâm sàng của chúng tôi
+              xác minh trước khi gửi đi. Mong bạn chờ cuộc gọi xác nhận trong
+              vòng 15 phút.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer (Shared Component) -->
+    <!-- FOOTER ĐỒNG BỘ -->
+    <footer class="bg-slate-900 w-full py-16 border-t border-slate-800">
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 font-inter text-sm leading-relaxed"
+      >
+        <!-- Brand -->
+        <div>
+          <span class="text-xl font-headline font-bold text-white mb-6 block"
+            >Nhà Thuốc Chưa Biết</span
+          >
+          <p class="text-slate-400 mb-6">
+            Hệ thống dược phẩm chuyên môn hóa, cung cấp giải pháp chăm sóc sức
+            khỏe toàn diện với tiêu chuẩn lâm sàng khắt khe.
+          </p>
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">public</span></a
+            >
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">share</span></a
+            >
+          </div>
+        </div>
+
+        <!-- Về chúng tôi -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Về chúng tôi
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách bảo mật</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Điều khoản dịch vụ</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hỗ trợ -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Hỗ trợ khách hàng
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Thông tin giao hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách đổi trả</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Tra cứu đơn hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Câu hỏi thường gặp</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bản tin -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Đăng ký bản tin
+          </h4>
+          <p class="text-slate-400 mb-4">
+            Nhận thông tin y tế mới nhất và ưu đãi đặc quyền.
+          </p>
+          <div class="flex gap-2 p-1 bg-slate-800 rounded-lg">
+            <input
+              class="bg-transparent border-none focus:ring-0 text-white text-xs flex-1 px-3"
+              placeholder="Email của bạn"
+              type="email"
+            />
+            <button
+              class="bg-emerald-600 text-white px-4 py-2 rounded-md text-xs font-bold hover:bg-emerald-500 transition-colors"
+            >
+              GỬI
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center"
+      >
+        <p class="text-slate-500 text-xs">
+          © 2026 Nhà Thuốc Chưa Biết. Bảo lưu mọi quyền.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div
+      id="order-success-modal"
+      class="hidden fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl p-12 max-w-md w-full mx-6 text-center"
+      >
+        <div
+          class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6"
+        >
+          <span
+            class="material-symbols-outlined text-5xl text-emerald-600"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >check_circle</span
+          >
+        </div>
+        <h2 class="text-2xl font-headline font-extrabold text-slate-900 mb-3">
+          ĐẶT HÀNG THÀNH CÔNG!
+        </h2>
+        <p class="text-slate-500 mb-2">
+          Mã đơn hàng:
+          <span class="font-bold text-primary" id="order-code"></span>
+        </p>
+        <p class="text-slate-500 text-sm mb-8">
+          Dược sĩ sẽ liên hệ xác nhận trong vòng 15 phút. Cảm ơn bạn đã tin
+          tưởng Nhà Thuốc Chưa Biết!
+        </p>
+        <div class="flex gap-4 justify-center">
+          <a
+            href="index.html"
+            class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:brightness-110 transition-all"
+            >Về trang chủ</a
+          >
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container text-on-surface px-8 py-3 rounded-lg font-bold hover:bg-surface-container-high transition-all"
+            >Tiếp tục mua sắm</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        requestAnimationFrame(() => document.body.classList.add("page-ready"));
+        capNhatNavbar();
+        document.querySelectorAll("a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            href.startsWith("mailto")
+          )
+            return;
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("page-ready");
+            document.body.classList.add("page-exit");
+            setTimeout(() => {
+              window.location.href = href;
+            }, 260);
+          });
+        });
+      });
+      function laySoLuongGio() {
+        return window.CartStore ? window.CartStore.getCount() : 0;
+      }
+      function capNhatNavbar() {
+        const page = window.location.pathname.split("/").pop() || "index.html";
+        const cat =
+          new URLSearchParams(window.location.search).get("cat") || "";
+        document.querySelectorAll(".nav-link[data-nav]").forEach((link) => {
+          const id = link.dataset.nav;
+          let active = false;
+          if (page === "danh_muc.html") {
+            active = cat ? cat === id : id === "thuoc";
+          } else if (page === "chi_tiet.html") {
+            active = id === "thuoc";
+          }
+          if (active) {
+            link.classList.add(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.remove(
+              "text-slate-600",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          } else {
+            link.classList.remove(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.add(
+              "text-slate-600",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          }
+        });
+      }
+      function capNhatGio(n) {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          return;
+        }
+        document
+          .querySelectorAll(".cart-badge")
+          .forEach((el) => (el.textContent = n));
+      }
+
+      function renderCheckoutCart() {
+        if (!window.CartStore) return;
+
+        const itemsWrap = document.getElementById("checkout-cart-items");
+        const subtotalEl = document.getElementById("checkout-subtotal");
+        const shippingEl = document.getElementById("checkout-shipping");
+        const insuranceEl = document.getElementById("checkout-insurance");
+        const totalEl = document.getElementById("checkout-total");
+        const btnDatHang = document.querySelector(
+          "button[onclick='datHang()']",
+        );
+
+        if (
+          !itemsWrap ||
+          !subtotalEl ||
+          !shippingEl ||
+          !insuranceEl ||
+          !totalEl
+        ) {
+          return;
+        }
+
+        const cartItems = window.CartStore.getDetailedItems();
+        const subtotal = cartItems.reduce(
+          (sum, item) => sum + item.lineTotal,
+          0,
+        );
+        const shipping = cartItems.length ? 18000 : 0;
+        const insurance = cartItems.length ? 5000 : 0;
+        const total = subtotal + shipping + insurance;
+
+        if (!cartItems.length) {
+          itemsWrap.innerHTML =
+            '<div class="rounded-lg border border-white/20 bg-white/10 p-4 text-sm text-white/80">Giỏ hàng của bạn đang trống. Hãy thêm sản phẩm từ danh mục trước khi thanh toán.</div>';
+          if (btnDatHang) {
+            btnDatHang.disabled = true;
+            btnDatHang.classList.add("opacity-60", "cursor-not-allowed");
+          }
+        } else {
+          itemsWrap.innerHTML = cartItems
+            .map(
+              (item) => `
+                <div class="flex items-center space-x-4">
+                  <div class="relative w-16 h-16 bg-white rounded-lg overflow-hidden flex-shrink-0">
+                    <img alt="${item.name}" class="w-full h-full object-cover" src="${item.image}" />
+                    <div class="absolute -top-1 -right-1 bg-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full ring-2 ring-inverse-surface">x${item.qty}</div>
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-bold truncate">${item.name}</p>
+                    <p class="text-xs text-white/60 truncate">${item.category || "Sản phẩm"}</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-sm font-bold">${window.CartStore.formatMoney(item.lineTotal)}</div>
+                    <button type="button" data-remove-id="${item.id}" class="text-[11px] text-red-300 hover:text-red-200">Xóa</button>
+                  </div>
+                </div>
+              `,
+            )
+            .join("");
+          if (btnDatHang) {
+            btnDatHang.disabled = false;
+            btnDatHang.classList.remove("opacity-60", "cursor-not-allowed");
+          }
+        }
+
+        subtotalEl.textContent = window.CartStore.formatMoney(subtotal);
+        shippingEl.textContent = window.CartStore.formatMoney(shipping);
+        insuranceEl.textContent = window.CartStore.formatMoney(insurance);
+        totalEl.textContent = window.CartStore.formatMoney(total);
+
+        itemsWrap.querySelectorAll("[data-remove-id]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            window.CartStore.remove(btn.dataset.removeId);
+            renderCheckoutCart();
+          });
+        });
+      }
+
+      function datHang() {
+        if (window.CartStore && window.CartStore.getCount() === 0) {
+          hienLoiForm("Giỏ hàng đang trống, vui lòng thêm sản phẩm trước.");
+          return;
+        }
+        const name = document.querySelector(
+          'input[placeholder="Nguyễn Văn A"]',
+        );
+        const phone = document.querySelector('input[type="tel"]');
+        const addr = document.querySelector(
+          'input[placeholder="123 Đường Lâm Sàng, Quận 1"]',
+        );
+        if (name && !name.value.trim()) {
+          name.focus();
+          hienLoiForm("Vui lòng nhập họ và tên!");
+          return;
+        }
+        if (phone && !phone.value.trim()) {
+          phone.focus();
+          hienLoiForm("Vui lòng nhập số điện thoại!");
+          return;
+        }
+        if (addr && !addr.value.trim()) {
+          addr.focus();
+          hienLoiForm("Vui lòng nhập địa chỉ giao hàng!");
+          return;
+        }
+        localStorage.setItem(
+          "checkoutInfo",
+          JSON.stringify({
+            name: name?.value?.trim() || "",
+            phone: phone?.value?.trim() || "",
+            address: addr?.value?.trim() || "",
+          }),
+        );
+        window.location.href = "chon_phuong_thuc.html";
+      }
+      function hienLoiForm(msg) {
+        const existing = document.getElementById("cp-toast");
+        if (existing) existing.remove();
+        const t = document.createElement("div");
+        t.id = "cp-toast";
+        t.style.cssText =
+          "position:fixed;top:6rem;left:50%;transform:translateX(-50%);background:#ba1a1a;color:#fff;padding:0.75rem 1.5rem;border-radius:9999px;font-size:0.875rem;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:9999";
+        t.textContent = "⚠ " + msg;
+        document.body.appendChild(t);
+        setTimeout(() => t.remove(), 3000);
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          window.CartStore.initMiniCart();
+        }
+        renderCheckoutCart();
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            mobileMenu.classList.toggle("flex");
+          });
+          // Close menu when a link is clicked
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              mobileMenu.classList.remove("flex");
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

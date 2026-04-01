@@ -1,0 +1,2493 @@
+﻿<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#2170e4",
+              surface: "#f8f9ff",
+              "on-tertiary-fixed": "#410005",
+              "on-tertiary-fixed-variant": "#842225",
+              "surface-container-high": "#dce9ff",
+              "surface-tint": "#006c49",
+              outline: "#6c7a71",
+              "primary-container": "#10b981",
+              "secondary-fixed-dim": "#adc6ff",
+              "tertiary-fixed": "#ffdad7",
+              "on-surface-variant": "#3c4a42",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#d3e4fe",
+              primary: "#006c49",
+              "on-primary-fixed-variant": "#005236",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary-container": "#711419",
+              "error-container": "#ffdad6",
+              "outline-variant": "#bbcabf",
+              "inverse-primary": "#4edea3",
+              "tertiary-container": "#fc7c78",
+              "surface-container": "#e5eeff",
+              error: "#ba1a1a",
+              "on-secondary-fixed": "#001a42",
+              background: "#f8f9ff",
+              "on-secondary-container": "#fefcff",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#213145",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#00422b",
+              "surface-dim": "#cbdbf5",
+              tertiary: "#a43a3a",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-background": "#0b1c30",
+              "tertiary-fixed-dim": "#ffb3af",
+              secondary: "#0058be",
+              "on-secondary-fixed-variant": "#004395",
+              "on-surface": "#0b1c30",
+              "on-primary-fixed": "#002113",
+              "secondary-fixed": "#d8e2ff",
+              "primary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#4edea3",
+              "surface-bright": "#f8f9ff",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .breathing-grid {
+        padding-top: 8.5rem;
+        padding-bottom: 8.5rem;
+      }
+      body {
+        background-color: #f8f9ff;
+        color: #0b1c30;
+        font-family: "Inter", sans-serif;
+      }
+      .auth-tab-active {
+        background: #ffffff;
+        color: #006c49;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <header
+      class="fixed top-0 w-full z-50 h-[80px] bg-white/80 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between w-full h-full"
+      >
+        <div class="flex items-center gap-4 sm:gap-12">
+          <a
+            href="index.html"
+            class="text-lg sm:text-2xl font-headline font-bold tracking-tighter text-slate-900 whitespace-nowrap"
+            >Nhà Thuốc Chưa Biết</a
+          >
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col gap-1.5 hover:opacity-70 transition-opacity"
+            aria-label="Menu"
+          >
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+          </button>
+          <nav
+            class="hidden md:flex items-center gap-4 lg:gap-8 font-headline text-sm font-medium tracking-tight"
+          >
+            <a
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              href="danh_muc.html?cat=thuoc"
+              data-nav="thuoc"
+              >Thuốc</a
+            >
+            <a
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              href="danh_muc.html?cat=vitamin"
+              data-nav="vitamin"
+              >Vitamin</a
+            >
+            <div class="relative group">
+              <button
+                type="button"
+                class="inline-flex items-center gap-1 text-slate-600 hover:text-emerald-600 transition-colors"
+              >
+                Trang khác
+                <span class="material-symbols-outlined text-base"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="absolute top-full left-0 mt-2 hidden group-hover:block group-focus-within:block w-52 bg-white border border-slate-200 rounded-lg shadow-lg p-2 z-50"
+              >
+                <a
+                  href="don_thuoc.html"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Tải lên đơn thuốc</a
+                >
+                <a
+                  href="danh_muc.html?cat=khuyen-mai"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Ưu đãi hôm nay</a
+                >
+              </div>
+            </div>
+            <a
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              href="danh_muc.html?cat=thiet-bi"
+              data-nav="thiet-bi"
+              >Thiết bị</a
+            >
+            <a
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              href="danh_muc.html?cat=cham-soc"
+              data-nav="cham-soc"
+              >Chăm sóc</a
+            >
+            <a
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              href="danh_muc.html?cat=khuyen-mai"
+              data-nav="khuyen-mai"
+              >Khuyến mãi</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div
+            class="hidden lg:flex items-center bg-emerald-50/50 px-4 py-2 rounded-full border border-outline-variant/20"
+          >
+            <span class="material-symbols-outlined text-emerald-600 text-lg"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 outline-none"
+              placeholder="Tìm kiếm sản phẩm..."
+              type="text"
+            />
+          </div>
+          <div class="flex items-center gap-4 text-emerald-600">
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">headset_mic</span>
+            </button>
+            <a
+              href="thanh_toan.html"
+              class="active:scale-95 transition-transform relative inline-flex"
+            >
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <span
+                class="cart-badge absolute -top-1 -right-1 bg-tertiary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold"
+                >0</span
+              >
+            </a>
+            <a
+              href="dang_nhap.html"
+              class="active:scale-95 transition-transform inline-flex"
+            >
+              <span class="material-symbols-outlined">account_circle</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav
+      id="mobile-menu"
+      class="fixed top-[80px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md hidden flex-col border-b border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto px-3 py-4 w-full space-y-2">
+        <a
+          href="danh_muc.html?cat=thuoc"
+          data-nav="thuoc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=vitamin"
+          data-nav="vitamin"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Vitamin</a
+        >
+        <div class="px-4 pt-2 text-[11px] font-bold text-slate-400 uppercase">
+          Trang khác
+        </div>
+        <a
+          href="don_thuoc.html"
+          class="block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Tải lên đơn thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=thiet-bi"
+          data-nav="thiet-bi"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thiết bị</a
+        >
+        <a
+          href="danh_muc.html?cat=cham-soc"
+          data-nav="cham-soc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Chăm sóc</a
+        >
+        <a
+          href="danh_muc.html?cat=khuyen-mai"
+          data-nav="khuyen-mai"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Khuyến mãi</a
+        >
+      </div>
+    </nav>
+    <main>
+      <section class="mt-20 px-6 max-w-7xl mx-auto">
+        <div
+          class="relative h-[400px] rounded-xl overflow-hidden bg-surface-container-high group"
+        >
+          <img
+            class="absolute inset-0 w-full h-full object-cover"
+            data-alt="Dược sĩ chuyên nghiệp làm việc trong môi trường phòng thí nghiệm hiện đại"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxtyN_e9-_9OL-8IT4oTtUZzLK0UDp5ImRfaH2N5Y5vsor_QrFGLf7F_8ty_GOC-d3ThuEEW2lP5VlVSesiZRpw7VkVbQInFoiVj70p6-7fij4aFv_3_up8q-SL2DRd_-ZYTYmsElV1x4QMZYYERxpfwm8-lVsOJPnEgFGRUu6M1_J0IdKeeTbG_jFuR3lJ2vQzCNk2n84FVUetwihs_mI1V0mrDLkQ_uKPyXDhqvesNCoQl_GC5S4433BOcT4Ncfs-Oo2_rgRqJ2N"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-on-surface/80 to-transparent flex flex-col justify-center px-12 md:px-20"
+          >
+            <span
+              class="text-primary-fixed font-label text-xs tracking-[0.2em] mb-4"
+              >CHĂM SÓC CAO CẤP</span
+            >
+            <h1
+              class="font-headline text-4xl md:text-5xl font-extrabold text-white max-w-lg leading-tight tracking-tighter mb-6"
+            >
+              Giải Pháp Dược Phẩm <br />Cá Nhân Hóa Cho Bạn.
+            </h1>
+            <p class="text-white/80 font-body text-lg max-w-md mb-8">
+              Trải nghiệm chuyên môn lâm sàng kết hợp với sự tiện lợi của dịch
+              vụ giao hàng tận nơi. Được tin dùng bởi hơn 2 triệu gia đình.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="danh_muc.html"
+                class="bg-primary text-on-primary px-8 py-3 rounded-lg font-bold hover:brightness-110 transition-all shadow-lg active:scale-95 inline-block"
+              >
+                Mua Ngay
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Flash Sale Section -->
+      <section class="mt-12 px-6 max-w-7xl mx-auto">
+        <div
+          class="bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100"
+        >
+          <!-- Header & Tabs -->
+          <div class="flex flex-col md:flex-row border-b">
+            <button
+              class="flex-1 py-4 px-6 text-center border-b-4 border-error bg-error/5 group"
+            >
+              <div id="flash-date-today" class="text-error font-bold text-lg">
+                08:00 - 22:00, 24/03
+              </div>
+              <div
+                id="flash-status-today"
+                class="text-error text-sm font-medium"
+              >
+                Đang diễn ra
+              </div>
+            </button>
+            <button
+              class="flex-1 py-4 px-6 text-center border-b-4 border-transparent hover:bg-slate-50 transition-colors group"
+            >
+              <div
+                id="flash-date-next"
+                class="text-slate-900 font-bold text-lg group-hover:text-primary transition-colors"
+              >
+                08:00 - 22:00, 25/03
+              </div>
+              <div
+                id="flash-status-next"
+                class="text-slate-500 text-sm font-medium"
+              >
+                Sắp diễn ra
+              </div>
+            </button>
+          </div>
+          <!-- Countdown Bar -->
+          <div
+            class="bg-surface-container-low px-6 py-4 flex items-center justify-between"
+          >
+            <div class="flex items-center gap-3">
+              <span
+                class="font-headline font-bold text-on-surface uppercase tracking-wider"
+                >Kết thúc sau</span
+              >
+              <div class="flex items-center gap-2">
+                <span
+                  id="flash-hours"
+                  class="bg-error text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold"
+                  >00</span
+                >
+                <span class="text-error font-bold">:</span>
+                <span
+                  id="flash-minutes"
+                  class="bg-error text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold"
+                  >00</span
+                >
+                <span class="text-error font-bold">:</span>
+                <span
+                  id="flash-seconds"
+                  class="bg-error text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold"
+                  >00</span
+                >
+              </div>
+            </div>
+            <a
+              class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+              href="danh_muc.html?cat=khuyen-mai"
+            >
+              Xem tất cả
+              <span class="material-symbols-outlined text-sm"
+                >chevron_right</span
+              >
+            </a>
+          </div>
+          <!-- Product Carousel -->
+          <div class="relative group/carousel">
+            <div
+              id="flash-sale-list"
+              class="overflow-x-auto no-scrollbar flex gap-4 p-6 scroll-smooth"
+            >
+              <!-- Flash Sale Product 1 -->
+              <div
+                class="min-w-[240px] md:min-w-[220px] bg-white border border-slate-100 rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow"
+              >
+                <div
+                  class="relative aspect-square bg-slate-50 rounded-lg overflow-hidden mb-3"
+                >
+                  <div class="absolute top-2 left-2 flex flex-col gap-1 z-10">
+                    <span
+                      class="bg-white/90 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border border-slate-200"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-red-500"></span> Nhật
+                      Bản
+                    </span>
+                  </div>
+                  <div class="absolute top-2 right-2 z-10">
+                    <span
+                      class="bg-error text-white text-xs font-bold px-2 py-1 rounded-lg"
+                      >-35%</span
+                    >
+                  </div>
+                  <img
+                    alt="Product"
+                    class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxIaEJ3kS-4uKv6K_DW2gZGRZL8mjs3Bg4cXEjTnreKcqe65eDuzoFXqcybAFiu7g9Awt-r2zDoS1QB5Q8J-sIRxY9H3EAO80vl8fhIdukfoOL9OIGkTRfisyjTpydBSEEnAp9FA4MRwinhqN62Nv-nMydst2QEWos8uqYxGL-ROw-_xk6zhgHYGqFNrlMtQEfUJ_elUM6jrRCdbbZ-zLWdvootOyVHbkwKEtiqVubOaDOuNhHjOhMVAZH5Dk9vPY1dwhmQpxft2SU"
+                  />
+                </div>
+                <h4
+                  class="text-sm font-bold text-on-surface line-clamp-2 h-10 mb-2 leading-snug"
+                >
+                  Viên uống tăng tiết dịch khớp giảm thoái hóa khớp Orihiro...
+                </h4>
+                <div class="mt-auto">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-error font-bold text-lg">625.300đ</span>
+                  </div>
+                  <div class="text-slate-400 text-xs line-through mb-3">
+                    962.000đ
+                  </div>
+                  <div
+                    class="relative w-full h-4 bg-error/10 rounded-full overflow-hidden mb-4"
+                  >
+                    <div
+                      class="absolute inset-0 w-[5%] bg-error rounded-full"
+                    ></div>
+                    <div
+                      class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-error uppercase"
+                    >
+                      Đã bán 6/200 suất
+                    </div>
+                  </div>
+                  <button
+                    class="w-full bg-secondary text-white py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all"
+                  >
+                    Chọn mua
+                  </button>
+                </div>
+              </div>
+              <!-- Flash Sale Product 2 -->
+              <div
+                class="min-w-[240px] md:min-w-[220px] bg-white border border-slate-100 rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow"
+              >
+                <div
+                  class="relative aspect-square bg-slate-50 rounded-lg overflow-hidden mb-3"
+                >
+                  <div class="absolute top-2 left-2 z-10">
+                    <span
+                      class="bg-white/90 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border border-slate-200"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-blue-600"></span> Hàn
+                      Quốc
+                    </span>
+                  </div>
+                  <div class="absolute top-2 right-2 z-10">
+                    <span
+                      class="bg-error text-white text-xs font-bold px-2 py-1 rounded-lg"
+                      >-5%</span
+                    >
+                  </div>
+                  <img
+                    alt="Product"
+                    class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtPLGkyZSRgQxXeq1cArM1vHI45MHANhqoihwRNSY-fdzDkKbNIaUDgh1lElAzOkB0RJIr_MJplKKEhQQrq5BnSlsaLO2kqIFNxg1QVvJInDePKVFwgui4C0Y9AfzlkH_p9vfm4Lh_AOEor4Wi2fVuoVjynqFTPZLJHcyiwx2QuAJp0pCBclnUXRtc0gGN8v9FC6czQD796cd5cBU2paoHFCEDYzYvWFf0aNfGeo_1S4UjnGNm_RYUCYUJMgbtJNRGuo2ZI_-GOwRy"
+                  />
+                </div>
+                <h4
+                  class="text-sm font-bold text-on-surface line-clamp-2 h-10 mb-2 leading-snug"
+                >
+                  Cốm bổ sung lợi khuẩn Lactomin Plus Novarex (30 gói)
+                </h4>
+                <div class="mt-auto">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-error font-bold text-lg">165.300đ</span>
+                  </div>
+                  <div class="text-slate-400 text-xs line-through mb-3">
+                    174.000đ
+                  </div>
+                  <div
+                    class="relative w-full h-4 bg-error/10 rounded-full overflow-hidden mb-4"
+                  >
+                    <div
+                      class="absolute inset-0 w-[10%] bg-error rounded-full"
+                    ></div>
+                    <div
+                      class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-error uppercase"
+                    >
+                      Đã bán 27/300 suất
+                    </div>
+                  </div>
+                  <button
+                    class="w-full bg-secondary text-white py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all"
+                  >
+                    Chọn mua
+                  </button>
+                </div>
+              </div>
+              <!-- Flash Sale Product 3 -->
+              <div
+                class="min-w-[240px] md:min-w-[220px] bg-white border border-slate-100 rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow"
+              >
+                <div
+                  class="relative aspect-square bg-slate-50 rounded-lg overflow-hidden mb-3"
+                >
+                  <div class="absolute top-2 left-2 z-10">
+                    <span
+                      class="bg-white/90 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border border-slate-200"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-red-600"></span> Việt
+                      Nam
+                    </span>
+                  </div>
+                  <div class="absolute top-2 right-2 z-10">
+                    <span
+                      class="bg-error text-white text-xs font-bold px-2 py-1 rounded-lg"
+                      >-26%</span
+                    >
+                  </div>
+                  <img
+                    alt="Product"
+                    class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdyrywMbVzgUerpw_ZeSf-Dlt517zMyAZ1TtC7USj62OEwFJCIaStZ7Tv0zb2SIprXs3RELAUpp31oxswoTNQ0Q-G3--LLrXqswEm2taEmkqZqjHy8M6vm-jsUX10Opfoo4ngTnW3EnJgA9Po9hQdWS-eUuoN8m07xHaH6e9TK_SyaXOhSSdaARUduQsRZ_BAHjHooIfo2rxCB4o5ts-eAU2YXJIWJMGoWGNUiNGgCFmiBQvC5GhD0OY8OcOWh42DM7FJXLqunBUsm"
+                  />
+                </div>
+                <h4
+                  class="text-sm font-bold text-on-surface line-clamp-2 h-10 mb-2 leading-snug"
+                >
+                  Siro hỗ trợ thải độc gan tăng cường chức năng gan Ích Can
+                  Thanh
+                </h4>
+                <div class="mt-auto">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-error font-bold text-lg">96.200đ</span>
+                  </div>
+                  <div class="text-slate-400 text-xs line-through mb-3">
+                    130.000đ
+                  </div>
+                  <div
+                    class="relative w-full h-4 bg-error/10 rounded-full overflow-hidden mb-4"
+                  >
+                    <div
+                      class="absolute inset-0 w-[2%] bg-error rounded-full"
+                    ></div>
+                    <div
+                      class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-error uppercase"
+                    >
+                      Đã bán 1/300 suất
+                    </div>
+                  </div>
+                  <button
+                    class="w-full bg-secondary text-white py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all"
+                  >
+                    Chọn mua
+                  </button>
+                </div>
+              </div>
+              <!-- Flash Sale Product 4 -->
+              <div
+                class="min-w-[240px] md:min-w-[220px] bg-white border border-slate-100 rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow"
+              >
+                <div
+                  class="relative aspect-square bg-slate-50 rounded-lg overflow-hidden mb-3"
+                >
+                  <div class="absolute top-2 left-2 z-10">
+                    <span
+                      class="bg-white/90 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border border-slate-200"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-blue-400"></span> Anh
+                      Quốc
+                    </span>
+                  </div>
+                  <div class="absolute top-2 right-2 z-10">
+                    <span
+                      class="bg-error text-white text-xs font-bold px-2 py-1 rounded-lg"
+                      >-10%</span
+                    >
+                  </div>
+                  <img
+                    alt="Product"
+                    class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOwN5QK8VhhfPM3FPl41FFrDVHDljxDDBIkDysgAG8yUgJtKn8sEGF--odRmyrhl6bzOCFmZtZT16htptCs0l2EWc8HbbjsRdjX-NNwOCLThYFJhPbsi3Wf9_DBiyhQ62DfGULcQZTvp3RberKW8-nB21qJrWo09e2suMSgoD2xw4jGIZiBRnA3z3Aqz5TNzNU90Z2pk5VxesyCuP-DWO3qEUyZ3pyzxNSqrozoMepm-tHxQq3RU3nMb-0w7MMPhV5twEt2CI_iXvu"
+                  />
+                </div>
+                <h4
+                  class="text-sm font-bold text-on-surface line-clamp-2 h-10 mb-2 leading-snug"
+                >
+                  Viên bổ sung vitamin và khoáng chất cho phụ nữ mang thai...
+                </h4>
+                <div class="mt-auto">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-error font-bold text-lg">495.000đ</span>
+                  </div>
+                  <div class="text-slate-400 text-xs line-through mb-3">
+                    550.000đ
+                  </div>
+                  <div
+                    class="relative w-full h-4 bg-error/10 rounded-full overflow-hidden mb-4"
+                  >
+                    <div
+                      class="absolute inset-0 w-[4%] bg-error rounded-full"
+                    ></div>
+                    <div
+                      class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-error uppercase"
+                    >
+                      Đã bán 4/300 suất
+                    </div>
+                  </div>
+                  <button
+                    class="w-full bg-secondary text-white py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all"
+                  >
+                    Chọn mua
+                  </button>
+                </div>
+              </div>
+              <!-- Flash Sale Product 5 -->
+              <div
+                class="min-w-[240px] md:min-w-[220px] bg-white border border-slate-100 rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow"
+              >
+                <div
+                  class="relative aspect-square bg-slate-50 rounded-lg overflow-hidden mb-3"
+                >
+                  <div class="absolute top-2 left-2 z-10">
+                    <span
+                      class="bg-white/90 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border border-slate-200"
+                    >
+                      <span class="w-2 h-2 rounded-full bg-red-500"></span> Nhật
+                      Bản
+                    </span>
+                  </div>
+                  <div class="absolute top-2 right-2 z-10">
+                    <span
+                      class="bg-error text-white text-xs font-bold px-2 py-1 rounded-lg"
+                      >-10%</span
+                    >
+                  </div>
+                  <img
+                    alt="Product"
+                    class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxIaEJ3kS-4uKv6K_DW2gZGRZL8mjs3Bg4cXEjTnreKcqe65eDuzoFXqcybAFiu7g9Awt-r2zDoS1QB5Q8J-sIRxY9H3EAO80vl8fhIdukfoOL9OIGkTRfisyjTpydBSEEnAp9FA4MRwinhqN62Nv-nMydst2QEWos8uqYxGL-ROw-_xk6zhgHYGqFNrlMtQEfUJ_elUM6jrRCdbbZ-zLWdvootOyVHbkwKEtiqVubOaDOuNhHjOhMVAZH5Dk9vPY1dwhmQpxft2SU"
+                  />
+                </div>
+                <h4
+                  class="text-sm font-bold text-on-surface line-clamp-2 h-10 mb-2 leading-snug"
+                >
+                  Máy xông khí dung Omron NE C106 hỗ trợ điều trị bệnh lý...
+                </h4>
+                <div class="mt-auto">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-error font-bold text-lg">747.000đ</span>
+                  </div>
+                  <div class="text-slate-400 text-xs line-through mb-3">
+                    830.000đ
+                  </div>
+                  <div
+                    class="relative w-full h-4 bg-orange-100 rounded-full overflow-hidden mb-4"
+                  >
+                    <div
+                      class="absolute inset-0 flex items-center justify-center text-[9px] font-bold text-orange-600 uppercase"
+                    >
+                      <span class="material-symbols-outlined text-[12px] mr-1"
+                        >local_fire_department</span
+                      >
+                      Ưu đãi giá sốc
+                    </div>
+                  </div>
+                  <button
+                    class="w-full bg-secondary text-white py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all"
+                  >
+                    Chọn mua
+                  </button>
+                </div>
+              </div>
+            </div>
+            <button
+              id="flash-sale-prev"
+              class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-400 hover:text-primary transition-colors opacity-0 group-hover/carousel:opacity-100"
+            >
+              <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+            <button
+              id="flash-sale-next"
+              class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg border border-slate-100 flex items-center justify-center text-slate-400 hover:text-primary transition-colors opacity-0 group-hover/carousel:opacity-100"
+            >
+              <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+          </div>
+          <div class="p-6 pt-0 text-center">
+            <a
+              class="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
+              href="#"
+            >
+              Xem tất cả
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="breathing-grid px-6 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <h2
+              class="font-headline text-3xl font-bold tracking-tight text-on-surface"
+            >
+              Danh mục sản phẩm
+            </h2>
+            <p class="text-slate-500 font-body mt-2">
+              Tìm kiếm chính xác những gì bạn cần thông qua các danh mục chuyên
+              biệt.
+            </p>
+          </div>
+          <a
+            class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+            href="danh_muc.html"
+          >
+            Xem tất cả danh mục
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center mb-4 group-hover:bg-emerald-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >vaccines</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface">Thuốc</span>
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-secondary text-3xl"
+                >pill</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface">Vitamin</span>
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-pink-50 flex items-center justify-center mb-4 group-hover:bg-pink-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-pink-500 text-3xl"
+                >child_care</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface"
+              >Mẹ &amp; bé</span
+            >
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mb-4 group-hover:bg-slate-200 transition-colors"
+            >
+              <span class="material-symbols-outlined text-slate-700 text-3xl"
+                >medical_services</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface"
+              >Thiết bị</span
+            >
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-orange-50 flex items-center justify-center mb-4 group-hover:bg-orange-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-orange-500 text-3xl"
+                >face_6</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface"
+              >Chăm sóc</span
+            >
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-purple-50 flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-purple-600 text-3xl"
+                >spa</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface">Làm đẹp</span>
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center mb-4 group-hover:bg-teal-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-teal-600 text-3xl"
+                >fitness_center</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface"
+              >Thể thao</span
+            >
+          </a>
+          <a
+            href="danh_muc.html"
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary/20 flex flex-col items-center text-center group"
+          >
+            <div
+              class="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center mb-4 group-hover:bg-red-100 transition-colors"
+            >
+              <span class="material-symbols-outlined text-red-500 text-3xl"
+                >local_offer</span
+              >
+            </div>
+            <span class="font-headline font-bold text-on-surface"
+              >Khuyến mãi</span
+            >
+          </a>
+        </div>
+      </section>
+      <section class="bg-surface-container-low py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex justify-between items-center mb-16">
+            <h2 class="font-headline text-3xl font-extrabold tracking-tight">
+              Sản phẩm nổi bật
+            </h2>
+            <div class="flex gap-2">
+              <button
+                class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-white transition-colors"
+              >
+                <span class="material-symbols-outlined">chevron_left</span>
+              </button>
+              <button
+                class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-white transition-colors"
+              >
+                <span class="material-symbols-outlined">chevron_right</span>
+              </button>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div
+              class="bg-surface-container-lowest p-5 rounded-xl shadow-sm group relative"
+            >
+              <div class="absolute top-4 left-4 z-10">
+                <span
+                  class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                  >Bán chạy nhất</span
+                >
+              </div>
+              <a
+                href="chi_tiet.html"
+                class="block aspect-square bg-slate-50 rounded-lg overflow-hidden mb-6 relative"
+              >
+                <img
+                  class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Hộp thuốc đa vitamin với bao bì trắng tinh tế"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxIaEJ3kS-4uKv6K_DW2gZGRZL8mjs3Bg4cXEjTnreKcqe65eDuzoFXqcybAFiu7g9Awt-r2zDoS1QB5Q8J-sIRxY9H3EAO80vl8fhIdukfoOL9OIGkTRfisyjTpydBSEEnAp9FA4MRwinhqN62Nv-nMydst2QEWos8uqYxGL-ROw-_xk6zhgHYGqFNrlMtQEfUJ_elUM6jrRCdbbZ-zLWdvootOyVHbkwKEtiqVubOaDOuNhHjOhMVAZH5Dk9vPY1dwhmQpxft2SU"
+                />
+              </a>
+              <span
+                class="font-label text-[10px] text-slate-400 tracking-widest uppercase"
+                >Tiêu chuẩn lâm sàng</span
+              >
+              <a href="chi_tiet.html"
+                ><h3
+                  class="font-headline font-bold text-lg mt-1 mb-2 hover:text-primary transition-colors"
+                >
+                  Phức hợp Đa Vitamin
+                </h3></a
+              >
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-primary font-bold text-xl">$24.99</span>
+                <span class="text-slate-400 line-through text-sm">$32.00</span>
+              </div>
+              <button
+                onclick="themVaoGio(this)"
+                class="w-full bg-secondary-container text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >add_shopping_cart</span
+                >
+                Thêm vào giỏ
+              </button>
+            </div>
+            <div
+              class="bg-surface-container-lowest p-5 rounded-xl shadow-sm group relative"
+            >
+              <a
+                href="chi_tiet.html"
+                class="block aspect-square bg-slate-50 rounded-lg overflow-hidden mb-6 relative"
+              >
+                <img
+                  class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Máy đo huyết áp hiện đại trên nền sạch"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOwN5QK8VhhfPM3FPl41FFrDVHDljxDDBIkDysgAG8yUgJtKn8sEGF--odRmyrhl6bzOCFmZtZT16htptCs0l2EWc8HbbjsRdjX-NNwOCLThYFJhPbsi3Wf9_DBiyhQ62DfGULcQZTvp3RberKW8-nB21qJrWo09e2suMSgoD2xw4jGIZiBRnA3z3Aqz5TNzNU90Z2pk5VxesyCuP-DWO3qEUyZ3pyzxNSqrozoMepm-tHxQq3RU3nMb-0w7MMPhV5twEt2CI_iXvu"
+                />
+              </a>
+              <span
+                class="font-label text-[10px] text-slate-400 tracking-widest uppercase"
+                >Y tế số</span
+              >
+              <a href="chi_tiet.html"
+                ><h3
+                  class="font-headline font-bold text-lg mt-1 mb-2 hover:text-primary transition-colors"
+                >
+                  Máy đo huyết áp thông minh
+                </h3></a
+              >
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-primary font-bold text-xl">$89.00</span>
+              </div>
+              <button
+                onclick="themVaoGio(this)"
+                class="w-full bg-secondary-container text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >add_shopping_cart</span
+                >
+                Thêm vào giỏ
+              </button>
+            </div>
+            <div
+              class="bg-surface-container-lowest p-5 rounded-xl shadow-sm group relative"
+            >
+              <div class="absolute top-4 right-4 z-10">
+                <span
+                  class="bg-tertiary-container text-on-tertiary-container text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                  >Giảm giá</span
+                >
+              </div>
+              <a
+                href="chi_tiet.html"
+                class="block aspect-square bg-slate-50 rounded-lg overflow-hidden mb-6 relative"
+              >
+                <img
+                  class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Thực phẩm bổ sung hữu cơ trong chai thủy tinh tối màu"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtPLGkyZSRgQxXeq1cArM1vHI45MHANhqoihwRNSY-fdzDkKbNIaUDgh1lElAzOkB0RJIr_MJplKKEhQQrq5BnSlsaLO2kqIFNxg1QVvJInDePKVFwgui4C0Y9AfzlkH_p9vfm4Lh_AOEor4Wi2fVuoVjynqFTPZLJHcyiwx2QuAJp0pCBclnUXRtc0gGN8v9FC6czQD796cd5cBU2paoHFCEDYzYvWFf0aNfGeo_1S4UjnGNm_RYUCYUJMgbtJNRGuo2ZI_-GOwRy"
+                />
+              </a>
+              <span
+                class="font-label text-[10px] text-slate-400 tracking-widest uppercase"
+                >Sức khỏe tốt</span
+              >
+              <a href="chi_tiet.html"
+                ><h3
+                  class="font-headline font-bold text-lg mt-1 mb-2 hover:text-primary transition-colors"
+                >
+                  Dầu Omega-3 Tinh khiết
+                </h3></a
+              >
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-primary font-bold text-xl">$18.50</span>
+                <span class="text-slate-400 line-through text-sm">$25.00</span>
+              </div>
+              <button
+                onclick="themVaoGio(this)"
+                class="w-full bg-secondary-container text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >add_shopping_cart</span
+                >
+                Thêm vào giỏ
+              </button>
+            </div>
+            <div
+              class="bg-surface-container-lowest p-5 rounded-xl shadow-sm group relative"
+            >
+              <a
+                href="chi_tiet.html"
+                class="block aspect-square bg-slate-50 rounded-lg overflow-hidden mb-6 relative"
+              >
+                <img
+                  class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500"
+                  data-alt="Bộ nhiệt kế kỹ thuật số cho trẻ sơ sinh"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdyrywMbVzgUerpw_ZeSf-Dlt517zMyAZ1TtC7USj62OEwFJCIaStZ7Tv0zb2SIprXs3RELAUpp31oxswoTNQ0Q-G3--LLrXqswEm2taEmkqZqjHy8M6vm-jsUX10Opfoo4ngTnW3EnJgA9Po9hQdWS-eUuoN8m07xHaH6e9TK_SyaXOhSSdaARUduQsRZ_BAHjHooIfo2rxCB4o5ts-eAU2YXJIWJMGoWGNUiNGgCFmiBQvC5GhD0OY8OcOWh42DM7FJXLqunBUsm"
+                />
+              </a>
+              <span
+                class="font-label text-[10px] text-slate-400 tracking-widest uppercase"
+                >Chăm sóc trẻ em</span
+              >
+              <a href="chi_tiet.html"
+                ><h3
+                  class="font-headline font-bold text-lg mt-1 mb-2 hover:text-primary transition-colors"
+                >
+                  Bộ sản phẩm Y tế Trẻ em
+                </h3></a
+              >
+              <div class="flex items-center gap-2 mb-4">
+                <span class="text-primary font-bold text-xl">$42.00</span>
+              </div>
+              <button
+                onclick="themVaoGio(this)"
+                class="w-full bg-secondary-container text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95"
+              >
+                <span class="material-symbols-outlined text-lg"
+                  >add_shopping_cart</span
+                >
+                Thêm vào giỏ
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <h2
+              class="font-headline text-3xl font-bold tracking-tight text-on-surface"
+            >
+              Hình ảnh thuốc &amp; sản phẩm
+            </h2>
+            <p class="text-slate-500 font-body mt-2">
+              Tham khảo nhanh các sản phẩm chăm sóc sức khỏe được nhiều khách
+              hàng quan tâm.
+            </p>
+          </div>
+          <a
+            class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+            href="danh_muc.html"
+          >
+            Xem thêm sản phẩm
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"
+        >
+          <a
+            href="chi_tiet.html"
+            class="group block aspect-square bg-slate-50 rounded-xl overflow-hidden border border-outline-variant/40"
+          >
+            <img
+              class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+              alt="Phức hợp đa vitamin"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxIaEJ3kS-4uKv6K_DW2gZGRZL8mjs3Bg4cXEjTnreKcqe65eDuzoFXqcybAFiu7g9Awt-r2zDoS1QB5Q8J-sIRxY9H3EAO80vl8fhIdukfoOL9OIGkTRfisyjTpydBSEEnAp9FA4MRwinhqN62Nv-nMydst2QEWos8uqYxGL-ROw-_xk6zhgHYGqFNrlMtQEfUJ_elUM6jrRCdbbZ-zLWdvootOyVHbkwKEtiqVubOaDOuNhHjOhMVAZH5Dk9vPY1dwhmQpxft2SU"
+            />
+          </a>
+          <a
+            href="chi_tiet.html"
+            class="group block aspect-square bg-slate-50 rounded-xl overflow-hidden border border-outline-variant/40"
+          >
+            <img
+              class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+              alt="Máy đo huyết áp"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOwN5QK8VhhfPM3FPl41FFrDVHDljxDDBIkDysgAG8yUgJtKn8sEGF--odRmyrhl6bzOCFmZtZT16htptCs0l2EWc8HbbjsRdjX-NNwOCLThYFJhPbsi3Wf9_DBiyhQ62DfGULcQZTvp3RberKW8-nB21qJrWo09e2suMSgoD2xw4jGIZiBRnA3z3Aqz5TNzNU90Z2pk5VxesyCuP-DWO3qEUyZ3pyzxNSqrozoMepm-tHxQq3RU3nMb-0w7MMPhV5twEt2CI_iXvu"
+            />
+          </a>
+          <a
+            href="chi_tiet.html"
+            class="group block aspect-square bg-slate-50 rounded-xl overflow-hidden border border-outline-variant/40"
+          >
+            <img
+              class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+              alt="Dầu omega-3"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtPLGkyZSRgQxXeq1cArM1vHI45MHANhqoihwRNSY-fdzDkKbNIaUDgh1lElAzOkB0RJIr_MJplKKEhQQrq5BnSlsaLO2kqIFNxg1QVvJInDePKVFwgui4C0Y9AfzlkH_p9vfm4Lh_AOEor4Wi2fVuoVjynqFTPZLJHcyiwx2QuAJp0pCBclnUXRtc0gGN8v9FC6czQD796cd5cBU2paoHFCEDYzYvWFf0aNfGeo_1S4UjnGNm_RYUCYUJMgbtJNRGuo2ZI_-GOwRy"
+            />
+          </a>
+          <a
+            href="chi_tiet.html"
+            class="group block aspect-square bg-slate-50 rounded-xl overflow-hidden border border-outline-variant/40"
+          >
+            <img
+              class="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+              alt="Bộ sản phẩm y tế trẻ em"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdyrywMbVzgUerpw_ZeSf-Dlt517zMyAZ1TtC7USj62OEwFJCIaStZ7Tv0zb2SIprXs3RELAUpp31oxswoTNQ0Q-G3--LLrXqswEm2taEmkqZqjHy8M6vm-jsUX10Opfoo4ngTnW3EnJgA9Po9hQdWS-eUuoN8m07xHaH6e9TK_SyaXOhSSdaARUduQsRZ_BAHjHooIfo2rxCB4o5ts-eAU2YXJIWJMGoWGNUiNGgCFmiBQvC5GhD0OY8OcOWh42DM7FJXLqunBUsm"
+            />
+          </a>
+          <a
+            href="chi_tiet.html"
+            class="group block aspect-square bg-slate-50 rounded-xl overflow-hidden border border-outline-variant/40"
+          >
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Ảnh vitamin và sức khỏe"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDx4aJMycJ-6dVLGxAK4zCgJ7PBTXu9d1rr3y4wvooACAxmz1NGw95ru-yn47xI6UZAwKcC98-TJKVqoD4gthpnfXbQkdiadDZiIzYfKU_ojc6zVDcSAE5LmFbtciv3LcMYyTTc50S79d2ThFkyD-m0ccaPSMhe8IXVeMRwApo5BkML11_HQXZTn1LwlFowxdOe9COzVoYifKtPV0wA4rwxXYx1SwnCFH6Sx7BRC4LEFCIc4kiO81z4Jkw9LN07b_uMtMA5uWWgjG8"
+            />
+          </a>
+          <a
+            href="chi_tiet.html"
+            class="group block aspect-square bg-slate-50 rounded-xl overflow-hidden border border-outline-variant/40"
+          >
+            <img
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              alt="Hình ảnh dược sĩ tư vấn"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-j0YGFIcOfiEht2gGdU07K8pEURIq6S0L_Lw7qs7LVwqXhzK1_fZjcROROhqbNodyg56wmUEC70Uyx4noCRDQ-MlC3dwgkfFRHsJ3u8SlB7qbvtk5kpCL3TDiaqk0Z0QzV7eRWUjCtv6QzfxTudF_lq87_9TmprW0eF8t7l92AExcpyGEC6EZUHVROyMS_PNpR528L8o8zCKJQdQEZn3L0PuyJwegTgsY7ZCzbryg2NKnZ4FbCWn-l06TE0vBCvYbLAp5XdcsY7MV"
+            />
+          </a>
+        </div>
+      </section>
+      <section class="py-16 px-6">
+        <div
+          class="max-w-7xl mx-auto relative rounded-3xl overflow-hidden bg-slate-900 h-[300px] flex items-center"
+        >
+          <img
+            alt="Pharmacist reviewing prescriptions"
+            class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-j0YGFIcOfiEht2gGdU07K8pEURIq6S0L_Lw7qs7LVwqXhzK1_fZjcROROhqbNodyg56wmUEC70Uyx4noCRDQ-MlC3dwgkfFRHsJ3u8SlB7qbvtk5kpCL3TDiaqk0Z0QzV7eRWUjCtv6QzfxTudF_lq87_9TmprW0eF8t7l92AExcpyGEC6EZUHVROyMS_PNpR528L8o8zCKJQdQEZn3L0PuyJwegTgsY7ZCzbryg2NKnZ4FbCWn-l06TE0vBCvYbLAp5XdcsY7MV"
+          />
+          <div class="relative z-10 px-12 md:px-20 w-full md:w-2/3">
+            <h2
+              class="font-headline text-3xl md:text-4xl font-extrabold text-white mb-4 tracking-tight"
+            >
+              Gửi đơn thuốc - Nhận tư vấn ngay
+            </h2>
+            <p class="text-white/80 font-body text-lg mb-8 max-w-xl">
+              Đội ngũ dược sĩ sẽ kiểm tra liều lượng và tương tác thuốc cho bạn.
+              (Demo: cần đăng ký + đăng nhập trước khi gửi)
+            </p>
+            <button
+              id="upload-prescription-btn"
+              class="bg-primary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-3 hover:scale-105 transition-transform shadow-xl active:scale-95"
+            >
+              <span class="material-symbols-outlined">upload_file</span>
+              Tải ảnh đơn thuốc
+            </button>
+          </div>
+          <div class="hidden lg:block absolute right-20 bottom-0 translate-y-4">
+            <span
+              class="material-symbols-outlined text-[200px] text-white/10 rotate-12"
+              >description</span
+            >
+          </div>
+        </div>
+      </section>
+      <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+          <div>
+            <h2
+              class="font-headline text-3xl font-bold tracking-tight text-on-surface"
+            >
+              Cẩm nang sức khỏe
+            </h2>
+            <p class="text-slate-500 font-body mt-2">
+              Cập nhật những kiến thức y tế mới nhất từ chuyên gia.
+            </p>
+          </div>
+          <a
+            class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all"
+            href="#"
+          >
+            Xem tất cả bài viết
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="group cursor-pointer">
+            <div
+              class="aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-100"
+            >
+              <img
+                alt="Vitamin and health"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDx4aJMycJ-6dVLGxAK4zCgJ7PBTXu9d1rr3y4wvooACAxmz1NGw95ru-yn47xI6UZAwKcC98-TJKVqoD4gthpnfXbQkdiadDZiIzYfKU_ojc6zVDcSAE5LmFbtciv3LcMYyTTc50S79d2ThFkyD-m0ccaPSMhe8IXVeMRwApo5BkML11_HQXZTn1LwlFowxdOe9COzVoYifKtPV0wA4rwxXYx1SwnCFH6Sx7BRC4LEFCIc4kiO81z4Jkw9LN07b_uMtMA5uWWgjG8"
+              />
+            </div>
+            <span
+              class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block"
+              >Tư vấn</span
+            >
+            <h3
+              class="font-headline font-bold text-xl mb-3 text-on-surface group-hover:text-primary transition-colors"
+            >
+              Cách bổ sung Vitamin đúng cách vào mùa dịch
+            </h3>
+            <p class="text-slate-500 font-body text-sm mb-4 leading-relaxed">
+              Nhiều người lầm tưởng bổ sung càng nhiều vitamin càng tốt, tuy
+              nhiên liều lượng mới là yếu tố quyết định.
+            </p>
+            <a
+              class="text-primary font-bold text-sm flex items-center gap-1"
+              href="#"
+            >
+              Xem thêm
+              <span class="material-symbols-outlined text-sm"
+                >chevron_right</span
+              >
+            </a>
+          </div>
+          <div class="group cursor-pointer">
+            <div
+              class="aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-100"
+            >
+              <img
+                alt="Mental wellness"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVetrsISPvmEEqbsCswyVzGaxEbNqMVkvVMaMffpItDP4elq9zheASAdmTZfXv_c-JpQ-iusRj3ZauTFP1lfmolz-V2s-hV07uXLIuKp4TgveMxaIWlCQdkyVFh2Rocc5lSSx9mHKOxOv7Ky3dlUIpKtRxL8C_12Hp1zvqA37ejm2OnvewR7517BEBLF9-7o5LvrebAmRMhpF0HE7_M4GtUPMbHAw0ET6dPAWvUU0FZk737PcbO7Auc-SR3fQLHHx5z-sK4-TLYqmo"
+              />
+            </div>
+            <span
+              class="bg-blue-100 text-blue-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block"
+              >Sống khỏe</span
+            >
+            <h3
+              class="font-headline font-bold text-xl mb-3 text-on-surface group-hover:text-primary transition-colors"
+            >
+              5 bài tập thở giúp giảm căng thẳng nhanh chóng
+            </h3>
+            <p class="text-slate-500 font-body text-sm mb-4 leading-relaxed">
+              Căng thẳng kéo dài có thể ảnh hưởng giấc ngủ và tim mạch. Hãy dành
+              5 phút mỗi ngày để thư giãn.
+            </p>
+            <a
+              class="text-primary font-bold text-sm flex items-center gap-1"
+              href="#"
+            >
+              Xem thêm
+              <span class="material-symbols-outlined text-sm"
+                >chevron_right</span
+              >
+            </a>
+          </div>
+          <div class="group cursor-pointer">
+            <div
+              class="aspect-[16/10] rounded-2xl overflow-hidden mb-6 shadow-sm border border-slate-100"
+            >
+              <img
+                alt="Digital health"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPnNmRFzMGcoPaPouu0sOqkKgJ64AFgrSXuvHxJ3YCr3tSDhrEpp5dwpcKD4XyzH9pMwHCEWqE0HOCjeyifcm_NRqLOnVeQmPBpYi5C4i6diwf9KHKv51BRV3SLfzoRC6OCEYpBA8mmcxmlv6D9nWvStKSeq6HNfeD2HtWa1CyYH9u6tbsEXOIYTbc5x8loigXAlgu2aS3SAUQjVMYHQG1a2dG7YXvBYkSKiwd9QgQ_wYJzH8Je3o0oJDx6LO9H-eB6tAMONvdvTY9"
+              />
+            </div>
+            <span
+              class="bg-purple-100 text-purple-700 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3 inline-block"
+              >Công nghệ</span
+            >
+            <h3
+              class="font-headline font-bold text-xl mb-3 text-on-surface group-hover:text-primary transition-colors"
+            >
+              Y tế số: tương lai của chăm sóc sức khỏe tại nhà
+            </h3>
+            <p class="text-slate-500 font-body text-sm mb-4 leading-relaxed">
+              Thiết bị đo thông minh và theo dõi từ xa giúp quản lý sức khỏe cá
+              nhân chính xác và thuận tiện hơn.
+            </p>
+            <a
+              class="text-primary font-bold text-sm flex items-center gap-1"
+              href="#"
+            >
+              Xem thêm
+              <span class="material-symbols-outlined text-sm"
+                >chevron_right</span
+              >
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Testimonials Section -->
+      <section class="py-24 px-6 bg-surface-container-low">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2
+              class="font-headline text-3xl font-bold tracking-tight text-on-surface"
+            >
+              Khách hàng nói về chúng tôi
+            </h2>
+            <p class="text-slate-500 font-body mt-2">
+              Sự tin tưởng của bạn là động lực lớn nhất của chúng tôi.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10"
+            >
+              <div class="flex items-center gap-1 text-orange-400 mb-4">
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+              </div>
+              <p class="text-slate-600 font-body mb-6 italic">
+                "Dịch vụ tư vấn rất chuyên nghiệp. Tôi đã nhận được sự giải đáp
+                tận tình về liều lượng thuốc cho con nhỏ. Giao hàng cũng rất
+                nhanh chóng."
+              </p>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden"
+                >
+                  <img
+                    alt="User avatar"
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOEkXTAfi8jwvR3-QuVg1MhkZ_KW6fDIsyXnDjOd_3D7UrY9j2JY0UW0K-QQi2-JnSmFHC_Z10nLeso0ICHnRe6I1JSWMcYYujSbhsgBzNkttfA-SCj-LL9wRqpuQKIXJz0Fzj4phgVpLJXGsnsBazAqEuoFWNEGX3Ol0mVSurwftmTVmFw8eSy6uHaG-AVdLtE4sYMTNkbFPohLoO-5Vp8qL8K8brLiymtOmIFKw9Kj1oxQRaVL3ZQZDH61zRpDVDld0eDSD722MH"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-bold text-on-surface text-sm">
+                    Chị Minh Anh
+                  </h4>
+                  <p class="text-slate-400 text-xs">TP. Hồ Chí Minh</p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10"
+            >
+              <div class="flex items-center gap-1 text-orange-400 mb-4">
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+              </div>
+              <p class="text-slate-600 font-body mb-6 italic">
+                "Thuốc chính hãng, bao bì đóng gói rất cẩn thận. Tôi hoàn toàn
+                yên tâm khi mua thực phẩm chức năng tại đây cho cả gia đình."
+              </p>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden"
+                >
+                  <img
+                    alt="User avatar"
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuALFJG4cMMAYyrH0js6mxiv5_e65mX0GR5xPAUA4Bnj5Xucvq8aXGK6JXdSIM7qGOSLPJ53PLPPuVh_-1mrY_H43Djbnq79I4FA4hJktXPEBa_m8yGNRM2BQ2gxEXY6Yh7FLYWqkTC36a2UUUOlQIpAeS4elOhpUD9PF-AaKpfv0ynB6imxRSl6mu0COnREL7UKwCKI8Fw2Rxw3dDC85vtSNrjMHFumpmTidfYGMoRpoK-tTZV62GsFW-RX4dGAJvKbOUvyHpT7eCTe"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-bold text-on-surface text-sm">
+                    Anh Tuấn Kiệt
+                  </h4>
+                  <p class="text-slate-400 text-xs">Hà Nội</p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div
+              class="bg-white p-8 rounded-2xl shadow-sm border border-outline-variant/10"
+            >
+              <div class="flex items-center gap-1 text-orange-400 mb-4">
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+                <span class="material-symbols-outlined fill-1">star</span>
+              </div>
+              <p class="text-slate-600 font-body mb-6 italic">
+                "Tôi thích tính năng tải ảnh đơn thuốc. Dược sĩ gọi lại tư vấn
+                ngay lập tức, giúp tôi tiết kiệm rất nhiều thời gian chờ đợi."
+              </p>
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-slate-200 overflow-hidden"
+                >
+                  <img
+                    alt="User avatar"
+                    class="w-full h-full object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGQcngurCdLG2pXQMZXCpKDSHZhwYSEV3K4bveq7RHM9-faOxp1kbu5J6_MFA_VSn-C_cQCtQY6mnypfwd8RaNr02ZHDilp64PlAGd4fo7tBmrXASzYYIKO6vQAe2iBE3Oti6y8zQbgxfffiWXyOxqXj3bQGF96XycksxOaq-tTsX8CAVMuWbW1qVIczb5nzrSxapwvZpZTDWpS59943a2FqQXlmxhlxe5DF5RTjVSZJLKVHdKgKhrObUGJ7KwiuzkTpyD9sHYghZH"
+                  />
+                </div>
+                <div>
+                  <h4 class="font-bold text-on-surface text-sm">
+                    Bác Hùng Dũng
+                  </h4>
+                  <p class="text-slate-400 text-xs">Đà Nẵng</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ Section -->
+      <section class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+          <h2
+            class="font-headline text-3xl font-bold tracking-tight text-on-surface"
+          >
+            Câu hỏi thường gặp (FAQ)
+          </h2>
+          <p class="text-slate-500 font-body mt-2">
+            Giải đáp nhanh những thắc mắc của bạn về dịch vụ của chúng tôi.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <details
+            class="group bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden"
+          >
+            <summary
+              class="flex justify-between items-center p-6 cursor-pointer font-bold text-on-surface select-none"
+            >
+              Giao hàng mất bao lâu?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+              Chúng tôi hỗ trợ giao hàng hỏa tốc trong 2 giờ tại khu vực nội
+              thành TP.HCM và Hà Nội. Các tỉnh thành khác thường mất từ 1-3 ngày
+              làm việc tùy vào đơn vị vận chuyển.
+            </div>
+          </details>
+          <details
+            class="group bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden"
+          >
+            <summary
+              class="flex justify-between items-center p-6 cursor-pointer font-bold text-on-surface select-none"
+            >
+              Làm thế nào để đổi trả sản phẩm?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+              Bạn có thể đổi trả sản phẩm trong vòng 30 ngày kể từ khi nhận hàng
+              nếu sản phẩm còn nguyên tem mác và hóa đơn mua hàng. Vui lòng liên
+              hệ hotline để được hướng dẫn chi tiết.
+            </div>
+          </details>
+          <details
+            class="group bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden"
+          >
+            <summary
+              class="flex justify-between items-center p-6 cursor-pointer font-bold text-on-surface select-none"
+            >
+              Có dược sĩ tư vấn trực tuyến không?
+              <span
+                class="material-symbols-outlined group-open:rotate-180 transition-transform"
+                >expand_more</span
+              >
+            </summary>
+            <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">
+              Có, đội ngũ dược sĩ lâm sàng của chúng tôi luôn sẵn sàng hỗ trợ
+              bạn 24/7 thông qua nút chat trực tuyến hoặc hotline tư vấn miễn
+              phí.
+            </div>
+          </details>
+        </div>
+      </section>
+      <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div class="flex items-center gap-6">
+            <div
+              class="flex-shrink-0 w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >local_shipping</span
+              >
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-on-surface">
+                Giao hàng nhanh
+              </h4>
+              <p class="text-sm text-slate-500 font-body">
+                Miễn phí cho đơn hàng từ $50
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <div
+              class="flex-shrink-0 w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >verified_user</span
+              >
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-on-surface">
+                Hàng chính hãng
+              </h4>
+              <p class="text-sm text-slate-500 font-body">
+                100% trực tiếp từ nhà sản xuất
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <div
+              class="flex-shrink-0 w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >clinical_notes</span
+              >
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-on-surface">
+                Tư vấn chuyên gia
+              </h4>
+              <p class="text-sm text-slate-500 font-body">
+                Dược sĩ trực tuyến 24/7
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6">
+            <div
+              class="flex-shrink-0 w-14 h-14 rounded-xl bg-surface-container-high flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-primary text-3xl"
+                >replay</span
+              >
+            </div>
+            <div>
+              <h4 class="font-headline font-bold text-on-surface">
+                Đổi trả dễ dàng
+              </h4>
+              <p class="text-sm text-slate-500 font-body">
+                Chính sách 30 ngày linh hoạt
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="py-24 px-6 max-w-7xl mx-auto border-t border-outline-variant/30"
+      >
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <div class="w-full md:w-1/3">
+            <h2
+              class="font-headline text-3xl font-bold tracking-tight text-on-surface mb-4"
+            >
+              Địa chỉ của chúng tôi
+            </h2>
+            <div class="flex items-start gap-3 mb-6">
+              <span class="material-symbols-outlined text-primary mt-1"
+                >location_on</span
+              >
+              <p class="text-slate-600 font-body leading-relaxed">
+                123 Đường Sức Khỏe, Quận 1,<br />
+                TP. Hồ Chí Minh, Việt Nam
+              </p>
+            </div>
+            <div class="flex items-start gap-3 mb-6">
+              <span class="material-symbols-outlined text-primary mt-1"
+                >schedule</span
+              >
+              <p class="text-slate-600 font-body leading-relaxed">
+                Thứ 2 - Thứ 7: 07:00 - 22:00<br />
+                Chủ nhật: 08:00 - 20:00
+              </p>
+            </div>
+            <button
+              id="open-map-large-btn"
+              class="text-primary font-bold flex items-center gap-2 hover:translate-x-1 transition-transform"
+            >
+              <span class="material-symbols-outlined">open_in_new</span>
+              Mở Google Maps (xem lớn)
+            </button>
+          </div>
+          <div
+            class="w-full md:w-2/3 h-[400px] rounded-2xl overflow-hidden bg-surface-container-high relative border border-outline-variant/30 shadow-inner"
+          >
+            <iframe
+              id="google-map-embed"
+              title="Google Maps"
+              allowfullscreen=""
+              class="absolute inset-0 w-full h-full border-0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.460232428399!2d106.691234375905!3d10.776019389372993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38f9ed087d%3A0x803f27ad57740d96!2sBen%20Thanh%20Market!5e0!3m2!1svi!2s!4v1716123456789!5m2!1svi!2s"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+    <button
+      id="chat-toggle-btn"
+      aria-label="Mở chat"
+      class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center active:scale-95 transition-all z-[100] hover:brightness-110"
+    >
+      <span
+        class="material-symbols-outlined text-3xl"
+        style="font-variation-settings: &quot;FILL&quot; 1"
+        >chat_bubble</span
+      >
+    </button>
+    <div
+      id="chat-widget"
+      class="hidden fixed bottom-28 right-6 w-[min(92vw,360px)] bg-white border border-outline-variant/40 rounded-2xl shadow-2xl z-[110] overflow-hidden"
+    >
+      <div
+        class="px-4 py-3 bg-primary text-white flex items-center justify-between"
+      >
+        <div>
+          <p class="font-headline font-bold text-sm">Tư vấn nhanh</p>
+          <p class="text-xs text-white/80">Dược sĩ online</p>
+        </div>
+        <button
+          id="chat-close-btn"
+          aria-label="Đóng chat"
+          class="w-8 h-8 rounded-full hover:bg-white/20 flex items-center justify-center"
+        >
+          <span class="material-symbols-outlined text-base">close</span>
+        </button>
+      </div>
+      <div
+        id="chat-messages"
+        class="p-4 h-72 overflow-y-auto bg-surface-container-low"
+      >
+        <div
+          class="max-w-[85%] bg-white rounded-xl px-3 py-2 text-sm text-slate-700 mb-3 shadow-sm"
+        >
+          Chào bạn! Tôi có thể giúp gì cho bạn hôm nay?
+        </div>
+      </div>
+      <form
+        id="chat-form"
+        class="p-3 border-t border-outline-variant/40 flex items-center gap-2"
+      >
+        <input
+          id="chat-input"
+          type="text"
+          class="flex-1 border border-outline-variant/40 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary"
+          placeholder="Nhập câu hỏi..."
+        />
+        <button
+          id="chat-send-btn"
+          type="submit"
+          class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:brightness-110"
+        >
+          <span class="material-symbols-outlined text-base">send</span>
+        </button>
+      </form>
+    </div>
+    <div
+      id="auth-modal"
+      class="hidden fixed inset-0 z-[120] bg-slate-900/50 p-4 sm:p-6 flex items-center justify-center"
+    >
+      <div
+        class="w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden"
+      >
+        <div
+          class="px-5 py-4 border-b border-outline-variant/30 flex items-center justify-between"
+        >
+          <h3 class="font-headline font-bold text-lg">Tài khoản demo</h3>
+          <button
+            id="close-auth-btn"
+            class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-base">close</span>
+          </button>
+        </div>
+        <div class="p-5">
+          <div
+            class="grid grid-cols-2 gap-2 bg-surface-container-low p-1 rounded-lg mb-4"
+          >
+            <button
+              id="tab-login"
+              class="auth-tab-active rounded-md py-2 text-sm font-bold"
+            >
+              Đăng nhập
+            </button>
+            <button id="tab-register" class="rounded-md py-2 text-sm font-bold">
+              Đăng ký
+            </button>
+          </div>
+          <p id="auth-note" class="text-xs text-slate-500 mb-3">
+            Bạn cần đăng ký và đăng nhập để gửi đơn thuốc.
+          </p>
+          <form id="auth-form" class="space-y-3">
+            <input
+              id="auth-email"
+              type="email"
+              required
+              placeholder="Email"
+              class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary"
+            />
+            <input
+              id="auth-password"
+              type="password"
+              required
+              placeholder="Mật khẩu"
+              class="w-full border border-outline-variant/40 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-primary"
+            />
+            <button
+              id="auth-submit-btn"
+              type="submit"
+              class="w-full bg-primary text-white py-2.5 rounded-lg font-bold hover:brightness-110"
+            >
+              Đăng nhập
+            </button>
+          </form>
+          <button
+            id="logout-demo-btn"
+            class="hidden mt-3 w-full border border-outline-variant/40 py-2.5 rounded-lg font-bold text-slate-700 hover:bg-slate-50"
+          >
+            Đăng xuất demo
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="map-overlay"
+      class="hidden fixed inset-0 z-[125] bg-slate-900/55 p-3 sm:p-6 flex items-center justify-center"
+    >
+      <div
+        class="w-[min(95vw,1100px)] h-[78vh] md:h-[82vh] bg-white rounded-2xl shadow-2xl overflow-hidden border border-outline-variant/30"
+      >
+        <div
+          class="px-4 py-3 border-b border-outline-variant/30 flex items-center justify-between"
+        >
+          <h3 class="font-headline font-bold text-base sm:text-lg">
+            Bản đồ chi nhánh (xem lớn)
+          </h3>
+          <button
+            id="close-map-overlay-btn"
+            aria-label="Đóng bản đồ lớn"
+            class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-base">close</span>
+          </button>
+        </div>
+        <div class="relative w-full h-[calc(100%-53px)] bg-slate-100">
+          <iframe
+            id="map-overlay-iframe"
+            title="Google Maps - Large"
+            allowfullscreen=""
+            class="absolute inset-0 w-full h-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src=""
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-slate-900 w-full py-16 border-t border-slate-800">
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 font-inter text-sm leading-relaxed"
+      >
+        <!-- Brand -->
+        <div>
+          <span class="text-xl font-headline font-bold text-white mb-6 block"
+            >Nhà Thuốc Chưa Biết</span
+          >
+          <p class="text-slate-400 mb-6">
+            Hệ thống dược phẩm chuyên môn hóa, cung cấp giải pháp chăm sóc sức
+            khỏe toàn diện với tiêu chuẩn lâm sàng khắt khe.
+          </p>
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">public</span></a
+            >
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">share</span></a
+            >
+          </div>
+        </div>
+
+        <!-- Về chúng tôi -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Về chúng tôi
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách bảo mật</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Điều khoản dịch vụ</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hỗ trợ -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Hỗ trợ khách hàng
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Thông tin giao hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách đổi trả</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Tra cứu đơn hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Câu hỏi thường gặp</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bản tin -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Đăng ký bản tin
+          </h4>
+          <p class="text-slate-400 mb-4">
+            Nhận thông tin y tế mới nhất và ưu đãi đặc quyền.
+          </p>
+          <div class="flex gap-2 p-1 bg-slate-800 rounded-lg">
+            <input
+              class="bg-transparent border-none focus:ring-0 text-white text-xs flex-1 px-3"
+              placeholder="Email của bạn"
+              type="email"
+            />
+            <button
+              class="bg-emerald-600 text-white px-4 py-2 rounded-md text-xs font-bold hover:bg-emerald-500 transition-colors"
+            >
+              GỬI
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center"
+      >
+        <p class="text-slate-500 text-xs">
+          © 2026 Nhà Thuốc Chưa Biết. Bảo lưu mọi quyền.
+        </p>
+      </div>
+    </footer>
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        requestAnimationFrame(() => document.body.classList.add("page-ready"));
+        capNhatNavbar();
+        renderSanPhamNoiBat();
+        renderFlashSale();
+        initFlashSaleSchedule();
+        startFlashSaleCountdown();
+        initFlashSaleCarousel();
+        document.querySelectorAll("a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            href.startsWith("mailto")
+          )
+            return;
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("page-ready");
+            document.body.classList.add("page-exit");
+            setTimeout(() => {
+              window.location.href = href;
+            }, 260);
+          });
+        });
+      });
+      function laySoLuongGio() {
+        return window.CartStore ? window.CartStore.getCount() : 0;
+      }
+      function capNhatNavbar() {
+        const page =
+          window.location.pathname.split("/").pop() || "trang_chu.html";
+        const cat =
+          new URLSearchParams(window.location.search).get("cat") || "";
+        document.querySelectorAll(".nav-link[data-nav]").forEach((link) => {
+          const id = link.dataset.nav;
+          let active = false;
+          if (page === "danh_muc.html") {
+            active = cat ? cat === id : id === "thuoc";
+          } else if (page === "chi_tiet.html") {
+            active = id === "thuoc";
+          }
+          if (active) {
+            link.classList.add(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.remove(
+              "text-slate-600",
+              "text-slate-400",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          } else {
+            link.classList.remove(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.add(
+              "text-slate-600",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          }
+        });
+      }
+      function capNhatGio(n) {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          return;
+        }
+        document
+          .querySelectorAll(".cart-badge")
+          .forEach((el) => (el.textContent = n));
+      }
+      function renderSanPhamNoiBat() {
+        if (!window.CartStore || !Array.isArray(window.PRODUCTS)) return;
+        const grid = document.querySelector(
+          "section.bg-surface-container-low .grid.grid-cols-1.md\\:grid-cols-2.lg\\:grid-cols-4",
+        );
+        if (!grid) return;
+        const cards = Array.from(grid.children);
+        cards.forEach((card, index) => {
+          const product = window.PRODUCTS[index];
+          if (!product) return;
+          const detailUrl = `chi_tiet.html?id=${encodeURIComponent(product.id)}`;
+          card.querySelectorAll("a").forEach((link) => {
+            link.setAttribute("href", detailUrl);
+          });
+          const image = card.querySelector("img");
+          if (image) {
+            image.src = product.cardImage || product.image;
+            image.alt = product.name;
+          }
+          const title = card.querySelector("h3");
+          if (title) title.textContent = product.name;
+
+          const priceNow = card.querySelector(
+            ".text-primary.font-bold.text-xl",
+          );
+          const priceOld = card.querySelector(".line-through");
+          if (priceNow)
+            priceNow.textContent = window.CartStore.formatMoney(product.price);
+          if (priceOld) {
+            if (product.oldPrice) {
+              priceOld.textContent = window.CartStore.formatMoney(
+                product.oldPrice,
+              );
+            } else {
+              priceOld.textContent = "";
+            }
+          }
+
+          const addBtn = card.querySelector("button[onclick*='themVaoGio']");
+          if (addBtn) addBtn.dataset.productId = product.id;
+        });
+      }
+      function renderFlashSale() {
+        if (!window.CartStore || !Array.isArray(window.PRODUCTS)) return;
+        const list = document.getElementById("flash-sale-list");
+        if (!list) return;
+
+        const saleProducts = window.PRODUCTS.filter(
+          (product) =>
+            Number(product.oldPrice || 0) > Number(product.price || 0),
+        )
+          .sort(
+            (a, b) =>
+              Number(b.oldPrice || 0) -
+              Number(b.price || 0) -
+              (Number(a.oldPrice || 0) - Number(a.price || 0)),
+          )
+          .slice(0, 5);
+
+        const productsToShow =
+          saleProducts.length >= 5 ? saleProducts : window.PRODUCTS.slice(0, 5);
+
+        const getOriginColor = (origin = "") => {
+          const text = String(origin).toLowerCase();
+          if (text.includes("nhật") || text.includes("japan"))
+            return "bg-red-500";
+          if (text.includes("hàn") || text.includes("korea"))
+            return "bg-blue-600";
+          if (text.includes("việt") || text.includes("vietnam"))
+            return "bg-red-600";
+          if (text.includes("anh") || text.includes("uk")) return "bg-blue-400";
+          if (text.includes("pháp") || text.includes("france"))
+            return "bg-indigo-500";
+          return "bg-slate-500";
+        };
+
+        list.innerHTML = productsToShow
+          .map((product) => {
+            const oldPrice = Number(product.oldPrice || 0);
+            const newPrice = Number(product.price || 0);
+            const discount =
+              oldPrice > newPrice
+                ? Math.round(((oldPrice - newPrice) / oldPrice) * 100)
+                : 0;
+            const detailUrl = `chi_tiet.html?id=${encodeURIComponent(product.id)}`;
+            return `
+              <div class="min-w-[240px] md:min-w-[220px] bg-white border border-slate-100 rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                <div class="relative aspect-square bg-slate-50 rounded-lg overflow-hidden mb-3">
+                  <div class="absolute top-2 left-2 z-10">
+                    <span class="bg-white/90 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded flex items-center gap-1 border border-slate-200">
+                      <span class="w-2 h-2 rounded-full ${getOriginColor(product.origin)}"></span> ${product.origin || "Nội địa"}
+                    </span>
+                  </div>
+                  ${discount > 0 ? `<div class="absolute top-2 right-2 z-10"><span class="bg-error text-white text-xs font-bold px-2 py-1 rounded-lg">-${discount}%</span></div>` : ""}
+                  <a href="${detailUrl}" class="block w-full h-full">
+                    <img alt="${product.name}" class="w-full h-full object-contain p-2 hover:scale-105 transition-transform duration-500" src="${product.cardImage || product.image}" />
+                  </a>
+                </div>
+                <a href="${detailUrl}" class="text-sm font-bold text-on-surface line-clamp-2 h-10 mb-2 leading-snug hover:text-primary transition-colors">${product.name}</a>
+                <div class="mt-auto">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-error font-bold text-lg">${window.CartStore.formatMoney(newPrice)}</span>
+                  </div>
+                  <div class="text-slate-400 text-xs line-through mb-3">${oldPrice > 0 ? window.CartStore.formatMoney(oldPrice) : ""}</div>
+                  <button onclick="themVaoGio(this)" data-product-id="${product.id}" class="w-full bg-secondary text-white py-2 rounded-lg font-bold text-sm hover:brightness-110 active:scale-95 transition-all">Chọn mua</button>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+      }
+      function startFlashSaleCountdown() {
+        const hoursEl = document.getElementById("flash-hours");
+        const minutesEl = document.getElementById("flash-minutes");
+        const secondsEl = document.getElementById("flash-seconds");
+        if (!hoursEl || !minutesEl || !secondsEl) return;
+
+        const pad = (value) => String(value).padStart(2, "0");
+
+        const getTargetTime = () => {
+          const now = new Date();
+          const end = new Date(now);
+          end.setHours(22, 0, 0, 0);
+          if (now >= end) end.setDate(end.getDate() + 1);
+          return end;
+        };
+
+        let target = getTargetTime();
+
+        const tick = () => {
+          const now = new Date();
+          if (now >= target) {
+            target = getTargetTime();
+          }
+          const remainMs = Math.max(0, target.getTime() - now.getTime());
+          const totalSec = Math.floor(remainMs / 1000);
+          const hours = Math.floor(totalSec / 3600);
+          const minutes = Math.floor((totalSec % 3600) / 60);
+          const seconds = totalSec % 60;
+
+          hoursEl.textContent = pad(hours);
+          minutesEl.textContent = pad(minutes);
+          secondsEl.textContent = pad(seconds);
+        };
+
+        tick();
+        setInterval(tick, 1000);
+      }
+      function initFlashSaleSchedule() {
+        const todayEl = document.getElementById("flash-date-today");
+        const nextEl = document.getElementById("flash-date-next");
+        const statusTodayEl = document.getElementById("flash-status-today");
+        const statusNextEl = document.getElementById("flash-status-next");
+        if (!todayEl || !nextEl) return;
+
+        const now = new Date();
+        const nextDay = new Date(now);
+        nextDay.setDate(now.getDate() + 1);
+
+        const formatDM = (date) => {
+          const day = String(date.getDate()).padStart(2, "0");
+          const month = String(date.getMonth() + 1).padStart(2, "0");
+          return `${day}/${month}`;
+        };
+
+        todayEl.textContent = `08:00 - 22:00, ${formatDM(now)}`;
+        nextEl.textContent = `08:00 - 22:00, ${formatDM(nextDay)}`;
+
+        if (statusTodayEl && statusNextEl) {
+          const hour = now.getHours();
+          const inSaleWindow = hour >= 8 && hour < 22;
+          statusTodayEl.textContent = inSaleWindow
+            ? "Đang diễn ra"
+            : "Sắp diễn ra";
+          statusNextEl.textContent = inSaleWindow
+            ? "Sắp diễn ra"
+            : "Ngày kế tiếp";
+        }
+      }
+      function initFlashSaleCarousel() {
+        const list = document.getElementById("flash-sale-list");
+        const prev = document.getElementById("flash-sale-prev");
+        const next = document.getElementById("flash-sale-next");
+        if (!list || !prev || !next) return;
+
+        prev.addEventListener("click", () => {
+          list.scrollBy({ left: -260, behavior: "smooth" });
+        });
+        next.addEventListener("click", () => {
+          list.scrollBy({ left: 260, behavior: "smooth" });
+        });
+      }
+      function themVaoGio(btn) {
+        const productId = btn?.dataset?.productId;
+        if (!window.CartStore || !productId) {
+          hienThongBao("⚠ Không xác định được sản phẩm để thêm giỏ.");
+          return;
+        }
+        window.CartStore.add(productId, 1);
+        btn.classList.add("scale-95");
+        setTimeout(() => btn.classList.remove("scale-95"), 150);
+        hienThongBao("✓ Đã thêm vào giỏ hàng!");
+      }
+      function hienThongBao(msg) {
+        const existing = document.getElementById("cp-toast");
+        if (existing) existing.remove();
+        const t = document.createElement("div");
+        t.id = "cp-toast";
+        t.style.cssText =
+          "position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:0.75rem 1.5rem;border-radius:9999px;font-size:0.875rem;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:9999;transition:opacity 0.3s";
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          setTimeout(() => t.remove(), 300);
+        }, 2000);
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          window.CartStore.initMiniCart();
+        }
+
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            mobileMenu.classList.toggle("flex");
+          });
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              mobileMenu.classList.remove("flex");
+            });
+          });
+        }
+
+        const chatToggleBtn = document.getElementById("chat-toggle-btn");
+        const chatWidget = document.getElementById("chat-widget");
+        const chatCloseBtn = document.getElementById("chat-close-btn");
+        const chatForm = document.getElementById("chat-form");
+        const chatInput = document.getElementById("chat-input");
+        const chatMessages = document.getElementById("chat-messages");
+        const chatSendBtn = document.getElementById("chat-send-btn");
+
+        if (!chatToggleBtn || !chatWidget) return;
+
+        const CHAT_ASK_COUNT_KEY = "demoChatAskCount";
+        const CHAT_COOLDOWN_UNTIL_KEY = "demoChatCooldownUntil";
+        const CHAT_COOLDOWN_MINUTES = 10;
+
+        const getAskCount = () =>
+          parseInt(localStorage.getItem(CHAT_ASK_COUNT_KEY) || "0", 10);
+        const setAskCount = (count) =>
+          localStorage.setItem(CHAT_ASK_COUNT_KEY, String(count));
+        const getCooldownUntil = () =>
+          parseInt(localStorage.getItem(CHAT_COOLDOWN_UNTIL_KEY) || "0", 10);
+        const setCooldownUntil = (timeMs) =>
+          localStorage.setItem(CHAT_COOLDOWN_UNTIL_KEY, String(timeMs));
+
+        const formatRemaining = (ms) => {
+          const mins = Math.ceil(ms / 60000);
+          return `${mins} phút`;
+        };
+
+        const isChatLocked = () => Date.now() < getCooldownUntil();
+
+        const updateChatLockUi = () => {
+          const remainingMs = getCooldownUntil() - Date.now();
+          const locked = remainingMs > 0;
+          if (chatInput) {
+            chatInput.disabled = locked;
+            chatInput.placeholder = locked
+              ? `Chat bị khóa, thử lại sau ${formatRemaining(remainingMs)}...`
+              : "Nhập câu hỏi...";
+          }
+          if (chatSendBtn) {
+            chatSendBtn.disabled = locked;
+            chatSendBtn.classList.toggle("opacity-50", locked);
+            chatSendBtn.classList.toggle("cursor-not-allowed", locked);
+          }
+        };
+
+        const appendMsg = (text, fromUser = false) => {
+          const msg = document.createElement("div");
+          msg.className = fromUser
+            ? "ml-auto max-w-[85%] bg-primary text-white rounded-xl px-3 py-2 text-sm mb-3 shadow-sm"
+            : "max-w-[85%] bg-white rounded-xl px-3 py-2 text-sm text-slate-700 mb-3 shadow-sm";
+          msg.textContent = text;
+          chatMessages.appendChild(msg);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        const autoReply = (askCount) => {
+          if (askCount <= 1) {
+            return "Không có AI đâu mà hỏi 😅 demo thôi bạn ơi.";
+          }
+          if (askCount === 2) {
+            return "Nói rồi mà 😑 đây là demo, không có AI thật đâu.";
+          }
+          if (askCount === 3) {
+            return "Bạn hỏi lần 3 rồi đó 😤 demo thôi, đừng ép bot nữa.";
+          }
+          if (askCount === 4) {
+            return "Hỏi hoài luôn ha 🤨 thêm lần nữa là mình khóa chat 10 phút.";
+          }
+
+          const lockUntil = Date.now() + CHAT_COOLDOWN_MINUTES * 60 * 1000;
+          setCooldownUntil(lockUntil);
+          updateChatLockUi();
+          return "Spam detected 🚫 Chat bị khóa 10 phút. Quay lại sau nhé.";
+        };
+
+        chatToggleBtn.addEventListener("click", () => {
+          chatWidget.classList.toggle("hidden");
+          if (!chatWidget.classList.contains("hidden")) {
+            chatInput?.focus();
+          }
+        });
+
+        chatCloseBtn?.addEventListener("click", () => {
+          chatWidget.classList.add("hidden");
+        });
+
+        chatForm?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          updateChatLockUi();
+
+          if (isChatLocked()) {
+            const remainingMs = getCooldownUntil() - Date.now();
+            appendMsg(
+              `Không gửi được nữa đâu 😎 bị khóa ${formatRemaining(remainingMs)} vì hỏi quá nhiều.`,
+            );
+            return;
+          }
+
+          const text = chatInput?.value?.trim();
+          if (!text) return;
+
+          const nextCount = getAskCount() + 1;
+          setAskCount(nextCount);
+
+          appendMsg(text, true);
+          chatInput.value = "";
+          setTimeout(() => appendMsg(autoReply(nextCount)), 350);
+        });
+
+        updateChatLockUi();
+        setInterval(updateChatLockUi, 10000);
+
+        const authModal = document.getElementById("auth-modal");
+        const openAuthBtn = document.getElementById("open-auth-btn");
+        const closeAuthBtn = document.getElementById("close-auth-btn");
+        const tabLogin = document.getElementById("tab-login");
+        const tabRegister = document.getElementById("tab-register");
+        const authForm = document.getElementById("auth-form");
+        const authEmail = document.getElementById("auth-email");
+        const authPassword = document.getElementById("auth-password");
+        const authSubmitBtn = document.getElementById("auth-submit-btn");
+        const authNote = document.getElementById("auth-note");
+        const uploadPrescriptionBtn = document.getElementById(
+          "upload-prescription-btn",
+        );
+        const logoutDemoBtn = document.getElementById("logout-demo-btn");
+        const openMapLargeBtn = document.getElementById("open-map-large-btn");
+        const mapOverlay = document.getElementById("map-overlay");
+        const closeMapOverlayBtn = document.getElementById(
+          "close-map-overlay-btn",
+        );
+        const googleMapEmbed = document.getElementById("google-map-embed");
+        const mapOverlayIframe = document.getElementById("map-overlay-iframe");
+
+        const googleMapEmbedUrl =
+          googleMapEmbed?.getAttribute("src") ||
+          "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.460232428399!2d106.691234375905!3d10.776019389372993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38f9ed087d%3A0x803f27ad57740d96!2sBen%20Thanh%20Market!5e0!3m2!1svi!2s!4v1716123456789!5m2!1svi!2s";
+
+        const getDemoUser = () => {
+          const email = localStorage.getItem("demoUserEmail") || "";
+          const password = localStorage.getItem("demoUserPassword") || "";
+          const isLoggedIn = localStorage.getItem("demoIsLoggedIn") === "1";
+          return { email, password, isLoggedIn };
+        };
+
+        let authMode = "login";
+
+        const refreshAuthUi = () => {
+          const { isLoggedIn } = getDemoUser();
+          if (authMode === "login") {
+            tabLogin?.classList.add("auth-tab-active");
+            tabRegister?.classList.remove("auth-tab-active");
+            if (authSubmitBtn) authSubmitBtn.textContent = "Đăng nhập";
+            if (authNote) {
+              authNote.textContent = isLoggedIn
+                ? "Bạn đã đăng nhập demo. Có thể gửi đơn thuốc ngay."
+                : "Bạn cần đăng ký và đăng nhập để gửi đơn thuốc.";
+            }
+          } else {
+            tabRegister?.classList.add("auth-tab-active");
+            tabLogin?.classList.remove("auth-tab-active");
+            if (authSubmitBtn) authSubmitBtn.textContent = "Đăng ký";
+            if (authNote) {
+              authNote.textContent =
+                "Tạo tài khoản demo trước, sau đó chuyển sang tab Đăng nhập.";
+            }
+          }
+          if (logoutDemoBtn) {
+            logoutDemoBtn.classList.toggle("hidden", !isLoggedIn);
+          }
+        };
+
+        const openAuthModal = (mode = "login") => {
+          authMode = mode;
+          authModal?.classList.remove("hidden");
+          refreshAuthUi();
+          authEmail?.focus();
+        };
+
+        const closeAuthModal = () => {
+          authModal?.classList.add("hidden");
+        };
+
+        openAuthBtn?.addEventListener("click", () => openAuthModal("login"));
+        closeAuthBtn?.addEventListener("click", closeAuthModal);
+        authModal?.addEventListener("click", (e) => {
+          if (e.target === authModal) closeAuthModal();
+        });
+
+        tabLogin?.addEventListener("click", () => {
+          authMode = "login";
+          refreshAuthUi();
+        });
+        tabRegister?.addEventListener("click", () => {
+          authMode = "register";
+          refreshAuthUi();
+        });
+
+        authForm?.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const email = authEmail?.value?.trim() || "";
+          const password = authPassword?.value?.trim() || "";
+          if (!email || !password) {
+            hienThongBao("Vui lòng nhập đầy đủ email và mật khẩu.");
+            return;
+          }
+
+          if (authMode === "register") {
+            localStorage.setItem("demoUserEmail", email);
+            localStorage.setItem("demoUserPassword", password);
+            localStorage.setItem("demoIsLoggedIn", "0");
+            hienThongBao("Đăng ký demo thành công. Hãy đăng nhập để gửi đơn.");
+            authMode = "login";
+            refreshAuthUi();
+            return;
+          }
+
+          const demoUser = getDemoUser();
+          if (!demoUser.email || !demoUser.password) {
+            hienThongBao("Bạn chưa có tài khoản demo. Vui lòng đăng ký trước.");
+            authMode = "register";
+            refreshAuthUi();
+            return;
+          }
+
+          if (email === demoUser.email && password === demoUser.password) {
+            localStorage.setItem("demoIsLoggedIn", "1");
+            refreshAuthUi();
+            hienThongBao("Đăng nhập demo thành công.");
+            setTimeout(closeAuthModal, 250);
+            return;
+          }
+
+          hienThongBao("Sai email hoặc mật khẩu demo.");
+        });
+
+        logoutDemoBtn?.addEventListener("click", () => {
+          localStorage.setItem("demoIsLoggedIn", "0");
+          refreshAuthUi();
+          hienThongBao("Đã đăng xuất demo.");
+        });
+
+        uploadPrescriptionBtn?.addEventListener("click", () => {
+          const demoUser = getDemoUser();
+          if (!demoUser.email) {
+            hienThongBao("Bạn cần đăng ký tài khoản trước khi gửi đơn.");
+            openAuthModal("register");
+            return;
+          }
+          if (!demoUser.isLoggedIn) {
+            hienThongBao("Vui lòng đăng nhập để gửi đơn thuốc.");
+            openAuthModal("login");
+            return;
+          }
+          hienThongBao("Demo: Đã gửi đơn thuốc thành công!");
+        });
+
+        const openMapOverlay = () => {
+          if (mapOverlayIframe) mapOverlayIframe.src = googleMapEmbedUrl;
+          mapOverlay?.classList.remove("hidden");
+        };
+
+        const closeMapOverlay = () => {
+          mapOverlay?.classList.add("hidden");
+        };
+
+        openMapLargeBtn?.addEventListener("click", openMapOverlay);
+        closeMapOverlayBtn?.addEventListener("click", closeMapOverlay);
+        mapOverlay?.addEventListener("click", (e) => {
+          if (e.target === mapOverlay) closeMapOverlay();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeMapOverlay();
+        });
+
+        refreshAuthUi();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1290 @@
+<!doctype html>
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#2170e4",
+              surface: "#f8f9ff",
+              "on-tertiary-fixed": "#410005",
+              "on-tertiary-fixed-variant": "#842225",
+              "surface-container-high": "#dce9ff",
+              "surface-tint": "#006c49",
+              outline: "#6c7a71",
+              "primary-container": "#10b981",
+              "secondary-fixed-dim": "#adc6ff",
+              "tertiary-fixed": "#ffdad7",
+              "on-surface-variant": "#3c4a42",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#d3e4fe",
+              primary: "#006c49",
+              "on-primary-fixed-variant": "#005236",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary-container": "#711419",
+              "error-container": "#ffdad6",
+              "outline-variant": "#bbcabf",
+              "inverse-primary": "#4edea3",
+              "tertiary-container": "#fc7c78",
+              "surface-container": "#e5eeff",
+              error: "#ba1a1a",
+              "on-secondary-fixed": "#001a42",
+              background: "#f8f9ff",
+              "on-secondary-container": "#fefcff",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#213145",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#00422b",
+              "surface-dim": "#cbdbf5",
+              tertiary: "#a43a3a",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-background": "#0b1c30",
+              "tertiary-fixed-dim": "#ffb3af",
+              secondary: "#0058be",
+              "on-secondary-fixed-variant": "#004395",
+              "on-surface": "#0b1c30",
+              "on-primary-fixed": "#002113",
+              "secondary-fixed": "#d8e2ff",
+              "primary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#4edea3",
+              "surface-bright": "#f8f9ff",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      /* Page Transition */
+      body {
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      body.page-ready {
+        opacity: 1;
+      }
+      body.page-exit {
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container"
+  >
+    <!-- ==================== HEADER ĐỒNG BỘ (giống 3 trang kia) ==================== -->
+    <header
+      class="fixed top-0 w-full z-50 h-[80px] bg-white/80 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between w-full h-full"
+      >
+        <div class="flex items-center gap-4 sm:gap-12">
+          <a
+            href="index.html"
+            class="text-lg sm:text-2xl font-headline font-bold tracking-tighter text-slate-900 whitespace-nowrap"
+            >Nhà Thuốc Chưa Biết</a
+          >
+          <!-- Mobile Hamburger Menu -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col gap-1.5 hover:opacity-70 transition-opacity"
+            aria-label="Menu"
+          >
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+          </button>
+          <nav
+            class="hidden md:flex items-center gap-4 lg:gap-8 font-headline text-sm font-medium tracking-tight"
+          >
+            <a
+              href="danh_muc.html?cat=thuoc"
+              data-nav="thuoc"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thuốc</a
+            >
+            <a
+              href="danh_muc.html?cat=vitamin"
+              data-nav="vitamin"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Vitamin</a
+            >
+            <div class="relative group">
+              <button
+                type="button"
+                class="inline-flex items-center gap-1 text-slate-600 hover:text-emerald-600 transition-colors"
+              >
+                Trang khác
+                <span class="material-symbols-outlined text-base"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="absolute top-full left-0 mt-2 hidden group-hover:block group-focus-within:block w-52 bg-white border border-slate-200 rounded-lg shadow-lg p-2 z-50"
+              >
+                <a
+                  href="don_thuoc.html"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Tải lên đơn thuốc</a
+                >
+                <a
+                  href="danh_muc.html?cat=khuyen-mai"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Ưu đãi hôm nay</a
+                >
+              </div>
+            </div>
+            <a
+              href="danh_muc.html?cat=thiet-bi"
+              data-nav="thiet-bi"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thiết bị</a
+            >
+            <a
+              href="danh_muc.html?cat=cham-soc"
+              data-nav="cham-soc"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Chăm sóc</a
+            >
+            <a
+              href="danh_muc.html?cat=khuyen-mai"
+              data-nav="khuyen-mai"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Khuyến mãi</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div
+            class="hidden lg:flex items-center bg-emerald-50/50 px-4 py-2 rounded-full border border-outline-variant/20"
+          >
+            <span class="material-symbols-outlined text-emerald-600 text-lg"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 outline-none"
+              placeholder="Tìm kiếm sản phẩm..."
+              type="text"
+            />
+          </div>
+          <div class="flex items-center gap-4 text-emerald-600">
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">headset_mic</span>
+            </button>
+            <a
+              href="thanh_toan.html"
+              class="active:scale-95 transition-transform relative inline-flex"
+            >
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <span
+                class="cart-badge absolute -top-1 -right-1 bg-tertiary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold"
+                >0</span
+              >
+            </a>
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">account_circle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <nav
+      id="mobile-menu"
+      class="fixed top-[80px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md hidden flex-col border-b border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto px-3 py-4 w-full space-y-2">
+        <a
+          href="danh_muc.html?cat=thuoc"
+          data-nav="thuoc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=vitamin"
+          data-nav="vitamin"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Vitamin</a
+        >
+        <div class="px-4 pt-2 text-[11px] font-bold text-slate-400 uppercase">
+          Trang khác
+        </div>
+        <a
+          href="don_thuoc.html"
+          class="block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Tải lên đơn thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=thiet-bi"
+          data-nav="thiet-bi"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thiết bị</a
+        >
+        <a
+          href="danh_muc.html?cat=cham-soc"
+          data-nav="cham-soc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Chăm sóc</a
+        >
+        <a
+          href="danh_muc.html?cat=khuyen-mai"
+          data-nav="khuyen-mai"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Khuyến mãi</a
+        >
+      </div>
+    </nav>
+
+    <main class="pt-28 pb-24 max-w-7xl mx-auto px-3 sm:px-6">
+      <!-- Breadcrumbs & Title -->
+      <header class="mb-8 md:mb-12">
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4"
+        >
+          <div>
+            <nav
+              class="flex items-center gap-2 text-xs font-label uppercase tracking-widest text-outline mb-4"
+            >
+              <a class="hover:text-primary transition-colors" href="index.html"
+                >Trang chủ</a
+              >
+              <span class="material-symbols-outlined text-[10px]"
+                >chevron_right</span
+              >
+              <span class="text-on-surface">Sản phẩm thuốc</span>
+            </nav>
+            <h1
+              class="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-headline tracking-tight text-on-surface"
+            >
+              Danh Mục Thuốc
+            </h1>
+          </div>
+          <p
+            class="text-xs sm:text-sm text-outline-variant font-medium pb-1 hidden sm:block"
+          >
+            Hiển thị <span class="text-on-surface">150</span> sản phẩm phù hợp
+          </p>
+        </div>
+      </header>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-3 md:gap-6 lg:gap-12"
+      >
+        <!-- Sidebar (responsive) -->
+        <aside
+          class="hidden md:block md:col-span-1 lg:col-span-3 space-y-6 md:space-y-10 md:order-1"
+        >
+          <section>
+            <h3
+              class="font-headline font-bold text-base md:text-lg mb-4 md:mb-6 text-on-surface"
+            >
+              Danh mục
+            </h3>
+            <div class="space-y-3">
+              <label class="flex items-center group cursor-pointer">
+                <input
+                  checked=""
+                  class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5 transition-all"
+                  type="checkbox"
+                />
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors"
+                  >Thuốc không kê đơn</span
+                >
+              </label>
+              <label class="flex items-center group cursor-pointer">
+                <input
+                  class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5 transition-all"
+                  type="checkbox"
+                />
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors"
+                  >Thực phẩm chức năng</span
+                >
+              </label>
+              <label class="flex items-center group cursor-pointer">
+                <input
+                  class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5 transition-all"
+                  type="checkbox"
+                />
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors"
+                  >Dược mỹ phẩm</span
+                >
+              </label>
+              <label class="flex items-center group cursor-pointer">
+                <input
+                  class="rounded border-outline-variant text-primary focus:ring-primary w-5 h-5 transition-all"
+                  type="checkbox"
+                />
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors"
+                  >Thiết bị y tế</span
+                >
+              </label>
+            </div>
+          </section>
+          <section>
+            <div class="flex items-center justify-between mb-4 md:mb-6">
+              <h3
+                class="font-headline font-bold text-base md:text-lg text-on-surface"
+              >
+                Khoảng giá
+              </h3>
+              <span
+                class="text-xs font-bold text-primary px-2 py-1 bg-primary-container/20 rounded"
+                >VNĐ</span
+              >
+            </div>
+            <div class="space-y-4">
+              <input
+                class="w-full h-1.5 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary"
+                max="5000"
+                min="0"
+                step="100"
+                type="range"
+              />
+              <div
+                class="flex justify-between items-center text-xs font-bold text-outline uppercase tracking-wider"
+              >
+                <span>0đ</span>
+                <span>5.000.000đ</span>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3
+              class="font-headline font-bold text-base md:text-lg mb-4 md:mb-6 text-on-surface"
+            >
+              Tình trạng hàng
+            </h3>
+            <div class="space-y-3">
+              <label class="flex items-center group cursor-pointer">
+                <input
+                  checked=""
+                  class="rounded-full border-outline-variant text-secondary focus:ring-secondary w-5 h-5 transition-all"
+                  type="checkbox"
+                />
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-secondary transition-colors"
+                  >Sẵn có tại kho</span
+                >
+              </label>
+              <label class="flex items-center group cursor-pointer">
+                <input
+                  class="rounded-full border-outline-variant text-secondary focus:ring-secondary w-5 h-5 transition-all"
+                  type="checkbox"
+                />
+                <span
+                  class="ml-3 text-sm font-medium text-on-surface-variant group-hover:text-secondary transition-colors"
+                  >Đặt hàng trước</span
+                >
+              </label>
+            </div>
+          </section>
+          <div
+            class="p-4 md:p-6 bg-primary rounded-xl text-on-primary relative overflow-hidden group"
+          >
+            <div class="relative z-10">
+              <p
+                class="text-[8px] md:text-[10px] font-label font-bold uppercase tracking-[0.2em] mb-2 opacity-80"
+              >
+                Ưu đãi đặc biệt
+              </p>
+              <h4
+                class="font-headline font-extrabold text-base md:text-xl mb-4 leading-tight"
+              >
+                Miễn phí giao hàng cho đơn từ 500k
+              </h4>
+              <button
+                class="bg-white text-primary text-xs font-bold px-4 py-2 rounded-lg hover:shadow-lg transition-all active:scale-95"
+              >
+                CHI TIẾT
+              </button>
+            </div>
+            <div
+              class="absolute -right-4 -bottom-4 opacity-20 group-hover:scale-110 transition-transform duration-700"
+            >
+              <span
+                class="material-symbols-outlined text-8xl"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >local_shipping</span
+              >
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid (responsive) -->
+        <div class="md:col-span-3 lg:col-span-9">
+          <div
+            class="mb-6 flex flex-col sm:flex-row items-center justify-between gap-4"
+          >
+            <div
+              class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm font-medium text-outline"
+            >
+              <span>Sắp xếp:</span>
+              <select
+                class="bg-transparent border border-outline-variant rounded-lg px-2 py-1 text-on-surface focus:ring-0 cursor-pointer text-xs sm:text-sm"
+              >
+                <option>Mới nhất</option>
+                <option>Giá thấp đến cao</option>
+                <option>Giá cao đến thấp</option>
+                <option>Phổ biến nhất</option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-3 sm:gap-x-6 gap-y-6 sm:gap-y-10"
+          >
+            <!-- 8 sản phẩm gốc của bạn (đã copy nguyên) -->
+            <!-- Product Card 1 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 7 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Product Card 8 -->
+            <div class="group h-auto sm:h-[460px] flex flex-col">
+              <div
+                class="relative w-full aspect-[3/4] sm:h-[320px] bg-surface-container-lowest rounded-lg sm:rounded-xl overflow-hidden mb-3 sm:mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 border border-transparent group-hover:border-outline-variant/10"
+              >
+                <a href="chi_tiet.html" class="block w-full h-full">
+                  <img
+                    alt=""
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDt6s6K_w2GHm-4FaEieu7AJiQrF9sZpiQRqJAU3IwOoB9ZEFIfPHtCGyloV73IOQrwdMWlkK783SY75_-pMPsGa2f_hHIpQfcyFIq3iah6ry2sTEmbs2D_L3r_AbAtuDDk9ddYgvkMWVUMqOMUGgb6_7aWU_utpMEte5lfE12UYR4RLKXBO8jWWTKn4bNCj9TXL47w4wZr8Q78x1UMjPhn9fBv_xkudXFRB89oU8ce2dDQumMgjOk7_l2-9jL7ak2biQYUp2TE2rlZ"
+                  />
+                </a>
+                <div
+                  class="absolute top-4 left-4 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+                >
+                  Còn hàng
+                </div>
+                <button
+                  onclick="themVaoGio(this)"
+                  class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  <span class="material-symbols-outlined"
+                    >add_shopping_cart</span
+                  >
+                </button>
+              </div>
+              <div class="flex-1 px-1">
+                <p
+                  class="text-[8px] sm:text-[10px] font-label text-outline uppercase tracking-widest mb-1"
+                >
+                  DƯỢC PHẨM TRUNG ƯƠNG
+                </p>
+                <a href="chi_tiet.html"
+                  ><h3
+                    class="font-headline font-bold text-on-surface text-sm sm:text-base mb-2 group-hover:text-primary transition-colors leading-tight"
+                  >
+                    Viên uống giảm đau Paracetamol 500mg
+                  </h3></a
+                >
+                <div class="flex items-center justify-between">
+                  <span
+                    class="font-headline font-extrabold text-base sm:text-lg text-secondary"
+                    >45.000đ</span
+                  >
+                  <div class="flex items-center gap-1">
+                    <span
+                      class="material-symbols-outlined text-amber-400 text-xs sm:text-sm"
+                      style="font-variation-settings: &quot;FILL&quot; 1"
+                      >star</span
+                    >
+                    <span class="text-xs font-bold text-on-surface">4.8</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phần footer phân trang -->
+            <footer
+              class="mt-12 sm:mt-20 flex items-center justify-center col-span-1 sm:col-span-2 lg:col-span-4"
+            >
+              <nav class="flex items-center gap-1 sm:gap-2">
+                <span
+                  class="text-xs sm:text-sm font-medium text-outline mr-1 sm:mr-2 hidden sm:block"
+                  >Trang:</span
+                >
+                <button
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-outline hover:bg-surface-container transition-all"
+                  title="Trang trước"
+                >
+                  <span class="material-symbols-outlined text-sm sm:text-base"
+                    >chevron_left</span
+                  >
+                </button>
+                <button
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center bg-primary text-on-primary font-bold text-xs sm:text-sm"
+                >
+                  1
+                </button>
+                <button
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container transition-all text-xs sm:text-sm hidden sm:flex"
+                >
+                  2
+                </button>
+                <button
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container transition-all text-xs sm:text-sm hidden sm:flex"
+                >
+                  3
+                </button>
+                <span class="text-outline-variant px-1 hidden sm:block"
+                  >...</span
+                >
+                <button
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-on-surface-variant font-medium hover:bg-surface-container transition-all text-xs sm:text-sm hidden sm:flex"
+                >
+                  12
+                </button>
+                <button
+                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-outline hover:bg-surface-container transition-all"
+                  title="Trang sau"
+                >
+                  <span class="material-symbols-outlined text-sm sm:text-base"
+                    >chevron_right</span
+                  >
+                </button>
+              </nav>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==================== FOOTER ĐỒNG BỘ (giống 3 trang kia) ==================== -->
+    <footer class="bg-slate-900 w-full py-16 border-t border-slate-800">
+      <div
+        class="max-w-7xl mx-auto px-3 sm:px-6 grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 font-inter text-sm leading-relaxed"
+      >
+        <div>
+          <span class="text-xl font-headline font-bold text-white mb-6 block"
+            >Nhà Thuốc Chưa Biết</span
+          >
+          <p class="text-slate-400 mb-6">
+            Hệ thống dược phẩm chuyên môn hóa, cung cấp giải pháp chăm sóc sức
+            khỏe toàn diện với tiêu chuẩn lâm sàng khắt khe.
+          </p>
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">public</span></a
+            >
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">share</span></a
+            >
+          </div>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Về chúng tôi
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách bảo mật</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Điều khoản dịch vụ</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Hỗ trợ khách hàng
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Thông tin giao hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách đổi trả</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Tra cứu đơn hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Câu hỏi thường gặp</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Đăng ký bản tin
+          </h4>
+          <p class="text-slate-400 mb-4">
+            Nhận thông tin y tế mới nhất và ưu đãi đặc quyền.
+          </p>
+          <div class="flex gap-2 p-1 bg-slate-800 rounded-lg">
+            <input
+              class="bg-transparent border-none focus:ring-0 text-white text-xs flex-1 px-3"
+              placeholder="Email của bạn"
+              type="email"
+            />
+            <button
+              class="bg-emerald-600 text-white px-4 py-2 rounded-md text-xs font-bold hover:bg-emerald-500 transition-colors"
+            >
+              GỬI
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center"
+      >
+        <p class="text-slate-500 text-xs">
+          © 2026 Nhà Thuốc Chưa Biết. Bảo lưu mọi quyền.
+        </p>
+      </div>
+    </footer>
+
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        requestAnimationFrame(() => document.body.classList.add("page-ready"));
+        renderDanhMucProducts();
+        capNhatNavbar();
+        document.querySelectorAll("a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            href.startsWith("mailto")
+          )
+            return;
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("page-ready");
+            document.body.classList.add("page-exit");
+            setTimeout(() => {
+              window.location.href = href;
+            }, 260);
+          });
+        });
+      });
+      function laySoLuongGio() {
+        return window.CartStore ? window.CartStore.getCount() : 0;
+      }
+      function capNhatNavbar() {
+        const page = window.location.pathname.split("/").pop() || "index.html";
+        const cat =
+          new URLSearchParams(window.location.search).get("cat") || "";
+        document.querySelectorAll(".nav-link[data-nav]").forEach((link) => {
+          const id = link.dataset.nav;
+          let active = false;
+          if (page === "danh_muc.html") {
+            active = cat ? cat === id : id === "thuoc";
+          } else if (page === "chi_tiet.html") {
+            active = id === "thuoc";
+          }
+          if (active) {
+            link.classList.add(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.remove(
+              "text-slate-600",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          } else {
+            link.classList.remove(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.add(
+              "text-slate-600",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          }
+        });
+      }
+      function capNhatSoLuongGio(n) {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          return;
+        }
+        document
+          .querySelectorAll(".cart-badge")
+          .forEach((el) => (el.textContent = n));
+      }
+      function renderDanhMucProducts() {
+        if (!Array.isArray(window.PRODUCTS) || window.PRODUCTS.length === 0) {
+          return;
+        }
+        const grid = document.querySelector(
+          ".md\\:col-span-3.lg\\:col-span-9 > .grid",
+        );
+        if (!grid) return;
+
+        const cards = Array.from(grid.querySelectorAll(":scope > div.group"));
+        cards.forEach((card, index) => {
+          const product = window.PRODUCTS[index];
+          if (!product) return;
+
+          const detailUrl = `chi_tiet.html?id=${encodeURIComponent(product.id)}`;
+          card.querySelectorAll("a").forEach((link) => {
+            link.setAttribute("href", detailUrl);
+          });
+
+          const image = card.querySelector("img");
+          if (image) {
+            image.src = product.cardImage || product.image;
+            image.alt = product.name;
+          }
+
+          const brand = card.querySelector("p");
+          if (brand) brand.textContent = (product.brand || "").toUpperCase();
+
+          const name = card.querySelector("h3");
+          if (name) name.textContent = product.name;
+
+          const price = card.querySelector(
+            ".font-headline.font-extrabold.text-base.sm\\:text-lg.text-secondary",
+          );
+          if (price) {
+            price.textContent = window.formatVnd
+              ? window.formatVnd(product.price)
+              : `${Number(product.price).toLocaleString("vi-VN")}đ`;
+          }
+
+          const rating = card.querySelector(
+            ".flex.items-center.gap-1 .text-xs",
+          );
+          if (rating) rating.textContent = String(product.rating ?? 4.8);
+
+          const addBtn = card.querySelector("button[onclick*='themVaoGio']");
+          if (addBtn) addBtn.dataset.productId = product.id;
+        });
+      }
+      function themVaoGio(btn) {
+        const productId = btn?.dataset?.productId;
+        if (!window.CartStore || !productId) {
+          hienThiThongBao("⚠ Không xác định được sản phẩm để thêm giỏ.");
+          return;
+        }
+        window.CartStore.add(productId, 1);
+        hienThiThongBao("✓ Đã thêm vào giỏ hàng!");
+      }
+      function hienThiThongBao(msg) {
+        const existing = document.getElementById("cp-toast");
+        if (existing) existing.remove();
+        const t = document.createElement("div");
+        t.id = "cp-toast";
+        t.style.cssText =
+          "position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:0.75rem 1.5rem;border-radius:9999px;font-size:0.875rem;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:9999;transition:opacity 0.3s";
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          setTimeout(() => t.remove(), 300);
+        }, 2000);
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          window.CartStore.initMiniCart();
+        }
+
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            mobileMenu.classList.toggle("flex");
+          });
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              mobileMenu.classList.remove("flex");
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

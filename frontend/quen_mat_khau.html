@@ -1,0 +1,255 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#eff4ff",
+              "inverse-on-surface": "#eaf1ff",
+              "secondary-container": "#2170e4",
+              secondary: "#0058be",
+              "on-tertiary-container": "#711419",
+              "on-tertiary-fixed-variant": "#842225",
+              "on-secondary": "#ffffff",
+              error: "#ba1a1a",
+              "inverse-primary": "#4edea3",
+              "on-secondary-fixed": "#001a42",
+              "surface-dim": "#cbdbf5",
+              primary: "#006c49",
+              "on-background": "#0b1c30",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#ffdad7",
+              "on-primary-fixed": "#002113",
+              "tertiary-fixed-dim": "#ffb3af",
+              "surface-container": "#e5eeff",
+              "primary-fixed-dim": "#4edea3",
+              "outline-variant": "#bbcabf",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#d8e2ff",
+              "primary-container": "#10b981",
+              "tertiary-container": "#fc7c78",
+              tertiary: "#a43a3a",
+              "on-tertiary-fixed": "#410005",
+              "on-surface-variant": "#3c4a42",
+              "on-primary-container": "#00422b",
+              "on-error": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface": "#0b1c30",
+              "on-tertiary": "#ffffff",
+              "inverse-surface": "#213145",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#adc6ff",
+              "surface-variant": "#d3e4fe",
+              "surface-container-high": "#dce9ff",
+              "primary-fixed": "#6ffbbe",
+              "surface-container-highest": "#d3e4fe",
+              background: "#f8f9ff",
+              "on-primary-fixed-variant": "#005236",
+              "on-secondary-fixed-variant": "#004395",
+              "surface-bright": "#f8f9ff",
+              surface: "#f8f9ff",
+              outline: "#6c7a71",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#006c49",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      .breathing-bg {
+        background-image:
+          linear-gradient(rgba(0, 108, 73, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 108, 73, 0.05) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background font-body text-on-surface antialiased overflow-hidden"
+  >
+    <main class="flex min-h-screen">
+      <!-- Left Side: Visual/Editorial -->
+      <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-primary">
+        <div class="absolute inset-0 z-0 opacity-80 mix-blend-overlay">
+          <img
+            alt="Modern pharmaceutical laboratory with high-tech equipment"
+            class="w-full h-full object-cover"
+            data-alt="Modern high-tech pharmaceutical laboratory interior with clinical lighting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuByxMvbuHd9dBdA2JeE6taSgcg_5SJ769YC1koADnZ3YKYbyuIe4JpHFMYeEcs3qIkjWBiFyUiDMvbT_K-ZvaruL8LrnMy3Ci2kpLbTDaZQhS1G7_aHQSZy06KjK1NRyIZzw1YjugGzqW7WQvDXQqGNWnUOQOWD2LTBe1VVuSbU67Opd1fyR1j_KjQ6pLxVh_83ZYGt1FG45KL_xmbDIt0GKZoon6qjF7hvygHKsdZ1feq1keTIf5-TtPnAtqBHcB1651aY1uUhsRuw"
+          />
+        </div>
+        <!-- Overlay Gradient for Depth -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-primary/60 via-primary/20 to-on-primary-container/80 z-10"
+        ></div>
+        <!-- Branding/Editorial Content -->
+        <div class="relative z-20 flex flex-col justify-between p-16 h-full">
+          <div class="flex items-center gap-2">
+            <span
+              class="material-symbols-outlined text-on-primary text-4xl"
+              data-icon="medical_services"
+              >medical_services</span
+            >
+            <span
+              class="font-headline font-extrabold text-2xl text-on-primary tracking-tight"
+              >Clinical Pharmacy</span
+            >
+          </div>
+          <div class="max-w-md">
+            <h1
+              class="font-headline text-5xl font-extrabold text-on-primary leading-tight mb-6"
+            >
+              Bảo mật dữ liệu, <br />Chính xác lâm sàng.
+            </h1>
+            <p class="text-on-primary/80 text-lg leading-relaxed font-light">
+              Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn bằng các tiêu
+              chuẩn an ninh y tế cao nhất toàn cầu.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Right Side: Interaction/Form -->
+      <div
+        class="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24 bg-surface breathing-bg relative"
+      >
+        <!-- Contextual Close/Back Navigation (Transactional Suppression Applied) -->
+        <a
+          class="absolute top-12 left-12 flex items-center gap-2 text-primary hover:text-on-primary-container transition-all group"
+          href="dang_nhap.html"
+        >
+          <span
+            class="material-symbols-outlined group-hover:-translate-x-1 transition-transform"
+            data-icon="arrow_back"
+            >arrow_back</span
+          >
+          <span
+            class="font-label text-xs uppercase tracking-widest font-semibold"
+            >Quay lại Đăng nhập</span
+          >
+        </a>
+        <div class="w-full max-w-md space-y-10">
+          <div class="space-y-4">
+            <h2
+              class="font-headline text-4xl font-extrabold text-on-surface tracking-tight"
+            >
+              Quên mật khẩu?
+            </h2>
+            <p class="text-on-surface-variant leading-relaxed">
+              Nhập email của bạn để nhận hướng dẫn khôi phục mật khẩu. Chúng tôi
+              sẽ gửi một liên kết bảo mật đến hộp thư của bạn.
+            </p>
+          </div>
+          <form id="forgot-form" class="space-y-8">
+            <!-- Input Section -->
+            <div class="space-y-6">
+              <div class="relative group">
+                <label
+                  class="block font-label text-xs font-bold text-on-surface/60 uppercase tracking-widest mb-2 px-1"
+                  for="email"
+                  >Địa chỉ Email</label
+                >
+                <div class="relative">
+                  <span
+                    class="absolute inset-y-0 left-0 pl-4 flex items-center text-outline pointer-events-none group-focus-within:text-primary"
+                  >
+                    <span
+                      class="material-symbols-outlined text-xl"
+                      data-icon="mail"
+                      >mail</span
+                    >
+                  </span>
+                  <input
+                    class="block w-full pl-11 pr-4 py-4 bg-surface-container-lowest border-0 ring-1 ring-outline-variant/30 rounded-lg text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary focus:outline-none transition-all duration-200"
+                    id="email"
+                    name="email"
+                    placeholder="ten@phongkham.vn"
+                    type="email"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Action Button -->
+            <button
+              class="w-full py-4 bg-primary text-on-primary font-headline font-bold rounded-lg shadow-sm hover:shadow-lg hover:bg-on-primary-fixed-variant transition-all duration-300 flex items-center justify-center gap-3 active:scale-[0.98]"
+              type="submit"
+            >
+              Gửi mã xác nhận
+              <span class="material-symbols-outlined text-lg" data-icon="send"
+                >send</span
+              >
+            </button>
+          </form>
+          <!-- Footer Help -->
+          <div class="pt-8 border-t border-outline-variant/15 text-center">
+            <p class="text-on-surface-variant text-sm font-body">
+              Bạn gặp khó khăn khi nhận mã? <br class="md:hidden" />
+              <a
+                class="text-primary font-semibold hover:underline decoration-2 underline-offset-4"
+                href="#"
+                >Liên hệ bộ phận hỗ trợ</a
+              >
+            </p>
+          </div>
+        </div>
+        <!-- Absolute Bottom Brand Marking -->
+        <div
+          class="absolute bottom-8 left-0 right-0 text-center opacity-30 lg:hidden"
+        >
+          <span class="font-headline font-bold text-on-surface text-lg"
+            >Nhà Thuốc Chưa Biết</span
+          >
+        </div>
+      </div>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("forgot-form");
+        if (form) {
+          form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            window.location.href = "dang_nhap.html";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
