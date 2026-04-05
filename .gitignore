@@ -1,5 +1,6 @@
 
 .env
+ngrok.yml
 .env.local
 .env.development
 .env.production
