@@ -58,6 +58,9 @@ function copyStandaloneJsFiles(files) {
 
 export default defineConfig({
   base: "./",
+  define: {
+    __API_URL__: JSON.stringify(process.env.VITE_API_URL || ""),
+  },
   server: {
     proxy: {
       "/api": {

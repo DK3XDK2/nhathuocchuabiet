@@ -28,7 +28,10 @@
   };
 
   const API_BASE =
-    window.APP_CONFIG?.apiBaseUrl || localStorage.getItem("apiBaseUrl") || "";
+    (typeof __API_URL__ !== "undefined" && __API_URL__) ||
+    window.APP_CONFIG?.apiBaseUrl ||
+    localStorage.getItem("apiBaseUrl") ||
+    "";
 
   const loadingState = {
     pendingGetRequests: 0,
@@ -44,7 +47,6 @@
     inFlight: false,
   };
 
-  // Extract filename without query string
   const fullPath = window.location.pathname.split("/").pop() || "";
   const currentPage = fullPath.split("?")[0]; // Remove query string
   const isLoginPage =
@@ -383,10 +385,8 @@
   }
 
   function wirePageTransitions() {
-    // Intercept all internal staff links
     document.querySelectorAll("a[href]").forEach((link) => {
       const href = link.getAttribute("href") || "";
-      // Only intercept relative links (not # or external)
       if (
         !href ||
         href.startsWith("#") ||
@@ -569,7 +569,6 @@
     wirePageTransitions();
     batDauTheoDoiPhanHoiRealtime();
 
-    // Fade in
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.body.classList.add("page-visible");
