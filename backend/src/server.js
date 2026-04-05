@@ -36,5 +36,5 @@ ungDung.use("/api/nha-cung-cap", duongDanNhaCungCap);
 const cong = Number(process.env.CONG_SERVER || 4000);
 
 ungDung.listen(cong, () => {
-  console.log(`May chu dang chay tai cong ${cong}`);
+  console.log(`May chu chay toi cong ${cong}`);
 });
