@@ -1,6 +1,8 @@
 (function () {
   const API_BASE =
-    window.APP_CONFIG?.apiBaseUrl || localStorage.getItem("apiBaseUrl") || "";
+    window.APP_CONFIG?.apiBaseUrl ||
+    localStorage.getItem("apiBaseUrl") ||
+    "https://nhathuocchuabiet-production.up.railway.app";
   const TOKEN_KEY = "staffToken";
   const LOW_STOCK_THRESHOLD = 20;
   const EXPIRING_SOON_DAYS = 30;

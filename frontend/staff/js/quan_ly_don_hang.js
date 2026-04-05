@@ -2,7 +2,9 @@
   "use strict";
 
   const API_BASE =
-    window.APP_CONFIG?.apiBaseUrl || localStorage.getItem("apiBaseUrl") || "";
+    window.APP_CONFIG?.apiBaseUrl ||
+    localStorage.getItem("apiBaseUrl") ||
+    "https://nhathuocchuabiet-production.up.railway.app";
   const token = () => localStorage.getItem("staffToken");
 
   let danhSachDonHang = [];

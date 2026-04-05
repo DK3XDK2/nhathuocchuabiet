@@ -31,7 +31,7 @@
     (typeof __API_URL__ !== "undefined" && __API_URL__) ||
     window.APP_CONFIG?.apiBaseUrl ||
     localStorage.getItem("apiBaseUrl") ||
-    "";
+    "https://nhathuocchuabiet-production.up.railway.app";
 
   const loadingState = {
     pendingGetRequests: 0,
