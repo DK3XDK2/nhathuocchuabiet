@@ -1,0 +1,304 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "../ERD.md"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum VaiTro {
+  QUAN_LY
+  NHAN_VIEN
+}
+
+enum TrangThaiTaiKhoan {
+  HOAT_DONG
+  KHOA
+}
+
+enum TrangThaiDonThuoc {
+  MOI_TAO
+  DA_DUYET
+  TU_CHOI
+}
+
+enum TrangThaiGoiYAi {
+  CHO_DUYET
+  DA_DUYET
+  TU_CHOI
+}
+
+enum LoaiGoiYAi {
+  TON_KHO_THAP
+  SAP_HET_HAN
+  XU_HUONG_MUA
+}
+
+enum TrangThaiDonHang {
+  MOI_TAO
+  DA_XAC_NHAN
+  DANG_GIAO
+  HOAN_TAT
+  HUY
+}
+
+enum LoaiTacNhan {
+  USER
+  HE_THONG
+}
+
+enum LiDoXuat {
+  BAN_HANG
+  HU_HANG
+  KIEM_KE
+  HET_HAN
+}
+
+enum LoaiThamChieu {
+  HOA_DON
+  DON_HANG
+}
+
+model NguoiDung {
+  id             Int                 @id @default(autoincrement())
+  hoTen          String              @map("ho_ten")
+  email          String              @unique
+  matKhau        String              @map("mat_khau")
+  vaiTro         VaiTro              @map("vai_tro")
+  trangThai      TrangThaiTaiKhoan   @default(HOAT_DONG) @map("trang_thai")
+  taoLuc         DateTime            @default(now()) @map("tao_luc")
+  capNhatLuc     DateTime            @updatedAt @map("cap_nhat_luc")
+  donThuocDaTao  DonThuoc[]
+  hoaDonDaTao    HoaDon[]
+  goiYDaDuyet    GoiYAi[]            @relation("goi_y_duyet_boi")
+  nhatKyHeThong  NhatKyHeThong[]
+  lichSuXuatKho  LichSuXuatKho[]
+
+  @@map("nguoi_dung")
+}
+
+model DanhMucThuoc {
+  id         Int      @id @default(autoincrement())
+  tenDanhMuc String   @unique @map("ten_danh_muc")
+  taoLuc     DateTime @default(now()) @map("tao_luc")
+  capNhatLuc DateTime @updatedAt @map("cap_nhat_luc")
+  thuoc       Thuoc[]
+
+  @@map("danh_muc_thuoc")
+}
+
+model NhaCungCap {
+  id             Int      @id @default(autoincrement())
+  maNhaCungCap   String   @unique @map("ma_nha_cung_cap")
+  tenNhaCungCap  String   @map("ten_nha_cung_cap")
+  nguoiLienHe    String?  @map("nguoi_lien_he")
+  soDienThoai    String   @map("so_dien_thoai")
+  email          String?
+  diaChi         String?  @map("dia_chi")
+  ghiChu         String?  @map("ghi_chu")
+  taoLuc         DateTime @default(now()) @map("tao_luc")
+  capNhatLuc     DateTime @updatedAt @map("cap_nhat_luc")
+
+  @@index([tenNhaCungCap])
+  @@index([soDienThoai])
+  @@map("nha_cung_cap")
+}
+
+model Thuoc {
+  id                 Int                @id @default(autoincrement())
+  maThuoc            String             @unique @map("ma_thuoc")
+  tenThuoc           String             @map("ten_thuoc")
+  hoatChat           String?            @map("hoat_chat")
+  hamLuong           String?            @map("ham_luong")
+  donViTinh          String             @map("don_vi_tinh")
+  giaBan             Decimal            @db.Decimal(12, 2) @map("gia_ban")
+  canDonThuoc        Boolean            @default(false) @map("can_don_thuoc")
+  conKinhDoanh       Boolean            @default(true) @map("con_kinh_doanh")
+  danhMucThuocId     Int                @map("danh_muc_thuoc_id")
+  taoLuc             DateTime           @default(now()) @map("tao_luc")
+  capNhatLuc         DateTime           @updatedAt @map("cap_nhat_luc")
+  danhMucThuoc       DanhMucThuoc       @relation(fields: [danhMucThuocId], references: [id])
+  loTonKho           LoTonKho[]
+  chiTietDonThuoc    ChiTietDonThuoc[]
+  chiTietHoaDon      ChiTietHoaDon[]
+  chiTietDonHang     ChiTietDonHang[]
+
+  @@index([tenThuoc])
+  @@map("thuoc")
+}
+
+model LoTonKho {
+  id              Int              @id @default(autoincrement())
+  thuocId         Int              @map("thuoc_id")
+  soLo            String           @map("so_lo")
+  hanSuDung       DateTime         @map("han_su_dung")
+  soLuongTon      Int              @default(0) @map("so_luong_ton")
+  giaNhap         Decimal          @db.Decimal(12, 2) @map("gia_nhap")
+  taoLuc          DateTime         @default(now()) @map("tao_luc")
+  capNhatLuc      DateTime         @updatedAt @map("cap_nhat_luc")
+  thuoc           Thuoc            @relation(fields: [thuocId], references: [id])
+  lichSuXuatKho   LichSuXuatKho[]
+
+  @@map("lo_ton_kho")
+}
+
+model DonThuoc {
+  id                 Int                 @id @default(autoincrement())
+  tenBenhNhan        String?             @map("ten_benh_nhan")
+  tenBacSi           String?             @map("ten_bac_si")
+  trangThai          TrangThaiDonThuoc   @default(MOI_TAO) @map("trang_thai")
+  nguoiTaoId         Int                 @map("nguoi_tao_id")
+  taoLuc             DateTime            @default(now()) @map("tao_luc")
+  capNhatLuc         DateTime            @updatedAt @map("cap_nhat_luc")
+  nguoiTao           NguoiDung           @relation(fields: [nguoiTaoId], references: [id])
+  chiTietDonThuoc    ChiTietDonThuoc[]
+  hoaDon             HoaDon[]
+
+  @@map("don_thuoc")
+}
+
+model ChiTietDonThuoc {
+  id                Int      @id @default(autoincrement())
+  donThuocId        Int      @map("don_thuoc_id")
+  thuocId           Int      @map("thuoc_id")
+  soLuong           Int      @map("so_luong")
+  lieuDung          String   @map("lieu_dung")
+  taoLuc            DateTime @default(now()) @map("tao_luc")
+  donThuoc          DonThuoc @relation(fields: [donThuocId], references: [id], onDelete: Cascade)
+  thuoc             Thuoc    @relation(fields: [thuocId], references: [id])
+
+  @@map("chi_tiet_don_thuoc")
+}
+
+model HoaDon {
+  id               Int             @id @default(autoincrement())
+  nguoiTaoId       Int             @map("nguoi_tao_id")
+  donThuocId       Int?            @map("don_thuoc_id")
+  tongTien         Decimal         @db.Decimal(12, 2) @map("tong_tien")
+  phuongThucThanhToan String       @map("phuong_thuc_thanh_toan")
+  taoLuc           DateTime        @default(now()) @map("tao_luc")
+  nguoiTao         NguoiDung       @relation(fields: [nguoiTaoId], references: [id])
+  donThuoc         DonThuoc?       @relation(fields: [donThuocId], references: [id])
+  chiTietHoaDon    ChiTietHoaDon[]
+
+  @@index([donThuocId])
+
+  @@map("hoa_don")
+}
+
+model ChiTietHoaDon {
+  id            Int      @id @default(autoincrement())
+  hoaDonId      Int      @map("hoa_don_id")
+  thuocId       Int      @map("thuoc_id")
+  soLuong       Int      @map("so_luong")
+  donViTinh     String   @map("don_vi_tinh")
+  donGia        Decimal  @db.Decimal(12, 2) @map("don_gia")
+  thanhTien     Decimal  @db.Decimal(12, 2) @map("thanh_tien")
+  hoaDon        HoaDon   @relation(fields: [hoaDonId], references: [id], onDelete: Cascade)
+  thuoc         Thuoc    @relation(fields: [thuocId], references: [id])
+
+  @@map("chi_tiet_hoa_don")
+}
+
+model GoiYAi {
+  id              Int               @id @default(autoincrement())
+  loai            LoaiGoiYAi        @map("loai")
+  duLieuDauVao    Json              @map("du_lieu_dau_vao")
+  duLieuDauRa     Json              @map("du_lieu_dau_ra")
+  doTinCay        Float             @map("do_tin_cay")
+  trangThai       TrangThaiGoiYAi   @default(CHO_DUYET) @map("trang_thai")
+  duyetBoiId      Int?              @map("duyet_boi_id")
+  ghiChuDuyet     String?           @map("ghi_chu_duyet")
+  taoLuc          DateTime          @default(now()) @map("tao_luc")
+  duyetBoi        NguoiDung?        @relation("goi_y_duyet_boi", fields: [duyetBoiId], references: [id])
+
+  @@map("goi_y_ai")
+}
+
+model NhatKyHeThong {
+  id               Int       @id @default(autoincrement())
+  nguoiThucHienId  Int?      @map("nguoi_thuc_hien_id")
+  loaiTacNhan      LoaiTacNhan @default(USER) @map("loai_tac_nhan")
+  hanhDong         String    @map("hanh_dong")
+  doiTuong         String    @map("doi_tuong")
+  doiTuongId       Int?      @map("doi_tuong_id")
+  truocThayDoi     Json?     @map("truoc_thay_doi")
+  sauThayDoi       Json?     @map("sau_thay_doi")
+  taoLuc           DateTime  @default(now()) @map("tao_luc")
+  nguoiThucHien    NguoiDung? @relation(fields: [nguoiThucHienId], references: [id])
+
+  @@map("nhat_ky_he_thong")
+}
+
+model KhachHang {
+  id                Int       @id @default(autoincrement())
+  hoTen             String    @map("ho_ten")
+  email             String    @unique
+  soDienThoai       String    @map("so_dien_thoai")
+  diaChi            String?   @map("dia_chi")
+  matKhau           String    @map("mat_khau")
+  taoLuc            DateTime  @default(now()) @map("tao_luc")
+  capNhatLuc        DateTime  @updatedAt @map("cap_nhat_luc")
+  donHang           DonHang[]
+
+  @@index([soDienThoai])
+  @@map("khach_hang")
+}
+
+model DonHang {
+  id                  Int               @id @default(autoincrement())
+  maDonHang           String            @unique @map("ma_don_hang")
+  khachHangId         Int               @map("khach_hang_id")
+  tenNguoiNhan        String            @map("ten_nguoi_nhan")
+  soDienThoaiNhan     String            @map("so_dien_thoai_nhan")
+  emailNguoiNhan      String?           @map("email_nguoi_nhan")
+  diaChiGiao          String            @map("dia_chi_giao")
+  ghiChu              String?           @map("ghi_chu")
+  tongTienHang        Decimal           @db.Decimal(12, 2) @map("tong_tien_hang")
+  phiGiaoHang         Decimal           @db.Decimal(12, 2) @default(0) @map("phi_giao_hang")
+  tongThanhToan       Decimal           @db.Decimal(12, 2) @map("tong_thanh_toan")
+  trangThai           TrangThaiDonHang  @default(MOI_TAO) @map("trang_thai")
+  taoLuc              DateTime          @default(now()) @map("tao_luc")
+  capNhatLuc          DateTime          @updatedAt @map("cap_nhat_luc")
+  khachHang           KhachHang         @relation(fields: [khachHangId], references: [id], onDelete: Restrict)
+  chiTietDonHang      ChiTietDonHang[]
+
+  @@index([khachHangId])
+  @@index([soDienThoaiNhan])
+  @@index([taoLuc])
+  @@map("don_hang")
+}
+
+model ChiTietDonHang {
+  id                  Int      @id @default(autoincrement())
+  donHangId           Int      @map("don_hang_id")
+  thuocId             Int      @map("thuoc_id")
+  soLuong             Int      @map("so_luong")
+  donGia              Decimal  @db.Decimal(12, 2) @map("don_gia")
+  thanhTien           Decimal  @db.Decimal(12, 2) @map("thanh_tien")
+  donHang             DonHang  @relation(fields: [donHangId], references: [id], onDelete: Cascade)
+  thuoc               Thuoc    @relation(fields: [thuocId], references: [id])
+
+  @@map("chi_tiet_don_hang")
+}
+
+model LichSuXuatKho {
+  id               Int               @id @default(autoincrement())
+  loTonKhoId       Int               @map("lo_ton_kho_id")
+  soLuongXuat      Int               @map("so_luong_xuat")
+  nguoiXuatId      Int               @map("nguoi_xuat_id")
+  liDoXuat         LiDoXuat          @map("li_do_xuat")
+  thamChieuId      Int?              @map("tham_chieu_id")
+  loaiThamChieu    LoaiThamChieu?    @map("loai_tham_chieu")
+  taoLuc           DateTime          @default(now()) @map("tao_luc")
+  loTonKho         LoTonKho          @relation(fields: [loTonKhoId], references: [id])
+  nguoiXuat        NguoiDung         @relation(fields: [nguoiXuatId], references: [id])
+
+  @@map("lich_su_xuat_kho")
+}

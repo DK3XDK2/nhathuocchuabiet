@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thông tin cá nhân | Clinical Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#842225",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdad7",
+                    "primary-container": "#10b981",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "on-secondary-container": "#fefcff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#2170e4",
+                    "surface": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#fc7c78",
+                    "on-tertiary-container": "#711419",
+                    "surface-tint": "#006c49",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-primary": "#4edea3",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed": "#410005",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002113",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "primary-fixed": "#6ffbbe",
+                    "on-surface": "#0b1c30",
+                    "on-background": "#0b1c30",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-surface": "#213145",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "on-secondary-fixed": "#001a42",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "on-surface-variant": "#3c4a42",
+                    "primary-fixed-dim": "#4edea3",
+                    "outline-variant": "#bbcabf",
+                    "primary": "#006c49",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-error": "#ffffff",
+                    "tertiary": "#a43a3a",
+                    "secondary": "#0058be",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "surface-container-high": "#dce9ff",
+                    "outline": "#6c7a71",
+                    "on-primary-container": "#00422b",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed-variant": "#005236"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-none bg-surface-container-low/50 shadow-sm font-manrope antialiased tracking-tight">
+<div class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900">Clinical Editorial</div>
+<div class="hidden md:flex gap-8">
+<a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-300" href="#">Cửa hàng</a>
+<a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-300" href="#">Dịch vụ</a>
+<a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-300" href="#">Về chúng tôi</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:text-emerald-500 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-emerald-500 transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-100">
+<img alt="Ảnh đại diện người dùng" data-alt="Portrait of a professional man with a friendly smile, clean studio background, soft cinematic lighting, professional corporate headshot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg47sINNN1dflnanpDNlYDuazrd1iIVhehU5hZYApX3QhQKRDk5euG-LuHbbM9oAtnAjjKqvOMUDJuNbMuzZRe6TCNNrrB795UwtH_VY-hmE9SG0nP3PNYeP5UOlU3WSYkukws-tw2DOFb-eGXtPGQnjmpYFyEm0YV1wrgxOQoX28Hj5bw6tF150sqcmzK2KFxUQnUt8eDEF8waesdYLbuEMRmukaLgoqOlETEHCPZ3NB7_lyw1u0I2hTTsIkysVzWzyteUI9bpd92"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 hidden lg:flex flex-col border-r border-slate-100 fixed left-0 top-16 bottom-0 p-4 bg-slate-50 font-inter text-sm font-medium">
+<div class="mb-8 px-2">
+<h2 class="text-lg font-bold text-slate-900">Tài khoản của bạn</h2>
+<p class="text-xs text-slate-500 mt-1">Quản lý sức khỏe &amp; đơn hàng</p>
+</div>
+<nav class="flex-grow space-y-1">
+<div class="cursor-pointer p-3 my-1 flex items-center gap-3 text-slate-500 hover:bg-slate-100 hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span>Đơn hàng của tôi</span>
+</div>
+<div class="cursor-pointer p-3 my-1 flex items-center gap-3 bg-white text-emerald-600 shadow-sm rounded-lg hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Thông tin cá nhân</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-slate-200 pt-4">
+<div class="cursor-pointer p-3 my-1 flex items-center gap-3 text-tertiary hover:bg-tertiary-fixed transition-colors rounded-lg">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Đăng xuất</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-8 lg:p-12 max-w-5xl mx-auto">
+<div class="mb-12">
+<span class="text-[0.6875rem] font-bold tracking-[0.05em] text-primary uppercase block mb-2">QUẢN LÝ TÀI KHOẢN</span>
+<h1 class="text-3xl font-extrabold text-on-surface tracking-tight">Thông tin cá nhân</h1>
+<p class="text-slate-500 mt-2 font-body">Cập nhật thông tin chi tiết để chúng tôi phục vụ bạn tốt hơn.</p>
+</div>
+<!-- Bento Grid Content -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Profile Picture Card -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-slate-100 flex flex-col items-center pb-12">
+<div class="relative group">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container-low mb-6">
+<img alt="Ảnh đại diện" class="w-full h-full object-cover" data-alt="Close-up portrait of a professional individual with clear skin, warm neutral lighting, and a soft minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASVqkYgL_sFZ2g1KJZcQPf8HgosReXuNA6-ZpDwS06PY0QokTd3wMEwcw_D4Jtmo0bdgy9HLBo7bZ2eu6NhkAE_eB71WAEBetZmKbkjuAQDE4G3CQIFKeuu-Fm1h6eNZYIwrcMENRfdfA4FsjF6XjnTaSz5k1c5aWFa6ntFYStb9PJw-XWEVTyXU0xG-kaxkUP79et6NHgA4ij4aiDb4N-2AMdc1guCIePrPiF6DyKzkLaBucB-ZJBKAxxLrrEFBRW5S3vGXE8m_p9"/>
+</div>
+<button class="absolute bottom-4 right-2 bg-primary text-white p-2 rounded-full shadow-lg hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="text-center">
+<p class="font-headline font-bold text-lg text-on-surface">Nguyễn Minh Quân</p>
+</div>
+</div>
+<!-- Form Card -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-sm border border-slate-100">
+<form class="space-y-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold tracking-[0.05em] text-slate-500 uppercase px-1">Họ tên</label>
+<input class="w-full bg-surface-container-low border-transparent focus:border-primary focus:ring-0 rounded-lg py-3 px-4 text-on-surface font-medium transition-all" placeholder="Nhập họ tên của bạn" />
+</div>
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold tracking-[0.05em] text-slate-500 uppercase px-1">Số điện thoại</label>
+<input class="w-full bg-surface-container-low border-transparent focus:border-primary focus:ring-0 rounded-lg py-3 px-4 text-on-surface font-medium transition-all" placeholder="Nhập số điện thoại"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-[0.6875rem] font-bold tracking-[0.05em] text-slate-500 uppercase px-1">Địa chỉ Email</label>
+<input class="w-full bg-surface-container-low border-transparent focus:border-primary focus:ring-0 rounded-lg py-3 px-4 text-on-surface font-medium transition-all" placeholder="name@example.com"/>
+</div>
+<div class="pt-4 flex items-center justify-between">
+<div class="flex items-center gap-2 text-slate-400">
+<span class="material-symbols-outlined text-sm" data-icon="lock">lock</span>
+<span class="text-xs font-medium">Thông tin của bạn được bảo mật tuyệt đối</span>
+</div>
+<button class="bg-primary text-white px-8 py-3 rounded-lg font-headline font-bold text-sm hover:brightness-110 active:scale-95 transition-all shadow-md shadow-primary/20" type="button">
+                                Cập nhật thông tin
+                            </button>
+</div>
+</form>
+</div>
+<!-- Secondary Info Section (Bento style) -->
+<div class="md:col-span-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+<div class="bg-surface-container-low p-6 rounded-xl border border-slate-50">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-emerald-600" data-icon="security">security</span>
+<h3 class="font-bold text-on-surface">Mật khẩu</h3>
+</div>
+<p class="text-sm text-slate-500 mb-4">Lần cuối thay đổi 3 tháng trước.</p>
+<button class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                            Đổi mật khẩu <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border border-slate-50">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="notifications_active">notifications_active</span>
+<h3 class="font-bold text-on-surface">Thông báo</h3>
+</div>
+<p class="text-sm text-slate-500 mb-4">Bật thông báo về ưu đãi và nhắc nhở uống thuốc.</p>
+<button class="text-secondary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                            Cấu hình <span class="material-symbols-outlined text-sm" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</div>
+<div class="h-24"></div> <!-- Spacer for mobile nav -->
+</main>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full lg:hidden border-t border-slate-100 bg-white/90 backdrop-blur-lg z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.03)] font-inter text-[10px] font-bold uppercase tracking-widest">
+<div class="flex justify-around items-center h-20 px-2 pb-safe">
+<div class="flex flex-col items-center justify-center text-slate-400 active:bg-slate-100 transition-all duration-300">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span>Trang chủ</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 active:bg-slate-100 transition-all duration-300">
+<span class="material-symbols-outlined mb-1" data-icon="history_edu">history_edu</span>
+<span>Đơn hàng</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 active:bg-slate-100 transition-all duration-300">
+<span class="material-symbols-outlined mb-1" data-icon="notifications">notifications</span>
+<span>Thông báo</span>
+</div>
+<div class="flex flex-col items-center justify-center text-emerald-600 bg-emerald-50 rounded-xl px-4 py-1 transition-all duration-300">
+<span class="material-symbols-outlined mb-1" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+<span>Tài khoản</span>
+</div>
+</div>
+</nav>
+</body></html>

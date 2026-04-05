@@ -1,0 +1,724 @@
+﻿<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#d9e4ea",
+              "inverse-surface": "#0b0f10",
+              "tertiary-dim": "#564f6b",
+              "outline-variant": "#a9b4b9",
+              "error-container": "#fe8983",
+              "on-primary-fixed": "#003798",
+              "on-background": "#2a3439",
+              tertiary: "#625b77",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#5b5b5f",
+              "surface-dim": "#cfdce3",
+              "secondary-dim": "#535356",
+              "on-primary": "#f8f7ff",
+              "error-dim": "#4e0309",
+              "on-tertiary-container": "#4f4964",
+              "surface-container-high": "#e1e9ee",
+              surface: "#f7f9fb",
+              primary: "#0053db",
+              "primary-dim": "#0048c1",
+              "on-secondary-fixed": "#3f3f43",
+              "surface-bright": "#f7f9fb",
+              "on-secondary": "#faf8fc",
+              "on-primary-fixed-variant": "#0050d4",
+              "on-error": "#fff7f6",
+              "secondary-fixed": "#e4e2e6",
+              "on-tertiary-fixed-variant": "#59526e",
+              "primary-container": "#dbe1ff",
+              "on-surface": "#2a3439",
+              "secondary-fixed-dim": "#d5d3d8",
+              "on-secondary-container": "#515155",
+              "surface-container-low": "#f0f4f7",
+              "primary-fixed-dim": "#c7d3ff",
+              "inverse-primary": "#618bff",
+              "tertiary-fixed": "#dfd5f7",
+              "on-tertiary": "#fdf7ff",
+              outline: "#717c82",
+              "on-tertiary-fixed": "#3c3650",
+              "on-primary-container": "#0048bf",
+              secondary: "#5f5f62",
+              background: "#f7f9fb",
+              "primary-fixed": "#dbe1ff",
+              "surface-container-highest": "#d9e4ea",
+              "on-error-container": "#752121",
+              "on-surface-variant": "#566166",
+              "tertiary-fixed-dim": "#d0c7e8",
+              "inverse-on-surface": "#9a9d9f",
+              "surface-container": "#e8eff3",
+              "tertiary-container": "#dfd5f7",
+              error: "#9f403d",
+              "surface-tint": "#0053db",
+              "secondary-container": "#e4e2e6",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface antialiased">
+    <!-- SideNavBar -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 bg-[#e8eff3] dark:bg-slate-900 flex flex-col py-8 z-50"
+    >
+      <div class="px-6 mb-10">
+        <h1
+          class="text-xl font-bold text-[#0053db] dark:text-white leading-tight"
+        >
+          Nhà Thuốc Chưa Biết
+        </h1>
+        <p
+          class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-0.5"
+        >
+          Quản lý nhà thuốc
+        </p>
+      </div>
+      <nav
+        class="flex-1 space-y-1 overflow-y-auto no-scrollbar max-h-[calc(100vh-240px)]"
+      >
+        <!-- Active State: Dashboard -->
+        <a
+          class="flex items-center gap-3 text-[#0053db] dark:text-blue-300 font-bold border-l-4 border-[#0053db] bg-white/50 dark:bg-white/5 py-3 px-6 transition-transform duration-200 translate-x-1"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Dashboard</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="medication"
+            >medication</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Quản lý thuốc</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="inventory_2"
+            >inventory_2</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Quản lý tồn kho</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="prescriptions"
+            >prescriptions</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Quản lý đơn thuốc</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="receipt_long"
+            >receipt_long</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Lập hóa đơn</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="format_list_bulleted"
+            >format_list_bulleted</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Danh sách hóa đơn</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="shopping_cart"
+            >shopping_cart</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Quản lý đơn hàng</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="psychology"
+            >psychology</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Gợi ý AI</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="account_circle"
+            >account_circle</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Quản lý tài khoản</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="assessment"
+            >assessment</span
+          >
+          <span class="font-['Manrope'] font-medium text-sm tracking-tight"
+            >Báo cáo doanh thu</span
+          >
+        </a>
+      </nav>
+      <div class="mt-auto px-6 pt-6">
+        <div class="bg-primary/5 rounded-xl p-4">
+          <p class="text-[10px] font-bold text-primary uppercase mb-2">
+            Hệ thống nhà thuốc chưa biết
+          </p>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                data-icon="verified_user"
+                >verified_user</span
+              >
+            </div>
+            <span class="text-xs font-bold text-on-surface"
+              >V.1.0.0 Stable</span
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100/50 flex justify-between items-center px-8"
+    >
+      <div class="flex items-center gap-4 flex-1">
+        <div class="relative w-96 group">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg"
+            >search</span
+          >
+          <input
+            class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
+            placeholder="Tìm kiếm báo cáo, thuốc hoặc mã giao dịch..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3">
+          <button
+            class="p-2 hover:bg-slate-50 rounded-lg transition-all relative"
+          >
+            <span
+              class="material-symbols-outlined text-slate-600"
+              data-icon="notifications"
+              >notifications</span
+            >
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+            ></span>
+          </button>
+          <button class="p-2 hover:bg-slate-50 rounded-lg transition-all">
+            <span
+              class="material-symbols-outlined text-slate-600"
+              data-icon="settings"
+              >settings</span
+            >
+          </button>
+        </div>
+        <div class="h-8 w-[1px] bg-slate-100"></div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <p class="text-xs font-bold text-on-surface">Staff Name</p>
+            <p class="text-[10px] text-outline">Quản trị viên</p>
+            <p class="text-[10px] text-outline">thoi gian phan hoi :</p>
+          </div>
+          <img
+            class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/10"
+            data-alt="professional medical staff portrait wearing white lab coat in a bright clinical setting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCkkMbfxuR8kwS3JhTTAXwoJzsIFtWnnoN0n2EQtWdgfvynd4JivHNzFfH7uOzpR_8R2eooc5kjPDO5BYQ-UdKI1-ZqfBAjVO1gxou1094tuew7Tf-vG06SFVVV_Jr3U836soLHUq--CaqI5K5Oroqua2M09KAY6QlRhFMsFNg4T55ViT_BTBOezlsdenmUNu_OH9uahtKnWqMdZMnF3JbNa0Y77W39MiI7ilyig9NFJMC2RSSdijHQKxT3icXFQr-_zFtvUmiZ04o"
+          />
+          <button
+            class="p-1 hover:bg-error/10 hover:text-error rounded-md transition-all"
+          >
+            <span class="material-symbols-outlined text-lg" data-icon="logout"
+              >logout</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+      <!-- Header Section -->
+      <div class="flex justify-between items-end mb-8">
+        <div>
+          <h2
+            class="text-3xl font-extrabold text-on-surface tracking-tight mb-1"
+          >
+            Tổng quan Dashboard
+          </h2>
+          <p class="text-on-surface-variant font-medium">
+            Chào buổi sáng, hôm nay là Chủ nhật, 5 tháng 4 năm 2026
+          </p>
+        </div>
+        <button
+          id="db-new-prescription-btn"
+          class="flex items-center gap-2 bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-primary/20"
+        >
+          <span class="material-symbols-outlined text-sm">add</span>
+          <span>Tạo đơn thuốc mới</span>
+        </button>
+      </div>
+      <!-- Statistics Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <!-- Revenue -->
+        <div
+          class="bg-surface-container-lowest p-6 rounded-full shadow-sm border-l-4 border-primary"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center text-primary"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >payments</span
+              >
+            </div>
+            <span
+              class="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-lg"
+              >+12.5%</span
+            >
+          </div>
+          <p
+            class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1"
+          >
+            Doanh thu hôm nay
+          </p>
+          <p
+            id="db-stat-revenue-today"
+            class="text-2xl font-extrabold text-on-surface"
+          >
+            0đ
+          </p>
+        </div>
+        <!-- Prescriptions -->
+        <div class="bg-surface-container-lowest p-6 rounded-full shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center text-primary"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >prescriptions</span
+              >
+            </div>
+            <span
+              class="text-slate-500 text-xs font-bold bg-slate-50 px-2 py-1 rounded-lg"
+              >Ổn định</span
+            >
+          </div>
+          <p
+            class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1"
+          >
+            Số đơn thuốc
+          </p>
+          <p
+            id="db-stat-prescriptions"
+            class="text-2xl font-extrabold text-on-surface"
+          >
+            0
+          </p>
+        </div>
+        <!-- Invoices -->
+        <div class="bg-surface-container-lowest p-6 rounded-full shadow-sm">
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center text-primary"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >receipt_long</span
+              >
+            </div>
+            <span
+              class="text-emerald-600 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-lg"
+              >+8.2%</span
+            >
+          </div>
+          <p
+            class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1"
+          >
+            Số hóa đơn
+          </p>
+          <p
+            id="db-stat-invoices"
+            class="text-2xl font-extrabold text-on-surface"
+          >
+            0
+          </p>
+        </div>
+        <!-- Out of Stock -->
+        <div
+          class="bg-surface-container-lowest p-6 rounded-full shadow-sm border-t-2 border-error"
+        >
+          <div class="flex justify-between items-start mb-4">
+            <div
+              class="w-12 h-12 bg-error/5 rounded-xl flex items-center justify-center text-error"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >inventory_2</span
+              >
+            </div>
+            <span
+              class="text-error text-xs font-bold bg-error/5 px-2 py-1 rounded-lg"
+              >Cần nhập</span
+            >
+          </div>
+          <p
+            class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1"
+          >
+            Thuốc hết hàng
+          </p>
+          <p
+            id="db-stat-outstock"
+            class="text-2xl font-extrabold text-on-surface"
+          >
+            0
+          </p>
+        </div>
+      </div>
+      <!-- Charts and Lists Grid (Bento Style) -->
+      <div class="grid grid-cols-12 gap-6">
+        <!-- Revenue Chart Visualization -->
+        <div
+          class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-full shadow-sm"
+        >
+          <div class="flex justify-between items-center mb-10">
+            <div>
+              <h3 class="text-xl font-bold text-on-surface">
+                Biểu đồ doanh thu tuần này
+              </h3>
+              <p class="text-sm text-on-surface-variant">
+                So sánh với tuần trước đó
+              </p>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-primary"></span>
+                <span class="text-xs font-medium text-slate-500">Tuần này</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-slate-200"></span>
+                <span class="text-xs font-medium text-slate-500"
+                  >Tuần trước</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Custom SVG Chart Simulation -->
+          <div class="relative h-64 w-full">
+            <svg
+              id="db-revenue-chart"
+              class="w-full h-full overflow-visible"
+              preserveaspectratio="none"
+              viewbox="0 0 700 200"
+            >
+              <!-- Grid Lines -->
+              <line
+                stroke="#f1f5f9"
+                stroke-width="1"
+                x1="0"
+                x2="700"
+                y1="0"
+                y2="0"
+              ></line>
+              <line
+                stroke="#f1f5f9"
+                stroke-width="1"
+                x1="0"
+                x2="700"
+                y1="50"
+                y2="50"
+              ></line>
+              <line
+                stroke="#f1f5f9"
+                stroke-width="1"
+                x1="0"
+                x2="700"
+                y1="100"
+                y2="100"
+              ></line>
+              <line
+                stroke="#f1f5f9"
+                stroke-width="1"
+                x1="0"
+                x2="700"
+                y1="150"
+                y2="150"
+              ></line>
+              <line
+                stroke="#f1f5f9"
+                stroke-width="1"
+                x1="0"
+                x2="700"
+                y1="200"
+                y2="200"
+              ></line>
+              <!-- Area Gradient -->
+              <defs>
+                <lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop
+                    offset="0%"
+                    stop-color="#0053db"
+                    stop-opacity="0.1"
+                  ></stop>
+                  <stop
+                    offset="100%"
+                    stop-color="#0053db"
+                    stop-opacity="0"
+                  ></stop>
+                </lineargradient>
+              </defs>
+              <path id="db-chart-area" d="" fill="url(#chartGradient)"></path>
+              <!-- Data Lines -->
+              <path
+                id="db-chart-current"
+                d=""
+                fill="none"
+                stroke="#0053db"
+                stroke-linecap="round"
+                stroke-width="3"
+              ></path>
+              <path
+                id="db-chart-previous"
+                d=""
+                fill="none"
+                stroke="#cbd5e1"
+                stroke-dasharray="4"
+                stroke-linecap="round"
+                stroke-width="2"
+              ></path>
+              <g id="db-chart-points"></g>
+            </svg>
+            <div
+              id="db-chart-labels"
+              class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2"
+            >
+              <span>T2</span>
+              <span>T3</span>
+              <span>T4</span>
+              <span>T5</span>
+              <span>T6</span>
+              <span>T7</span>
+              <span>CN</span>
+            </div>
+          </div>
+        </div>
+        <!-- Out of Stock List -->
+        <div
+          class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 rounded-full shadow-sm flex flex-col"
+        >
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-on-surface">Thuốc sắp hết</h3>
+            <a class="text-xs font-bold text-primary hover:underline" href="#"
+              >Xem tất cả</a
+            >
+          </div>
+          <div id="db-low-stock-list" class="space-y-4 flex-1">
+            <div class="text-sm text-slate-400">
+              Đang tải dữ liệu tồn kho...
+            </div>
+          </div>
+          <button
+            class="mt-6 w-full py-3 border-2 border-dashed border-slate-200 text-slate-400 font-bold text-sm rounded-xl hover:border-primary hover:text-primary transition-all"
+          >
+            + Nhập hàng nhanh
+          </button>
+        </div>
+        <!-- Recent Invoices Table (Full Width) -->
+        <div
+          class="col-span-12 bg-surface-container-lowest rounded-full shadow-sm overflow-hidden"
+        >
+          <div
+            class="p-8 border-b border-slate-50 flex justify-between items-center"
+          >
+            <h3 class="text-xl font-bold text-on-surface">Hóa đơn gần đây</h3>
+            <div class="flex gap-2">
+              <button
+                class="px-4 py-2 text-xs font-bold text-on-surface bg-surface-container hover:bg-surface-container-high rounded-lg transition-all"
+              >
+                Hôm nay
+              </button>
+              <button
+                class="px-4 py-2 text-xs font-bold text-slate-400 hover:text-on-surface rounded-lg transition-all"
+              >
+                Tuần này
+              </button>
+            </div>
+          </div>
+          <table class="w-full text-left">
+            <thead>
+              <tr class="bg-surface-container-low">
+                <th
+                  class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+                >
+                  Mã HD
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+                >
+                  Khách hàng
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+                >
+                  Thời gian
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+                >
+                  Sản phẩm
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-right"
+                >
+                  Tổng tiền
+                </th>
+                <th
+                  class="px-8 py-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest text-center"
+                >
+                  Trạng thái
+                </th>
+              </tr>
+            </thead>
+            <tbody
+              id="db-recent-invoices-body"
+              class="divide-y divide-slate-50"
+            >
+              <tr>
+                <td colspan="6" class="px-8 py-10 text-center text-slate-400">
+                  Đang tải dữ liệu hóa đơn...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="p-6 text-center">
+            <button
+              class="text-sm font-bold text-slate-400 hover:text-primary transition-all"
+            >
+              Xem tất cả lịch sử giao dịch
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Contextual FAB (Hidden as per suppression logic for dashboard but included for visual completion if required by task) -->
+    <button
+      class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group"
+    >
+      <span class="material-symbols-outlined text-3xl">add</span>
+      <span
+        class="absolute right-full mr-4 bg-on-surface text-white text-xs font-bold px-3 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none"
+      >
+        Giao dịch mới
+      </span>
+    </button>
+    <script src="js/staff_common.js"></script>
+    <script src="js/Dashboard.js"></script>
+  </body>
+</html>

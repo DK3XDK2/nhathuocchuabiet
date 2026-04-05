@@ -1,0 +1,678 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Xác nhận đơn hàng - Nhà Thuốc Chưa Biết</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#6ffbbe",
+              "tertiary-fixed-dim": "#ffb3af",
+              "on-tertiary-fixed": "#410005",
+              "secondary-container": "#2170e4",
+              "surface-container-low": "#eff4ff",
+              "surface-container-highest": "#d3e4fe",
+              error: "#ba1a1a",
+              "on-primary-fixed-variant": "#005236",
+              outline: "#6c7a71",
+              "tertiary-container": "#fc7c78",
+              background: "#f8f9ff",
+              "on-surface": "#0b1c30",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdad7",
+              "surface-bright": "#f8f9ff",
+              "primary-fixed-dim": "#4edea3",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              primary: "#006c49",
+              "inverse-surface": "#213145",
+              "surface-container": "#e5eeff",
+              "secondary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#842225",
+              "surface-dim": "#cbdbf5",
+              "primary-container": "#10b981",
+              "surface-tint": "#006c49",
+              "on-secondary-fixed-variant": "#004395",
+              "on-secondary-container": "#fefcff",
+              "on-surface-variant": "#3c4a42",
+              "outline-variant": "#bbcabf",
+              "inverse-primary": "#4edea3",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#711419",
+              "on-secondary-fixed": "#001a42",
+              "on-primary-container": "#00422b",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-container-high": "#dce9ff",
+              surface: "#f8f9ff",
+              "error-container": "#ffdad6",
+              "surface-variant": "#d3e4fe",
+              "on-background": "#0b1c30",
+              tertiary: "#a43a3a",
+              "on-primary": "#ffffff",
+              secondary: "#0058be",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#002113",
+              "secondary-fixed-dim": "#adc6ff",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .step-active {
+        font-variation-settings: "FILL" 1;
+      }
+    </style>
+  </head>
+  <body class="bg-surface font-body text-on-surface">
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 h-[80px] bg-white/80 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 flex items-center justify-between w-full h-full"
+      >
+        <!-- Logo -->
+        <div class="flex items-center gap-12">
+          <a
+            href="index.html"
+            class="text-2xl font-headline font-bold tracking-tighter text-slate-900"
+            >Nhà Thuốc Chưa Biết</a
+          >
+
+          <!-- Nav -->
+          <nav
+            class="hidden md:flex items-center gap-8 font-headline text-sm font-medium tracking-tight"
+          >
+            <a
+              href="danh_muc.html?cat=thuoc"
+              class="text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thuốc</a
+            >
+            <a
+              href="danh_muc.html?cat=vitamin"
+              class="text-slate-600 hover:text-emerald-600 transition-colors"
+              >Vitamin</a
+            >
+            <a
+              href="don_thuoc.html"
+              class="text-slate-600 hover:text-emerald-600 transition-colors"
+              >Đơn thuốc</a
+            >
+            <a
+              href="gio_hang.html"
+              class="text-slate-600 hover:text-emerald-600 transition-colors"
+              >Giỏ hàng</a
+            >
+            <a
+              href="khach_hang/don_hang_cua_toi.html"
+              class="text-slate-600 hover:text-emerald-600 transition-colors"
+              >Đơn hàng</a
+            >
+          </nav>
+        </div>
+
+        <!-- Right side -->
+        <div class="flex items-center gap-6">
+          <!-- Search -->
+          <div
+            class="hidden lg:flex items-center bg-emerald-50/50 px-4 py-2 rounded-full border border-outline-variant/20"
+          >
+            <span class="material-symbols-outlined text-emerald-600 text-lg"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 outline-none"
+              placeholder="Tìm kiếm sản phẩm..."
+              type="text"
+            />
+          </div>
+
+          <!-- Icons -->
+          <div class="flex items-center gap-4 text-emerald-600">
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">headset_mic</span>
+            </button>
+            <a
+              href="gio_hang.html"
+              class="active:scale-95 transition-transform relative"
+            >
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <span
+                class="absolute -top-1 -right-1 bg-tertiary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold"
+                >2</span
+              >
+            </a>
+            <a
+              href="khach_hang/thong_tin_ca_nhan.html"
+              class="active:scale-95 transition-transform"
+              ><span class="material-symbols-outlined">account_circle</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="pt-32 pb-24 px-6 max-w-7xl mx-auto">
+      <!-- Progress Tracker -->
+      <div class="mb-16">
+        <div
+          class="flex items-center justify-center space-x-4 max-w-2xl mx-auto"
+        >
+          <div class="flex flex-col items-center flex-1 opacity-50">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-2"
+            >
+              <span
+                class="material-symbols-outlined text-on-surface text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-on-surface"
+              >Thông tin</span
+            >
+          </div>
+          <div class="h-[2px] w-12 bg-outline-variant/30 mb-6"></div>
+          <div class="flex flex-col items-center flex-1 opacity-50">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-2"
+            >
+              <span
+                class="material-symbols-outlined text-on-surface text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-on-surface"
+              >Vận chuyển</span
+            >
+          </div>
+          <div class="h-[2px] w-12 bg-outline-variant/30 mb-6"></div>
+          <div class="flex flex-col items-center flex-1 opacity-50">
+            <div
+              class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center mb-2"
+            >
+              <span
+                class="material-symbols-outlined text-on-surface text-sm"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >check_circle</span
+              >
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-on-surface"
+              >Thanh toán</span
+            >
+          </div>
+          <div class="h-[2px] w-12 bg-outline-variant/30 mb-6"></div>
+          <div class="flex flex-col items-center flex-1">
+            <div
+              class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-2 shadow-lg shadow-primary/20"
+            >
+              <span class="text-on-primary font-bold text-sm">04</span>
+            </div>
+            <span
+              class="text-xs font-label uppercase tracking-widest text-primary font-bold"
+              >Xác nhận</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Left Column: Details -->
+        <div class="lg:col-span-7 space-y-8">
+          <section>
+            <h1
+              class="font-headline text-3xl font-extrabold tracking-tight mb-2 text-on-surface"
+            >
+              Xác nhận đơn hàng
+            </h1>
+            <p class="text-on-surface-variant font-body">
+              Vui lòng kiểm tra lại thông tin trước khi hoàn tất đặt hàng.
+            </p>
+          </section>
+          <!-- Shipping Summary -->
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="font-headline text-xl font-bold">
+                Thông tin giao hàng
+              </h2>
+              <button
+                class="text-primary font-label text-xs font-bold uppercase tracking-wider hover:underline"
+              >
+                Thay đổi
+              </button>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <span
+                  class="material-symbols-outlined text-on-surface-variant"
+                  data-icon="person"
+                  >person</span
+                >
+                <div>
+                  <p class="font-semibold text-on-surface">Nguyễn Minh Tuấn</p>
+                  <p class="text-on-surface-variant text-sm">+84 901 234 567</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <span
+                  class="material-symbols-outlined text-on-surface-variant"
+                  data-icon="location_on"
+                  >location_on</span
+                >
+                <p class="text-on-surface-variant text-sm leading-relaxed">
+                  123 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Payment Summary -->
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10"
+          >
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="font-headline text-xl font-bold">
+                Phương thức thanh toán
+              </h2>
+              <button
+                class="text-primary font-label text-xs font-bold uppercase tracking-wider hover:underline"
+              >
+                Thay đổi
+              </button>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-surface-container-low p-4 rounded-lg"
+            >
+              <div
+                class="w-12 h-12 bg-white rounded flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary"
+                  data-icon="credit_card"
+                  >credit_card</span
+                >
+              </div>
+              <div>
+                <p class="font-semibold text-on-surface">
+                  Thẻ tín dụng / Ghi nợ
+                </p>
+                <p class="text-on-surface-variant text-sm">
+                  Visa kết thúc bằng •••• 4242
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Order Notes -->
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10"
+          >
+            <h2 class="font-headline text-xl font-bold mb-6">
+              Ghi chú đơn hàng
+            </h2>
+            <textarea
+              class="w-full bg-surface-container-low border-none rounded-lg p-4 text-on-surface focus:ring-1 focus:ring-primary h-24 placeholder:text-outline-variant"
+              placeholder="Ví dụ: Giao hàng giờ hành chính, gọi trước khi đến..."
+            ></textarea>
+          </div>
+          <!-- Trust Badges -->
+          <div class="flex flex-wrap gap-6 pt-4">
+            <div
+              class="flex items-center gap-3 px-4 py-2 bg-emerald-50 rounded-full border border-emerald-100"
+            >
+              <span
+                class="material-symbols-outlined text-emerald-600 text-lg"
+                data-icon="verified_user"
+                >verified_user</span
+              >
+              <span
+                class="font-label text-[11px] font-bold uppercase tracking-widest text-emerald-700"
+                >Thanh toán bảo mật</span
+              >
+            </div>
+            <div
+              class="flex items-center gap-3 px-4 py-2 bg-blue-50 rounded-full border border-blue-100"
+            >
+              <span
+                class="material-symbols-outlined text-blue-600 text-lg"
+                data-icon="medical_information"
+                >medical_information</span
+              >
+              <span
+                class="font-label text-[11px] font-bold uppercase tracking-widest text-blue-700"
+                >Dược sĩ xác nhận</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Sticky Summary -->
+        <div class="lg:col-span-5 sticky top-28">
+          <div
+            class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_20px_40px_rgba(11,28,48,0.06)] border border-outline-variant/5"
+          >
+            <h2 class="font-headline text-xl font-bold mb-8">
+              Tóm tắt đơn hàng
+            </h2>
+            <!-- Simplified Product List -->
+            <div class="space-y-6 mb-8">
+              <div class="flex gap-4">
+                <div
+                  class="w-16 h-16 bg-surface-container-low rounded-lg overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="Modern clinical amber glass supplement bottle with minimal white label on clean clinical surface"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR8OSf9LCGg8DL7gHYl8idx-a8NDwu1y6yX9tc1RurfVPGfR_Z7O-tdSsHlIsfgbVRBylCPgrLtvQFUWVLCrTeJ9zkIeIed1pf4XwTZ66D1oufzLBAUr7_C84GIEk-WFH_rMe-6GpdpSB8TK-0aBUWFhZ8w1vZMJv67oDSwNT7-J7cu8F6rCsADpdZvzCLip_FnGFTD3zVuskzyD2oxNjZRzloR7yjY3RysMEnPd03cPtG0pCm9x6NRf9pxZGwIVZz1Tx_y4VSQn6Y"
+                  />
+                </div>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm line-clamp-1">
+                    Viên uống Hỗ trợ Gan Clinical Hepa-Plus
+                  </p>
+                  <p class="text-on-surface-variant text-xs">Số lượng: 01</p>
+                  <p class="text-on-surface font-bold text-sm mt-1">450.000đ</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div
+                  class="w-16 h-16 bg-surface-container-low rounded-lg overflow-hidden flex-shrink-0"
+                >
+                  <img
+                    class="w-full h-full object-cover"
+                    data-alt="Dermatological facial serum bottle with dropper, premium packaging, clinical studio lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcASfxLom_nkLZsgDDmv7DLjqdwYYsk4vhAHHvQBXTI0mW1Dej2Em6uYqv16fVa6O0Fxe4aSN-YAyrgk0m0SCtMJFN6eF1KLrK3plgdtyJYnTWmrTUqlip6ko6NCIw9MxpLRqccCLZhzbDMQ2B-SNouxTHz9kHnEUCkguCzNt4FQft5HN6cVdtdMS5alxzYv7jItyT__odFd1i-VGJlTF3C9SWCo0AYz4MxJAgKN1tP1J8sCtW2Ms5imTWvhUyWJxkFniuyk2siBpj"
+                  />
+                </div>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm line-clamp-1">
+                    Serum Phục hồi Da Clinical B5 Hydration
+                  </p>
+                  <p class="text-on-surface-variant text-xs">Số lượng: 02</p>
+                  <p class="text-on-surface font-bold text-sm mt-1">
+                    1.280.000đ
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Pricing Breakdown -->
+            <div
+              class="space-y-4 border-t border-outline-variant/10 pt-6 mb-8 font-body"
+            >
+              <div class="flex justify-between text-on-surface-variant text-sm">
+                <span>Tạm tính</span>
+                <span>1.730.000đ</span>
+              </div>
+              <div class="flex justify-between text-on-surface-variant text-sm">
+                <span>Phí vận chuyển</span>
+                <span>30.000đ</span>
+              </div>
+              <div class="flex justify-between text-on-surface-variant text-sm">
+                <span>Giảm giá (HEAL20)</span>
+                <span class="text-primary">-150.000đ</span>
+              </div>
+              <div class="flex justify-between items-end pt-4">
+                <span class="font-headline font-bold text-lg">Tổng cộng</span>
+                <div class="text-right">
+                  <span
+                    class="block text-2xl font-extrabold text-primary font-headline tracking-tight"
+                    >1.610.000đ</span
+                  >
+                  <span
+                    class="text-[10px] text-on-surface-variant uppercase tracking-widest font-label font-semibold"
+                    >Đã bao gồm VAT</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- CTA -->
+            <button
+              class="w-full bg-primary hover:bg-on-primary-container text-on-primary py-5 rounded-lg font-headline font-extrabold text-lg tracking-wide transition-all duration-300 shadow-lg shadow-primary/20 active:scale-[0.98]"
+            >
+              ĐẶT HÀNG NGAY
+            </button>
+            <p
+              class="text-center text-[11px] text-on-surface-variant mt-6 leading-relaxed px-4"
+            >
+              Bằng việc nhấn đặt hàng, bạn đồng ý với
+              <a class="underline text-on-surface" href="#"
+                >Điều khoản dịch vụ</a
+              >
+              và
+              <a class="underline text-on-surface" href="#"
+                >Chính sách bảo mật</a
+              >
+              của Nhà Thuốc Chưa Biết.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer Space -->
+    <footer class="bg-slate-900 w-full py-16 border-t border-slate-800">
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 font-inter text-sm leading-relaxed"
+      >
+        <!-- Brand -->
+        <div>
+          <span class="text-xl font-headline font-bold text-white mb-6 block"
+            >Nhà Thuốc Chưa Biết</span
+          >
+          <p class="text-slate-400 mb-6">
+            Hệ thống dược phẩm chuyên môn hóa, cung cấp giải pháp chăm sóc sức
+            khỏe toàn diện với tiêu chuẩn lâm sàng khắt khe.
+          </p>
+          <div class="flex gap-4">
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">public</span></a
+            >
+            <a
+              href="#"
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              ><span class="material-symbols-outlined text-lg">share</span></a
+            >
+          </div>
+        </div>
+
+        <!-- Về chúng tôi -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Về chúng tôi
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="gioi_thieu.html"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a
+                href="lien_he.html"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách bảo mật</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Điều khoản dịch vụ</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Hỗ trợ -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Hỗ trợ khách hàng
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                href="thanh_toan.html"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Thông tin giao hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Chính sách đổi trả</a
+              >
+            </li>
+            <li>
+              <a
+                href="khach_hang/don_hang_cua_toi.html"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Tra cứu đơn hàng</a
+              >
+            </li>
+            <li>
+              <a
+                href="cau_hoi_thuong_gap.html"
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                >Câu hỏi thường gặp</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Bản tin -->
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Đăng ký bản tin
+          </h4>
+          <p class="text-slate-400 mb-4">
+            Nhận thông tin y tế mới nhất và ưu đãi đặc quyền.
+          </p>
+          <div class="flex gap-2 p-1 bg-slate-800 rounded-lg">
+            <input
+              class="bg-transparent border-none focus:ring-0 text-white text-xs flex-1 px-3"
+              placeholder="Email của bạn"
+              type="email"
+            />
+            <button
+              class="bg-emerald-600 text-white px-4 py-2 rounded-md text-xs font-bold hover:bg-emerald-500 transition-colors"
+            >
+              GỬI
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center"
+      >
+        <p class="text-slate-500 text-xs">
+          © 2026 Nhà Thuốc Chưa Biết. Bảo lưu mọi quyền.
+        </p>
+      </div>
+    </footer>
+    <!-- BottomNavBar (Mobile only) -->
+    <div
+      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-6 py-3 pb-safe bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800 shadow-[0_-10px_40px_rgba(11,28,48,0.06)] z-50"
+    >
+      <div
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+        <span
+          class="font-inter text-[11px] font-semibold uppercase tracking-widest mt-1"
+          >Home</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined" data-icon="medical_services"
+          >medical_services</span
+        >
+        <span
+          class="font-inter text-[11px] font-semibold uppercase tracking-widest mt-1"
+          >Prescriptions</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-xl px-4 py-1.5 active:scale-90 transition-transform"
+      >
+        <span
+          class="material-symbols-outlined"
+          data-icon="shopping_cart"
+          style="font-variation-settings: &quot;FILL&quot; 1"
+          >shopping_cart</span
+        >
+        <span
+          class="font-inter text-[11px] font-semibold uppercase tracking-widest mt-1"
+          >Cart</span
+        >
+      </div>
+      <div
+        class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+      >
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+        <span
+          class="font-inter text-[11px] font-semibold uppercase tracking-widest mt-1"
+          >Profile</span
+        >
+      </div>
+    </div>
+  </body>
+</html>

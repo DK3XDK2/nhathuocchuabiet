@@ -1,0 +1,810 @@
+﻿<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Medication Management | Nhà Thuốc Chưa Biết</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#d9e4ea",
+              "inverse-surface": "#0b0f10",
+              "tertiary-dim": "#564f6b",
+              "outline-variant": "#a9b4b9",
+              "error-container": "#fe8983",
+              "on-primary-fixed": "#003798",
+              "on-background": "#2a3439",
+              tertiary: "#625b77",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#5b5b5f",
+              "surface-dim": "#cfdce3",
+              "secondary-dim": "#535356",
+              "on-primary": "#f8f7ff",
+              "error-dim": "#4e0309",
+              "on-tertiary-container": "#4f4964",
+              "surface-container-high": "#e1e9ee",
+              surface: "#f7f9fb",
+              primary: "#0053db",
+              "primary-dim": "#0048c1",
+              "on-secondary-fixed": "#3f3f43",
+              "surface-bright": "#f7f9fb",
+              "on-secondary": "#faf8fc",
+              "on-primary-fixed-variant": "#0050d4",
+              "on-error": "#fff7f6",
+              "secondary-fixed": "#e4e2e6",
+              "on-tertiary-fixed-variant": "#59526e",
+              "primary-container": "#dbe1ff",
+              "on-surface": "#2a3439",
+              "secondary-fixed-dim": "#d5d3d8",
+              "on-secondary-container": "#515155",
+              "surface-container-low": "#f0f4f7",
+              "primary-fixed-dim": "#c7d3ff",
+              "inverse-primary": "#618bff",
+              "tertiary-fixed": "#dfd5f7",
+              "on-tertiary": "#fdf7ff",
+              outline: "#717c82",
+              "on-tertiary-fixed": "#3c3650",
+              "on-primary-container": "#0048bf",
+              secondary: "#5f5f62",
+              background: "#f7f9fb",
+              "primary-fixed": "#dbe1ff",
+              "surface-container-highest": "#d9e4ea",
+              "on-error-container": "#752121",
+              "on-surface-variant": "#566166",
+              "tertiary-fixed-dim": "#d0c7e8",
+              "inverse-on-surface": "#9a9d9f",
+              "surface-container": "#e8eff3",
+              "tertiary-container": "#dfd5f7",
+              error: "#9f403d",
+              "surface-tint": "#0053db",
+              "secondary-container": "#e4e2e6",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface selection:bg-primary/10">
+    <!-- SideNavBar -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 bg-[#e8eff3] dark:bg-slate-900 flex flex-col py-8 z-50"
+    >
+      <div class="px-6 mb-10">
+        <h1
+          class="text-xl font-bold text-[#0053db] dark:text-white leading-tight"
+        >
+          Nhà Thuốc Chưa Biết
+        </h1>
+        <p
+          class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-0.5"
+        >
+          Quản lý nhà thuốc
+        </p>
+      </div>
+      <nav
+        class="flex-1 space-y-1 font-['Manrope'] font-medium text-sm tracking-tight overflow-y-auto no-scrollbar max-h-[calc(100vh-240px)]"
+      >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          Dashboard
+        </a>
+        <a
+          class="flex items-center gap-3 text-[#0053db] dark:text-blue-300 font-bold border-l-4 border-[#0053db] bg-white/50 dark:bg-white/5 py-3 px-6 Active: translate-x-1 transition-transform duration-200"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="medication"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >medication</span
+          >
+          Quản lý thuốc
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="inventory_2"
+            >inventory_2</span
+          >
+          Quản lý tồn kho
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="prescriptions"
+            >prescriptions</span
+          >
+          Quản lý đơn thuốc
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="receipt_long"
+            >receipt_long</span
+          >
+          Lập hóa đơn
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="format_list_bulleted"
+            >format_list_bulleted</span
+          >
+          Danh sách hóa đơn
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="shopping_cart"
+            >shopping_cart</span
+          >
+          Quản lý đơn hàng
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="psychology"
+            >psychology</span
+          >
+          Gợi ý AI
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="account_circle"
+            >account_circle</span
+          >
+          Quản lý tài khoản
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="assessment"
+            >assessment</span
+          >
+          Báo cáo doanh thu
+        </a>
+      </nav>
+      <div class="mt-auto px-6 pt-6">
+        <div class="bg-primary/5 rounded-xl p-4">
+          <p class="text-[10px] font-bold text-primary uppercase mb-2">
+            Hệ thống nhà thuốc chưa biết
+          </p>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                data-icon="verified_user"
+                >verified_user</span
+              >
+            </div>
+            <span class="text-xs font-bold text-on-surface"
+              >V.1.0.0 Stable</span
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100/50 flex justify-between items-center px-8"
+    >
+      <div class="flex items-center gap-4 flex-1">
+        <div class="relative w-96 group">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg"
+            >search</span
+          >
+          <input
+            class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
+            placeholder="Tìm kiếm báo cáo, thuốc hoặc mã giao dịch..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3">
+          <button
+            class="p-2 hover:bg-slate-50 rounded-lg transition-all relative"
+          >
+            <span
+              class="material-symbols-outlined text-slate-600"
+              data-icon="notifications"
+              >notifications</span
+            >
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+            ></span>
+          </button>
+          <button class="p-2 hover:bg-slate-50 rounded-lg transition-all">
+            <span
+              class="material-symbols-outlined text-slate-600"
+              data-icon="settings"
+              >settings</span
+            >
+          </button>
+        </div>
+        <div class="h-8 w-[1px] bg-slate-100"></div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <p class="text-xs font-bold text-on-surface">Staff Name</p>
+            <p class="text-[10px] text-outline">Quản trị viên</p>
+            <p class="text-[10px] text-outline">thoi gian phan hoi :</p>
+          </div>
+          <img
+            class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/10"
+            data-alt="professional medical staff portrait wearing white lab coat in a bright clinical setting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCkkMbfxuR8kwS3JhTTAXwoJzsIFtWnnoN0n2EQtWdgfvynd4JivHNzFfH7uOzpR_8R2eooc5kjPDO5BYQ-UdKI1-ZqfBAjVO1gxou1094tuew7Tf-vG06SFVVV_Jr3U836soLHUq--CaqI5K5Oroqua2M09KAY6QlRhFMsFNg4T55ViT_BTBOezlsdenmUNu_OH9uahtKnWqMdZMnF3JbNa0Y77W39MiI7ilyig9NFJMC2RSSdijHQKxT3icXFQr-_zFtvUmiZ04o"
+          />
+          <button
+            class="p-1 hover:bg-error/10 hover:text-error rounded-md transition-all"
+          >
+            <span class="material-symbols-outlined text-lg" data-icon="logout"
+              >logout</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content -->
+    <main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+      <div class="max-w-7xl mx-auto space-y-8">
+        <section
+          class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h1
+              class="text-3xl font-extrabold tracking-tight text-on-surface mb-2"
+            >
+              Quản lý thuốc
+            </h1>
+            <p class="text-on-surface-variant font-medium">
+              Đồng bộ dữ liệu thuốc trực tiếp từ hệ thống và cập nhật danh mục
+              đang kinh doanh.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              id="thuoc-refresh-btn"
+              class="flex items-center gap-2 border border-slate-200 bg-white px-4 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-lg">refresh</span>
+              Tải lại
+            </button>
+            <button
+              id="thuoc-add-btn"
+              class="flex items-center gap-2 bg-primary text-on-primary px-6 py-3 rounded-xl font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all"
+              type="button"
+            >
+              <span class="material-symbols-outlined">add</span>
+              Thêm thuốc
+            </button>
+          </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div
+            class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >pill</span
+              >
+            </div>
+            <div>
+              <div
+                class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+              >
+                Tổng thuốc
+              </div>
+              <div
+                id="stat-total-thuoc"
+                class="text-2xl font-bold text-on-surface leading-none"
+              >
+                --
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-error/10 rounded-2xl flex items-center justify-center text-error"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >warning</span
+              >
+            </div>
+            <div>
+              <div
+                class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+              >
+                Sắp hết hạn
+              </div>
+              <div
+                id="stat-expiring-thuoc"
+                class="text-2xl font-bold text-on-surface leading-none"
+              >
+                --
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-600"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >inventory</span
+              >
+            </div>
+            <div>
+              <div
+                class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+              >
+                Tồn kho thấp
+              </div>
+              <div
+                id="stat-low-stock"
+                class="text-2xl font-bold text-on-surface leading-none"
+              >
+                --
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 rounded-3xl shadow-sm flex items-center gap-4"
+          >
+            <div
+              class="w-12 h-12 bg-slate-200 rounded-2xl flex items-center justify-center text-slate-600"
+            >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >storefront</span
+              >
+            </div>
+            <div>
+              <div
+                class="text-[10px] font-bold text-slate-400 uppercase tracking-widest"
+              >
+                Ngừng kinh doanh
+              </div>
+              <div
+                id="stat-inactive-thuoc"
+                class="text-2xl font-bold text-on-surface leading-none"
+              >
+                --
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="bg-surface-container-lowest rounded-3xl shadow-sm overflow-hidden"
+        >
+          <div
+            class="p-6 border-b border-slate-100 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
+          >
+            <div>
+              <h2 class="text-xl font-bold text-on-surface">Danh sách thuốc</h2>
+              <p
+                id="thuoc-last-sync"
+                class="text-sm text-on-surface-variant mt-1"
+              >
+                Đang tải dữ liệu...
+              </p>
+            </div>
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <input
+                id="thuoc-page-search"
+                class="w-full sm:w-80 bg-surface-container-low border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
+                placeholder="Tìm theo mã thuốc, tên thuốc, hoạt chất..."
+                type="search"
+              />
+              <select
+                id="thuoc-status-filter"
+                class="bg-surface-container-low border border-slate-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
+              >
+                <option value="all">Tất cả trạng thái</option>
+                <option value="active">Đang kinh doanh</option>
+                <option value="inactive">Ngừng kinh doanh</option>
+                <option value="low-stock">Tồn kho thấp</option>
+                <option value="expiring">Sắp hết hạn</option>
+              </select>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse min-w-[980px]">
+              <thead>
+                <tr class="bg-surface-container-low">
+                  <th
+                    class="px-6 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em]"
+                  >
+                    Thuốc
+                  </th>
+                  <th
+                    class="px-4 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em]"
+                  >
+                    Danh mục
+                  </th>
+                  <th
+                    class="px-4 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em]"
+                  >
+                    Giá bán
+                  </th>
+                  <th
+                    class="px-4 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em]"
+                  >
+                    Tồn kho
+                  </th>
+                  <th
+                    class="px-4 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em]"
+                  >
+                    HSD gần nhất
+                  </th>
+                  <th
+                    class="px-4 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em]"
+                  >
+                    Trạng thái
+                  </th>
+                  <th
+                    class="px-6 py-4 text-[11px] font-extrabold text-outline uppercase tracking-[0.1em] text-right"
+                  >
+                    Thao tác
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="thuoc-table-body" class="divide-y divide-slate-100">
+                <tr>
+                  <td colspan="7" class="px-6 py-10 text-center text-slate-500">
+                    Đang tải dữ liệu thuốc...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            class="px-6 py-4 bg-surface-container-low/50 flex flex-col gap-2 md:flex-row md:items-center md:justify-between text-sm"
+          >
+            <div
+              id="thuoc-table-summary"
+              class="text-on-surface-variant font-medium"
+            >
+              Chưa có dữ liệu.
+            </div>
+            <div id="thuoc-table-meta" class="text-outline font-semibold">
+              Kết nối trực tiếp với cơ sở dữ liệu
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div
+      id="thuoc-modal"
+      class="fixed inset-0 z-[60] bg-inverse-surface/40 backdrop-blur-sm hidden items-center justify-center p-6"
+    >
+      <div
+        class="bg-surface-bright w-full max-w-4xl rounded-3xl shadow-2xl overflow-hidden border border-white/20"
+      >
+        <div
+          class="p-6 border-b border-slate-100 flex justify-between items-center"
+        >
+          <div>
+            <h2 id="thuoc-modal-title" class="text-2xl font-bold">
+              Thêm thuốc mới
+            </h2>
+            <p class="text-sm text-on-surface-variant mt-1">
+              Thông tin thuốc sẽ được lưu trực tiếp vào cơ sở dữ liệu.
+            </p>
+          </div>
+          <button
+            id="thuoc-modal-close"
+            class="p-2 hover:bg-slate-100 rounded-xl"
+            type="button"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <form id="thuoc-form" class="p-6 space-y-6">
+          <input id="thuoc-id" type="hidden" />
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Mã thuốc</label
+              >
+              <input
+                id="thuoc-ma"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                type="text"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Tên thuốc</label
+              >
+              <input
+                id="thuoc-ten"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                type="text"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Hoạt chất</label
+              >
+              <input
+                id="thuoc-hoat-chat"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                type="text"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Hàm lượng</label
+              >
+              <input
+                id="thuoc-ham-luong"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                type="text"
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Đơn vị tính</label
+              >
+              <input
+                id="thuoc-don-vi"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                type="text"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Giá bán</label
+              >
+              <input
+                id="thuoc-gia-ban"
+                min="0"
+                step="0.01"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                type="number"
+                required
+              />
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Danh mục</label
+              >
+              <select
+                id="thuoc-danh-muc"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                required
+              >
+                <option value="">Chọn danh mục</option>
+              </select>
+            </div>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Danh mục mới (nếu cần)</label
+              >
+              <input
+                id="thuoc-danh-muc-moi"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                placeholder="Ví dụ: Kháng sinh"
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <label
+              class="flex items-center gap-3 rounded-2xl bg-surface-container-low px-4 py-3 cursor-pointer"
+            >
+              <input
+                id="thuoc-can-don"
+                class="rounded border-slate-300 text-primary focus:ring-primary/20"
+                type="checkbox"
+              />
+              <span>
+                <span class="block font-bold">Thuốc kê đơn</span>
+                <span class="block text-sm text-on-surface-variant"
+                  >Bật nếu thuốc chỉ bán khi có đơn.</span
+                >
+              </span>
+            </label>
+            <div>
+              <label
+                class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                >Trạng thái kinh doanh</label
+              >
+              <select
+                id="thuoc-trang-thai"
+                class="w-full px-4 py-3 bg-surface-container-low border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+              >
+                <option value="true">Đang kinh doanh</option>
+                <option value="false">Ngừng kinh doanh</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-surface-container-low p-5 space-y-4">
+            <div>
+              <h3 class="text-lg font-bold">Thông tin lô tồn kho</h3>
+              <p class="text-sm text-on-surface-variant">
+                Khi tạo thuốc mới hoặc cập nhật thuốc, bạn có thể thêm một lô
+                nhập kho mới.
+              </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+              <div>
+                <label
+                  class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                  >Số lô</label
+                >
+                <input
+                  id="thuoc-so-lo"
+                  class="w-full px-4 py-3 bg-white border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                  type="text"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                  >Hạn sử dụng</label
+                >
+                <input
+                  id="thuoc-han-su-dung"
+                  class="w-full px-4 py-3 bg-white border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                  type="date"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                  >Số lượng tồn</label
+                >
+                <input
+                  id="thuoc-so-luong-ton"
+                  min="0"
+                  class="w-full px-4 py-3 bg-white border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                  type="number"
+                />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-extrabold text-outline uppercase tracking-widest mb-2"
+                  >Giá nhập</label
+                >
+                <input
+                  id="thuoc-gia-nhap"
+                  min="0"
+                  step="0.01"
+                  class="w-full px-4 py-3 bg-white border border-outline-variant/20 rounded-xl focus:ring-2 focus:ring-primary/20 outline-none"
+                  type="number"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-3 pt-2">
+            <p
+              id="thuoc-form-message"
+              class="text-sm text-on-surface-variant"
+            ></p>
+            <div class="flex items-center gap-3">
+              <button
+                id="thuoc-modal-cancel"
+                class="px-5 py-3 font-bold text-on-surface-variant hover:text-on-surface transition-colors"
+                type="button"
+              >
+                Hủy
+              </button>
+              <button
+                id="thuoc-submit-btn"
+                class="px-8 py-3 bg-primary text-on-primary font-bold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] transition-all"
+                type="submit"
+              >
+                Lưu thuốc
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="js/staff_common.js"></script>
+    <script src="js/quan_ly_thuoc.js"></script>
+  </body>
+</html>

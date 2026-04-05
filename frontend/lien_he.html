@@ -1,0 +1,352 @@
+<!doctype html>
+
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Liên hệ - Nhà Thuốc Chưa Biết</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#d3e4fe",
+              primary: "#006c49",
+              background: "#f8f9ff",
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary-fixed": "#410005",
+              "on-primary-container": "#00422b",
+              "inverse-primary": "#4edea3",
+              "on-surface-variant": "#3c4a42",
+              "surface-container-high": "#dce9ff",
+              "primary-fixed-dim": "#4edea3",
+              "on-secondary-container": "#fefcff",
+              "on-primary-fixed": "#002113",
+              tertiary: "#a43a3a",
+              "secondary-container": "#2170e4",
+              "surface-container-lowest": "#ffffff",
+              "inverse-on-surface": "#eaf1ff",
+              outline: "#6c7a71",
+              error: "#ba1a1a",
+              "tertiary-fixed": "#ffdad7",
+              "inverse-surface": "#213145",
+              "surface-container": "#e5eeff",
+              "surface-bright": "#f8f9ff",
+              "surface-container-low": "#eff4ff",
+              "primary-fixed": "#6ffbbe",
+              "primary-container": "#10b981",
+              surface: "#f8f9ff",
+              "on-primary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-surface": "#0b1c30",
+              "outline-variant": "#bbcabf",
+              "on-background": "#0b1c30",
+              "secondary-fixed": "#d8e2ff",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#005236",
+              "on-secondary": "#ffffff",
+              "secondary-fixed-dim": "#adc6ff",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed-variant": "#842225",
+              "on-secondary-fixed": "#001a42",
+              "surface-tint": "#006c49",
+              secondary: "#0058be",
+              "on-tertiary-container": "#711419",
+              "tertiary-fixed-dim": "#ffb3af",
+              "surface-dim": "#cbdbf5",
+              "tertiary-container": "#fc7c78",
+              "on-secondary-fixed-variant": "#004395",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .glass-nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .brand-font {
+        font-family: "Manrope", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <header class="fixed top-0 w-full z-50 h-[80px] bg-white/80 backdrop-blur-md shadow-sm">
+      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between w-full h-full">
+        <div class="flex items-center gap-12">
+          <a class="text-2xl font-headline font-bold tracking-tighter text-slate-900" href="index.html">Nhà Thuốc Chưa Biết</a>
+          <nav class="hidden md:flex items-center gap-8 font-headline text-sm font-medium tracking-tight">
+            <a href="danh_muc.html?cat=thuoc" class="text-slate-600 hover:text-emerald-600 transition-colors">Thuốc</a>
+            <a href="danh_muc.html?cat=vitamin" class="text-slate-600 hover:text-emerald-600 transition-colors">Vitamin</a>
+            <a href="don_thuoc.html" class="text-slate-600 hover:text-emerald-600 transition-colors">Đơn thuốc</a>
+            <a href="gio_hang.html" class="text-slate-600 hover:text-emerald-600 transition-colors">Giỏ hàng</a>
+            <a href="khach_hang/don_hang_cua_toi.html" class="text-slate-600 hover:text-emerald-600 transition-colors">Đơn hàng</a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="hidden lg:flex items-center bg-emerald-50/50 px-4 py-2 rounded-full border border-outline-variant/20"><span class="material-symbols-outlined text-emerald-600 text-lg">search</span><input class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 outline-none" placeholder="Tìm kiếm sản phẩm..." type="text" /></div>
+          <div class="flex items-center gap-4 text-emerald-600"><button class="active:scale-95 transition-transform"><span class="material-symbols-outlined">headset_mic</span></button><a class="active:scale-95 transition-transform relative" href="gio_hang.html"><span class="material-symbols-outlined">shopping_cart</span><span class="absolute -top-1 -right-1 bg-tertiary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span></a><a class="active:scale-95 transition-transform flex items-center justify-center" href="khach_hang/thong_tin_ca_nhan.html"><span class="material-symbols-outlined">account_circle</span></a></div>
+        </div>
+      </div>
+    </header>
+    <main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <!-- Hero Section -->
+      <header class="mb-20 text-center md:text-left">
+        <span
+          class="inline-block px-4 py-1 rounded-full bg-primary-container/10 text-primary font-bold text-[0.6875rem] tracking-[0.05em] uppercase mb-4"
+          >Kết nối với chúng tôi</span
+        >
+        <h1
+          class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface mb-6"
+        >
+          Liên hệ với Nhà Thuốc Chưa Biết
+        </h1>
+        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+          Đội ngũ chuyên gia y tế của chúng tôi luôn sẵn sàng lắng nghe và hỗ
+          trợ mọi nhu cầu sức khỏe của bạn với sự tận tâm và chuyên nghiệp nhất.
+        </p>
+      </header>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
+        <!-- Contact Form Area -->
+        <div
+          class="lg:col-span-7 bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-sm border border-outline-variant/15"
+        >
+          <h2 class="text-2xl font-bold mb-8 text-on-surface">
+            Gửi tin nhắn cho chúng tôi
+          </h2>
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="block text-sm font-semibold text-on-surface/80"
+                  >Họ và tên</label
+                >
+                <input
+                  class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface"
+                  placeholder="Nguyễn Văn A"
+                  type="text"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="block text-sm font-semibold text-on-surface/80"
+                  >Email</label
+                >
+                <input
+                  class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface"
+                  placeholder="example@email.com"
+                  type="email"
+                />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface/80"
+                >Số điện thoại</label
+              >
+              <input
+                class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface"
+                placeholder="0123 456 789"
+                type="tel"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface/80"
+                >Vấn đề cần hỗ trợ</label
+              >
+              <select
+                class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface"
+              >
+                <option>Tư vấn sử dụng thuốc</option>
+                <option>Hỗ trợ đơn hàng</option>
+                <option>Góp ý dịch vụ</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="space-y-2">
+              <label class="block text-sm font-semibold text-on-surface/80"
+                >Nội dung tin nhắn</label
+              >
+              <textarea
+                class="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary text-on-surface"
+                placeholder="Bạn cần chúng tôi hỗ trợ điều gì?"
+                rows="5"
+              ></textarea>
+            </div>
+            <button
+              class="w-full py-4 bg-primary text-on-primary font-bold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+              type="submit"
+            >
+              Gửi Yêu Cầu Tư Vấn
+            </button>
+          </form>
+        </div>
+        <!-- Contact Info & Branches -->
+        <div class="lg:col-span-5 space-y-8">
+          <!-- Quick Info Cards -->
+          <div class="grid grid-cols-1 gap-4">
+            <div
+              class="flex items-start gap-6 p-6 bg-surface-container-low rounded-xl group hover:bg-white transition-colors duration-300"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary-container text-on-primary-container rounded-lg"
+              >
+                <span class="material-symbols-outlined" data-icon="call"
+                  >call</span
+                >
+              </div>
+              <div>
+                <p
+                  class="text-[0.6875rem] font-bold tracking-widest uppercase text-on-surface-variant mb-1"
+                >
+                  Hotline 24/7
+                </p>
+                <p class="text-xl font-bold text-on-surface">1900 123 456</p>
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-6 p-6 bg-surface-container-low rounded-xl group hover:bg-white transition-colors duration-300"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-secondary-container text-on-secondary-container rounded-lg"
+              >
+                <span class="material-symbols-outlined" data-icon="mail"
+                  >mail</span
+                >
+              </div>
+              <div>
+                <p
+                  class="text-[0.6875rem] font-bold tracking-widest uppercase text-on-surface-variant mb-1"
+                >
+                  Email hỗ trợ
+                </p>
+                <p class="text-xl font-bold text-on-surface">
+                  support@clinical.vn
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Branches -->
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-on-surface">
+              Hệ thống chi nhánh
+            </h3>
+            <div class="space-y-4">
+              <div
+                class="p-6 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10"
+              >
+                <p class="font-bold text-primary mb-2">
+                  Chi nhánh Quận 1 (Trụ sở chính)
+                </p>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-3">
+                  123 Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh
+                </p>
+                <div
+                  class="flex items-center gap-2 text-sm font-semibold text-secondary"
+                >
+                  <span
+                    class="material-symbols-outlined text-sm"
+                    data-icon="schedule"
+                    >schedule</span
+                  >
+                  08:00 - 22:00 (Hàng ngày)
+                </div>
+              </div>
+              <div
+                class="p-6 bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/10"
+              >
+                <p class="font-bold text-primary mb-2">Chi nhánh Quận 7</p>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-3">
+                  456 Nguyễn Văn Linh, Phường Tân Phong, Quận 7, TP. Hồ Chí Minh
+                </p>
+                <div
+                  class="flex items-center gap-2 text-sm font-semibold text-secondary"
+                >
+                  <span
+                    class="material-symbols-outlined text-sm"
+                    data-icon="schedule"
+                    >schedule</span
+                  >
+                  08:00 - 21:00 (Hàng ngày)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Maps Section -->
+      <section class="mt-24">
+        <div
+          class="rounded-2xl overflow-hidden shadow-2xl shadow-on-surface/5 h-[500px] relative bg-surface-container"
+        >
+          <img
+            class="w-full h-full object-cover grayscale-[0.5] contrast-[1.1] brightness-[0.9]"
+            data-alt="high quality satellite map view of urban city grid with modern buildings and green parks in soft daylight"
+            data-location="Ho Chi Minh City"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1vmc31a-ig_ZMsMRJp460gYz3Dyn2TXDaxwg1LMTqrcwURjiglZ0ATBIICL-Flj8VGYkvBAhf_11MTbbgq53QBy4Y-XlpZMgjYa3dnvKb5xvoWcha0K2Lf9mlcPGogZebxBFEvhzvUkJNhpFZy55mb26kiG6FmIU_erefrWf3tC-BKmytFmsx-pbaLp0RvfdX9fNNTFAIDqgKDGsbFqpvr7v4NLZMTaWrV67WKeUI3ix4eF2Ge6E36Jz9Pumkgch4L3Cwrpu3xkBJ"
+          />
+          <div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+          <div
+            class="absolute bottom-8 left-8 bg-white p-6 rounded-xl shadow-xl max-w-xs"
+          >
+            <div class="flex items-center gap-3 mb-3">
+              <div class="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+              <span class="text-sm font-bold text-on-surface"
+                >Đang hoạt động</span
+              >
+            </div>
+            <p class="text-sm text-on-surface-variant">
+              Tất cả chi nhánh đều đang mở cửa phục vụ quý khách.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-slate-900 w-full py-16 border-t border-slate-800 mt-24">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm leading-relaxed">
+        <div><span class="text-xl font-headline font-bold text-white mb-6 block">Nhà Thuốc Chưa Biết</span><p class="text-slate-400 mb-6">Hệ thống dược phẩm chuyên môn hóa, cung cấp giải pháp chăm sóc sức khỏe toàn diện với tiêu chuẩn lâm sàng khắt khe.</p><div class="flex gap-4"><a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">public</span></a><a href="#" class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">share</span></a></div></div>
+        <div><h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Về chúng tôi</h4><ul class="space-y-4"><li><a href="gioi_thieu.html" class="text-slate-400 hover:text-emerald-300 transition-colors">Giới thiệu</a></li><li><a href="lien_he.html" class="text-slate-400 hover:text-emerald-300 transition-colors">Liên hệ</a></li><li><a href="#" class="text-slate-400 hover:text-emerald-300 transition-colors">Chính sách bảo mật</a></li><li><a href="#" class="text-slate-400 hover:text-emerald-300 transition-colors">Điều khoản dịch vụ</a></li></ul></div>
+        <div><h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Hỗ trợ khách hàng</h4><ul class="space-y-4"><li><a href="thanh_toan.html" class="text-slate-400 hover:text-emerald-300 transition-colors">Thông tin giao hàng</a></li><li><a href="#" class="text-slate-400 hover:text-emerald-300 transition-colors">Chính sách đổi trả</a></li><li><a href="khach_hang/don_hang_cua_toi.html" class="text-slate-400 hover:text-emerald-300 transition-colors">Tra cứu đơn hàng</a></li><li><a href="cau_hoi_thuong_gap.html" class="text-slate-400 hover:text-emerald-300 transition-colors">Câu hỏi thường gặp</a></li></ul></div>
+        <div><h4 class="text-white font-bold mb-6 uppercase tracking-widest text-xs">Đăng ký bản tin</h4><p class="text-slate-400 mb-4">Nhận thông tin y tế mới nhất và ưu đãi đặc quyền.</p><div class="flex gap-2 p-1 bg-slate-800 rounded-lg"><input class="bg-transparent border-none focus:ring-0 text-white text-xs flex-1 px-3" placeholder="Email của bạn" type="email" /><button class="bg-emerald-600 text-white px-4 py-2 rounded-md text-xs font-bold hover:bg-emerald-500 transition-colors">GỬI</button></div></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center"><p class="text-slate-500 text-xs">© 2026 Nhà Thuốc Chưa Biết. Bảo lưu mọi quyền.</p></div>
+    </footer>
+  </body>
+</html>

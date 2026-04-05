@@ -1,0 +1,1568 @@
+<!doctype html>
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#2170e4",
+              surface: "#f8f9ff",
+              "on-tertiary-fixed": "#410005",
+              "on-tertiary-fixed-variant": "#842225",
+              "surface-container-high": "#dce9ff",
+              "surface-tint": "#006c49",
+              outline: "#6c7a71",
+              "primary-container": "#10b981",
+              "secondary-fixed-dim": "#adc6ff",
+              "tertiary-fixed": "#ffdad7",
+              "on-surface-variant": "#3c4a42",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#d3e4fe",
+              primary: "#006c49",
+              "on-primary-fixed-variant": "#005236",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-variant": "#d3e4fe",
+              "on-tertiary-container": "#711419",
+              "error-container": "#ffdad6",
+              "outline-variant": "#bbcabf",
+              "inverse-primary": "#4edea3",
+              "tertiary-container": "#fc7c78",
+              "surface-container": "#e5eeff",
+              error: "#ba1a1a",
+              "on-secondary-fixed": "#001a42",
+              background: "#f8f9ff",
+              "on-secondary-container": "#fefcff",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#213145",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#00422b",
+              "surface-dim": "#cbdbf5",
+              tertiary: "#a43a3a",
+              "surface-container-low": "#eff4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-background": "#0b1c30",
+              "tertiary-fixed-dim": "#ffb3af",
+              secondary: "#0058be",
+              "on-secondary-fixed-variant": "#004395",
+              "on-surface": "#0b1c30",
+              "on-primary-fixed": "#002113",
+              "secondary-fixed": "#d8e2ff",
+              "primary-fixed": "#6ffbbe",
+              "primary-fixed-dim": "#4edea3",
+              "surface-bright": "#f8f9ff",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+      }
+      body.page-ready {
+        opacity: 1;
+      }
+      body.page-exit {
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      h1,
+      h2,
+      h3,
+      .brand-font {
+        font-family: "Manrope", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 w-full z-50 h-[80px] bg-white/80 backdrop-blur-md shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-3 sm:px-6 flex items-center justify-between w-full h-full"
+      >
+        <div class="flex items-center gap-4 sm:gap-12">
+          <a
+            href="index.html"
+            class="text-lg sm:text-2xl font-headline font-bold tracking-tighter text-slate-900 whitespace-nowrap"
+            >Nhà Thuốc Chưa Biết</a
+          >
+          <!-- Mobile Hamburger Menu -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden flex flex-col gap-1.5 hover:opacity-70 transition-opacity"
+            aria-label="Menu"
+          >
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+            <span class="h-0.5 w-6 bg-slate-900 rounded-full"></span>
+          </button>
+          <nav
+            class="hidden md:flex items-center gap-4 lg:gap-8 font-headline text-sm font-medium tracking-tight"
+          >
+            <a
+              href="danh_muc.html?cat=thuoc"
+              data-nav="thuoc"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thuốc</a
+            >
+            <a
+              href="danh_muc.html?cat=vitamin"
+              data-nav="vitamin"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Vitamin</a
+            >
+            <div class="relative group">
+              <button
+                type="button"
+                class="inline-flex items-center gap-1 text-slate-600 hover:text-emerald-600 transition-colors"
+              >
+                Trang khác
+                <span class="material-symbols-outlined text-base"
+                  >expand_more</span
+                >
+              </button>
+              <div
+                class="absolute top-full left-0 mt-2 hidden group-hover:block group-focus-within:block w-52 bg-white border border-slate-200 rounded-lg shadow-lg p-2 z-50"
+              >
+                <a
+                  href="don_thuoc.html"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Tải lên đơn thuốc</a
+                >
+                <a
+                  href="danh_muc.html?cat=khuyen-mai"
+                  class="block px-3 py-2 rounded text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700"
+                  >Ưu đãi hôm nay</a
+                >
+              </div>
+            </div>
+            <a
+              href="danh_muc.html?cat=thiet-bi"
+              data-nav="thiet-bi"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Thiết bị</a
+            >
+            <a
+              href="danh_muc.html?cat=cham-soc"
+              data-nav="cham-soc"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Chăm sóc</a
+            >
+            <a
+              href="danh_muc.html?cat=khuyen-mai"
+              data-nav="khuyen-mai"
+              class="nav-link text-slate-600 hover:text-emerald-600 transition-colors"
+              >Khuyến mãi</a
+            >
+          </nav>
+        </div>
+        <div class="flex items-center gap-6">
+          <div
+            class="hidden lg:flex items-center bg-emerald-50/50 px-4 py-2 rounded-full border border-outline-variant/20"
+          >
+            <span class="material-symbols-outlined text-emerald-600 text-lg"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-sm w-48 ml-2 outline-none"
+              placeholder="Tìm kiếm sản phẩm..."
+              type="text"
+            />
+          </div>
+          <div class="flex items-center gap-4 text-emerald-600">
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">headset_mic</span>
+            </button>
+            <a
+              href="thanh_toan.html"
+              class="active:scale-95 transition-transform relative inline-flex"
+            >
+              <span class="material-symbols-outlined">shopping_cart</span>
+              <span
+                class="cart-badge absolute -top-1 -right-1 bg-tertiary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold"
+                >0</span
+              >
+            </a>
+            <button class="active:scale-95 transition-transform">
+              <span class="material-symbols-outlined">account_circle</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <nav
+      id="mobile-menu"
+      class="fixed top-[80px] left-0 right-0 z-40 bg-white/95 backdrop-blur-md hidden flex-col border-b border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto px-3 py-4 w-full space-y-2">
+        <a
+          href="danh_muc.html?cat=thuoc"
+          data-nav="thuoc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=vitamin"
+          data-nav="vitamin"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Vitamin</a
+        >
+        <div class="px-4 pt-2 text-[11px] font-bold text-slate-400 uppercase">
+          Trang khác
+        </div>
+        <a
+          href="don_thuoc.html"
+          class="block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Tải lên đơn thuốc</a
+        >
+        <a
+          href="danh_muc.html?cat=thiet-bi"
+          data-nav="thiet-bi"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Thiết bị</a
+        >
+        <a
+          href="danh_muc.html?cat=cham-soc"
+          data-nav="cham-soc"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Chăm sóc</a
+        >
+        <a
+          href="danh_muc.html?cat=khuyen-mai"
+          data-nav="khuyen-mai"
+          class="nav-link-mobile block px-4 py-2 text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 rounded transition-colors"
+          >Khuyến mãi</a
+        >
+      </div>
+    </nav>
+    <main class="pt-28 pb-24 max-w-7xl mx-auto px-6">
+      <!-- Breadcrumbs -->
+      <nav
+        class="flex items-center gap-2 mb-8 text-[10px] tracking-widest font-semibold text-on-surface-variant uppercase"
+      >
+        <a class="hover:text-primary transition-colors" href="index.html"
+          >Trang chủ</a
+        >
+        <span class="material-symbols-outlined text-xs">chevron_right</span>
+        <a class="hover:text-primary transition-colors" href="danh_muc.html"
+          >Danh mục thuốc</a
+        >
+        <span class="material-symbols-outlined text-xs">chevron_right</span>
+        <span class="text-primary">Multivitamin Premium Edition</span>
+      </nav>
+      <!-- Product Hero Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
+        <!-- Left: Gallery -->
+        <div class="lg:col-span-6 grid grid-cols-12 gap-4">
+          <div class="col-span-2 flex flex-col gap-4">
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-lg border-2 border-primary overflow-hidden cursor-pointer group"
+              data-gallery-thumb
+              role="button"
+              tabindex="0"
+              aria-label="Xem ảnh sản phẩm 1"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                data-alt="Ảnh cận cảnh mặt trước sản phẩm"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5QzrcI4k75OYXHm0FjDi13lZuTnxdc5eq4RWW5kEW8EDLw235bsgdBwXoAaR-GVvO0Ufl8WBd5Q4C-d-OPTa2HJ9LdMfSDXnh9Yf1MIZV-vdWznTfC5YkbC90_Wkr_FF5ts4C58Xwf_Hup6W7i6mjxdx5Gl393DRwcnhJ-W0sEvQJg1Hd7VN_IHL7Ar334pofWV7_Y6ydpwQI_Pk8jkyZKxZPOU_v8EvDirAdSDdJ_NVmYduU94BcdNMW_ycldJikRtE0IN_x30Xw"
+              />
+            </div>
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-lg border-2 border-transparent overflow-hidden cursor-pointer group"
+              data-gallery-thumb
+              role="button"
+              tabindex="0"
+              aria-label="Xem ảnh sản phẩm 2"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                data-alt="Ảnh nhãn thành phần sản phẩm"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc17bPqVnhEG1xGm21TAxTYsCxkTPVu05b5Teh6xtCylGOi9koQmwN75AwcsDUOxLaasNLdJ9GHUB7NsHM5e2O3rKx54_3STQADYTJi12OnIabmzLwEAreuyIUaP7cTJzJ3QJ7tGeopW-XOzJ4kUnA7XARH26PnjMoyx68RidRV2t7oik7GPkcgdOAPsCXPUqvN-X_sUPVBjl5HoVfd2ppz51RxIMIOQICf4Hy1aUUUEbFFvWDj6LBAED14iBI6V0Y8iONxyf7T7wq"
+              />
+            </div>
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-lg border-2 border-transparent overflow-hidden cursor-pointer group"
+              data-gallery-thumb
+              role="button"
+              tabindex="0"
+              aria-label="Xem ảnh sản phẩm 3"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                data-alt="Ảnh phong cách sống cùng sản phẩm"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzFnGUBPj0jyQoXxUGdC97zyhmeqsoIajaX299GlV72SaQAQx3vJKiSOmovuBV95DBN1mbneSe9eI0dci92mgU9vmzmrd0bSzFkbrRfAnmJ4asl5v7A-rPwk0vYt4plV1Xyx_9phBJDRctFBcc5q1fH3H3y0aPYkRYqmi03qoaK5d3rWOzpUtSVYPnhwST016d7tfnAhctDDWwJuj3Ycu4LcHM7KwGeiBXpLGYx8-c_WHFKtlCiPhyVq92Q9S-RmRLo8tBjjuyhJBE"
+              />
+            </div>
+          </div>
+          <div class="col-span-10">
+            <div
+              class="aspect-[4/5] bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm"
+            >
+              <img
+                id="product-main-image"
+                class="w-full h-full object-cover"
+                data-alt="Ảnh chi tiết sản phẩm multivitamin"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcRHO0pyBfV14oFVvsmyXnqfVbuhxbZC7uvsBnE0co9p2xS16AYoGcZ5aCfWEn2ZvLIIyIWMIj2bSuijByQIVWktFuJPnLxCuTd93IhioG3HWCcf5IMD0l-gfM1vfeDlYOjTlol9rGbWDun7VVSsXNsjoObjSGCPGt2leOuUR1Yo3ZDl7Y_Fxx9merx0dU2roENulj8Pa99_KyOPgyOK4by5vPJFfUrAB5Z_3gfIr_FtdF2uteq2APRGdZ5TQG_-twM9lSzhaePcrp"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Right: Details -->
+        <div class="lg:col-span-6">
+          <div class="mb-4 flex items-center gap-3">
+            <span
+              class="bg-primary-fixed text-on-primary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase"
+              >Còn hàng</span
+            >
+            <span
+              class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase"
+              >Có thuốc thay thế</span
+            >
+          </div>
+          <h1
+            class="text-4xl font-extrabold text-on-surface mb-4 tracking-tight leading-tight"
+          >
+            Multivitamin Premium Edition: Phục Hồi Tế Bào Chuyên Sâu
+          </h1>
+          <div class="flex items-center gap-4 mb-6">
+            <div class="flex text-amber-400">
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 1"
+                >star</span
+              >
+              <span
+                class="material-symbols-outlined"
+                style="font-variation-settings: &quot;FILL&quot; 0"
+                >star</span
+              >
+            </div>
+            <span class="text-sm font-medium text-on-surface-variant"
+              >(124 Đánh giá từ người dùng)</span
+            >
+          </div>
+          <div
+            class="mb-8 p-6 bg-surface-container-low rounded-xl border border-outline-variant/10"
+          >
+            <div class="flex items-baseline gap-4 mb-2">
+              <span
+                class="text-4xl font-extrabold text-primary tracking-tighter"
+                >1.250.000đ</span
+              >
+              <span
+                class="text-xl text-on-surface-variant line-through decoration-tertiary/40"
+                >1.450.000đ</span
+              >
+            </div>
+            <p class="text-xs text-on-surface-variant">
+              Giá đã bao gồm thuế VAT và phí tư vấn dược sĩ
+            </p>
+          </div>
+          <div class="flex flex-col gap-6 mb-10">
+            <div class="flex items-center gap-6">
+              <span class="text-sm font-bold text-on-surface-variant w-24"
+                >Số lượng:</span
+              >
+              <div
+                class="flex items-center bg-white border border-outline-variant rounded-lg p-1"
+              >
+                <button
+                  type="button"
+                  data-qty-action="decrease"
+                  class="w-10 h-10 flex items-center justify-center hover:bg-surface-container transition-colors rounded"
+                  aria-label="Giảm số lượng"
+                >
+                  <span class="material-symbols-outlined text-sm">remove</span>
+                </button>
+                <input
+                  id="product-qty-input"
+                  class="w-14 text-center border-none focus:ring-0 font-bold text-on-surface bg-transparent"
+                  type="number"
+                  min="1"
+                  step="1"
+                  inputmode="numeric"
+                  aria-label="Số lượng sản phẩm"
+                  value="1"
+                />
+                <button
+                  type="button"
+                  data-qty-action="increase"
+                  class="w-10 h-10 flex items-center justify-center hover:bg-surface-container transition-colors rounded"
+                  aria-label="Tăng số lượng"
+                >
+                  <span class="material-symbols-outlined text-sm">add</span>
+                </button>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <button
+                class="bg-secondary text-white py-4 px-8 rounded-lg font-bold text-sm tracking-wide hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-secondary/20 flex items-center justify-center gap-2"
+              >
+                <span class="material-symbols-outlined">shopping_bag</span>
+                THÊM VÀO GIỎ
+              </button>
+              <button
+                class="bg-primary text-white py-4 px-8 rounded-lg font-bold text-sm tracking-wide hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary/20"
+              >
+                MUA NGAY
+              </button>
+            </div>
+          </div>
+          <div class="space-y-4 pt-8 border-t border-outline-variant/20">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-primary"
+                >verified_user</span
+              >
+              <span class="text-sm"
+                >Cam kết chính hãng 100%, nguồn gốc rõ ràng</span
+              >
+            </div>
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-primary"
+                >local_shipping</span
+              >
+              <span class="text-sm"
+                >Giao hàng hỏa tốc trong 2 giờ tại nội thành</span
+              >
+            </div>
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-primary"
+                >medical_services</span
+              >
+              <span class="text-sm">Tư vấn bởi dược sĩ chuyên môn 24/7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Information Tabs Section -->
+      <section class="mb-24">
+        <div
+          class="flex flex-wrap gap-2 border-b border-outline-variant/30 mb-12"
+          id="product-tabs"
+          role="tablist"
+          aria-label="Thông tin chi tiết sản phẩm"
+        >
+          <button
+            class="tab-button px-5 sm:px-8 py-4 text-sm font-bold border-b-2 border-primary text-primary transition-all"
+            data-tab-target="mo-ta"
+            id="tab-mo-ta"
+            role="tab"
+            type="button"
+            aria-controls="panel-mo-ta"
+            aria-selected="true"
+          >
+            Mô tả
+          </button>
+          <button
+            class="tab-button px-5 sm:px-8 py-4 text-sm font-medium text-on-surface-variant hover:text-primary transition-all"
+            data-tab-target="thanh-phan"
+            id="tab-thanh-phan"
+            role="tab"
+            type="button"
+            aria-controls="panel-thanh-phan"
+            aria-selected="false"
+          >
+            Thành phần
+          </button>
+          <button
+            class="tab-button px-5 sm:px-8 py-4 text-sm font-medium text-on-surface-variant hover:text-primary transition-all"
+            data-tab-target="huong-dan"
+            id="tab-huong-dan"
+            role="tab"
+            type="button"
+            aria-controls="panel-huong-dan"
+            aria-selected="false"
+          >
+            Hướng dẫn sử dụng
+          </button>
+          <button
+            class="tab-button px-5 sm:px-8 py-4 text-sm font-medium text-on-surface-variant hover:text-primary transition-all"
+            data-tab-target="danh-gia"
+            id="tab-danh-gia"
+            role="tab"
+            type="button"
+            aria-controls="panel-danh-gia"
+            aria-selected="false"
+          >
+            Đánh giá
+          </button>
+        </div>
+        <div class="grid lg:grid-cols-12 gap-12">
+          <div class="lg:col-span-8">
+            <div id="panel-mo-ta" role="tabpanel" aria-labelledby="tab-mo-ta">
+              <h3
+                class="text-2xl font-bold mb-6 text-on-surface"
+                id="product-desc-title"
+              >
+                Dinh Dưỡng Chính Xác Cho Cuộc Sống Hiện Đại
+              </h3>
+              <div
+                class="prose prose-slate max-w-none text-on-surface-variant leading-relaxed space-y-4"
+              >
+                <p>
+                  Được thiết kế với công nghệ bao gói vi nang tiên tiến,
+                  Multivitamin Premium Edition đảm bảo sự giải phóng dưỡng chất
+                  tối ưu tại đúng thời điểm cơ thể cần nhất. Công thức độc quyền
+                  kết hợp 24 loại vitamin và khoáng chất thiết yếu cùng với
+                  chiết xuất thảo dược quý hiếm.
+                </p>
+                <p>
+                  Sản phẩm hỗ trợ tăng cường hệ miễn dịch, cải thiện trí nhớ và
+                  cung cấp năng lượng bền bỉ cho cả ngày làm việc căng thẳng.
+                  Đặc biệt phù hợp cho người có lối sống năng động, người mới ốm
+                  dậy hoặc cần phục hồi sức khỏe nhanh chóng.
+                </p>
+              </div>
+              <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="p-6 bg-surface-container-low rounded-xl">
+                  <h4
+                    class="font-bold mb-3 text-primary flex items-center gap-2"
+                  >
+                    <span class="material-symbols-outlined text-sm"
+                      >shield</span
+                    >
+                    Tiêu chuẩn chất lượng
+                  </h4>
+                  <p
+                    class="text-sm text-on-surface-variant"
+                    id="product-quality-note"
+                  >
+                    Đạt chứng nhận GMP quốc tế và kiểm định nghiêm ngặt bởi Bộ Y
+                    Tế.
+                  </p>
+                </div>
+                <div class="p-6 bg-surface-container-low rounded-xl">
+                  <h4
+                    class="font-bold mb-3 text-primary flex items-center gap-2"
+                  >
+                    <span class="material-symbols-outlined text-sm"
+                      >ecg_heart</span
+                    >
+                    Hiệu quả lâm sàng
+                  </h4>
+                  <p
+                    class="text-sm text-on-surface-variant"
+                    id="product-benefit-note"
+                  >
+                    95% người dùng cảm thấy giảm mệt mỏi sau 7 ngày sử dụng liên
+                    tục.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="panel-thanh-phan"
+              class="hidden"
+              role="tabpanel"
+              aria-labelledby="tab-thanh-phan"
+            >
+              <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-3 text-on-surface">
+                  Thành phần nổi bật
+                </h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Thông tin thành phần mang tính tham khảo, vui lòng xem kỹ bao
+                  bì và tư vấn dược sĩ trước khi sử dụng.
+                </p>
+              </div>
+              <div class="grid gap-4" id="ingredients-list">
+                <div class="p-5 rounded-xl bg-surface-container-low">
+                  <p class="text-sm text-on-surface-variant">
+                    Đang cập nhật thành phần chi tiết cho sản phẩm này.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="panel-huong-dan"
+              class="hidden"
+              role="tabpanel"
+              aria-labelledby="tab-huong-dan"
+            >
+              <div class="mb-8">
+                <h3 class="text-2xl font-bold mb-3 text-on-surface">
+                  Hướng dẫn sử dụng
+                </h3>
+                <p class="text-on-surface-variant leading-relaxed">
+                  Nên dùng đúng liều khuyến cáo và tham khảo nhân viên y tế nếu
+                  bạn đang điều trị bệnh nền hoặc sử dụng thuốc khác.
+                </p>
+              </div>
+              <div class="space-y-4" id="usage-steps">
+                <div class="p-5 rounded-xl bg-surface-container-low">
+                  <p class="text-sm text-on-surface-variant">
+                    Đang cập nhật hướng dẫn sử dụng.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="panel-danh-gia"
+              class="hidden"
+              role="tabpanel"
+              aria-labelledby="tab-danh-gia"
+            >
+              <div class="flex flex-col md:flex-row md:items-start gap-6 mb-8">
+                <div
+                  class="p-6 rounded-2xl bg-surface-container-low min-w-[220px]"
+                >
+                  <div
+                    class="text-4xl font-extrabold text-primary tracking-tight"
+                    id="review-average"
+                  >
+                    4.8
+                  </div>
+                  <div class="flex text-amber-400 mt-2" id="review-stars"></div>
+                  <p
+                    class="text-sm text-on-surface-variant mt-3"
+                    id="review-count"
+                  >
+                    124 đánh giá đã xác minh
+                  </p>
+                </div>
+                <div
+                  class="flex-1 rounded-2xl border border-outline-variant/20 p-6"
+                >
+                  <h3 class="text-xl font-bold text-on-surface mb-2">
+                    Cảm nhận từ khách hàng
+                  </h3>
+                  <p class="text-on-surface-variant leading-relaxed">
+                    Các đánh giá bên dưới được hiển thị để bạn dễ tham khảo
+                    trước khi chọn mua.
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4" id="reviews-list">
+                <div class="p-5 rounded-xl bg-surface-container-low">
+                  <p class="text-sm text-on-surface-variant">
+                    Chưa có đánh giá chi tiết cho sản phẩm này.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="lg:col-span-4 bg-emerald-50/30 p-8 rounded-2xl border border-emerald-100"
+          >
+            <h4 class="text-lg font-bold mb-6 flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-600"
+                >info</span
+              >
+              Thông tin tóm tắt
+            </h4>
+            <ul class="space-y-4">
+              <li
+                class="flex justify-between text-sm py-2 border-b border-emerald-100/50"
+              >
+                <span class="text-on-surface-variant">Thương hiệu:</span>
+                <span class="font-bold">Clinical Bio-Science</span>
+              </li>
+              <li
+                class="flex justify-between text-sm py-2 border-b border-emerald-100/50"
+              >
+                <span class="text-on-surface-variant">Xuất xứ:</span>
+                <span class="font-bold">Đức</span>
+              </li>
+              <li
+                class="flex justify-between text-sm py-2 border-b border-emerald-100/50"
+              >
+                <span class="text-on-surface-variant">Quy cách:</span>
+                <span class="font-bold">Hộp 60 viên</span>
+              </li>
+              <li
+                class="flex justify-between text-sm py-2 border-b border-emerald-100/50"
+              >
+                <span class="text-on-surface-variant">Loại sản phẩm:</span>
+                <span class="font-bold">Viên nén bao phim</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Related Products (Bento Grid Style) -->
+      <section class="pt-24 border-t border-outline-variant/20">
+        <div class="flex items-end justify-between mb-12">
+          <div>
+            <span
+              class="text-[10px] font-bold tracking-widest text-primary uppercase mb-2 block"
+              >Lựa chọn hàng đầu</span
+            >
+            <h2 class="text-3xl font-extrabold tracking-tight">
+              Sản phẩm liên quan
+            </h2>
+          </div>
+          <button
+            class="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all"
+          >
+            Xem tất cả
+            <span class="material-symbols-outlined">arrow_right_alt</span>
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <!-- Product 1 -->
+          <div class="group">
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-xl mb-4 overflow-hidden relative shadow-sm transition-shadow hover:shadow-lg"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="Viên nang dầu cá Omega 3"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEfzDXMVp41g_1vjS_EtNJErY2Awyg_nLm4Qp1Z5TXw2hEYx5G1LKqFzvRtJ6y8Rcm-uogR5W6EI4btZ0avV59z9ou1J_ohwhqtkm-echnKmXt6ItCUiYJdNNYlbihatSA41Klo_lq01wHIDLstMFZle_z6m4YOKkpF0Ad23g5ncHh8s5yd8WOBrgVP7hTpR1HZ0jPgVIGiPMoMU-LIfemsqMVnL_VJrYp-gYi0U98HrnrvGCagYhpN3S9lVte934X6GRbTSeHZ8-T"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="w-8 h-8 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+            <h4
+              class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+            >
+              Omega-3 Deep Sea Essence
+            </h4>
+            <p class="text-xs text-on-surface-variant mb-3">
+              Hỗ trợ trí não và thị lực
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-primary tracking-tight"
+                >450.000đ</span
+              >
+              <button
+                class="bg-surface-container-high p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div class="group">
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-xl mb-4 overflow-hidden relative shadow-sm transition-shadow hover:shadow-lg"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="Viên sủi Vitamin C"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa9bND0xSH0djJjDPzf7EcehnCNBf0r63m-PAaDOg7rJJq0_VJe3mgRGIlZZ13f6x84-r1bDVl7dzbgMcehckUFzcvQoc0q2YTbUEhvTB5NekEX65VuneC-am-FLSezSOhoSSbqs89eu_hCAe2JW9litaoI5UyUBeG7INJWQiPcZytLWpF_eG3UCTbS_dusLjOxOtiz89-gqCQXiO7WrOj4iONS0MsOJIyBf8E5N9_gDHy7vCFO-fhTSx8EKg6a1q6-VbO-ylVsEig"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="w-8 h-8 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+            <h4
+              class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+            >
+              Vitamin C 1000mg ZEST
+            </h4>
+            <p class="text-xs text-on-surface-variant mb-3">
+              Tăng đề kháng tức thì
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-primary tracking-tight"
+                >185.000đ</span
+              >
+              <button
+                class="bg-surface-container-high p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div class="group">
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-xl mb-4 overflow-hidden relative shadow-sm transition-shadow hover:shadow-lg"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="Thực phẩm bổ sung canxi cho xương"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNBBECF-qtlzCdiTPqBbxqEp6ZB5R885Hl18-JZbdIjcTKi7GQxiYOIrpwW8N_kgdOeYGpRHBpOE0XTCLwtluVIfZifvQiJjRQ6JiCwiArbjrB8zJxcqE8N2VR5n2PqqIiDFQvA4IjSG1vrNt58gNxs84F0SfusDiu3Ew8OQvgWoDgwrxeUGG_CPEWVallXWGhBvQuKodfdKg71zkc5hUOe42kJ5VAK5AJoOH9ikJwY6y6SihtXwkY7vhaGPAyOVu1LoWQ3Rfjg46S"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="w-8 h-8 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+            <h4
+              class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+            >
+              Calcium &amp; K2 Complex
+            </h4>
+            <p class="text-xs text-on-surface-variant mb-3">
+              Chắc khỏe xương khớp
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-primary tracking-tight"
+                >620.000đ</span
+              >
+              <button
+                class="bg-surface-container-high p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div class="group">
+            <div
+              class="aspect-square bg-surface-container-lowest rounded-xl mb-4 overflow-hidden relative shadow-sm transition-shadow hover:shadow-lg"
+            >
+              <img
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="Men vi sinh cho sức khỏe tiêu hóa"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0dWe_B1AvuxT5mab_aiwrFmopAJ8XkSlF1RLuS2dlKjlmAiGzi2dr_8TTVUi1Kgm7w1IH0cFUvyKrK8KappKD6lmBF0Hxra2uuSdpV8afrDTxal9fyn_NM8PYUd-eRHjJEDbFdcpc2TFMIq5q0UJXulJ0BSAJf4_TagHkO1ci-XKYsim41KNwSVzuYfg4XZ874eAKYe2d3f3de6oZRDtKYSVqVD1PpRtuVLMgAkHlZsJQEWBbIlxr8BWVrLSYaUeBRMBJSEHUo1WQ"
+              />
+              <div class="absolute top-3 right-3">
+                <button
+                  class="w-8 h-8 rounded-full bg-white/90 backdrop-blur shadow-sm flex items-center justify-center text-on-surface-variant hover:text-tertiary transition-colors"
+                >
+                  <span class="material-symbols-outlined text-lg"
+                    >favorite</span
+                  >
+                </button>
+              </div>
+            </div>
+            <h4
+              class="font-bold text-sm mb-1 group-hover:text-primary transition-colors"
+            >
+              Probiotic Daily Balance
+            </h4>
+            <p class="text-xs text-on-surface-variant mb-3">
+              Cân bằng hệ vi sinh đường ruột
+            </p>
+            <div class="flex items-center justify-between">
+              <span class="font-extrabold text-primary tracking-tight"
+                >390.000đ</span
+              >
+              <button
+                class="bg-surface-container-high p-2 rounded-lg text-primary hover:bg-primary hover:text-white transition-all"
+              >
+                <span class="material-symbols-outlined text-sm"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-900 w-full py-16 border-t border-slate-800">
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 font-inter text-sm leading-relaxed"
+      >
+        <div class="col-span-1">
+          <span class="text-xl font-bold text-white mb-6 block"
+            >Nhà Thuốc Chưa Biết</span
+          >
+          <p class="text-slate-400 mb-6">
+            Hệ thống dược phẩm chuyên môn hóa, cung cấp giải pháp chăm sóc sức
+            khỏe toàn diện với tiêu chuẩn lâm sàng khắt khe.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              href="#"
+              ><span class="material-symbols-outlined text-lg">public</span></a
+            >
+            <a
+              class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition-all"
+              href="#"
+              ><span class="material-symbols-outlined text-lg">share</span></a
+            >
+          </div>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Về chúng tôi
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Giới thiệu</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Liên hệ</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Chính sách bảo mật</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Điều khoản dịch vụ</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Hỗ trợ khách hàng
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Thông tin giao hàng</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Chính sách đổi trả</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Tra cứu đơn hàng</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-slate-400 hover:text-emerald-300 transition-colors"
+                href="#"
+                >Câu hỏi thường gặp</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4
+            class="text-white font-bold mb-6 uppercase tracking-widest text-xs"
+          >
+            Đăng ký bản tin
+          </h4>
+          <p class="text-slate-400 mb-4">
+            Nhận thông tin y tế mới nhất và ưu đãi đặc quyền.
+          </p>
+          <div class="flex gap-2 p-1 bg-slate-800 rounded-lg">
+            <input
+              class="bg-transparent border-none focus:ring-0 text-white text-xs flex-1 px-3"
+              placeholder="Email của bạn"
+              type="email"
+            />
+            <button
+              class="bg-emerald-600 text-white px-4 py-2 rounded-md text-xs font-bold hover:bg-emerald-500 transition-colors"
+            >
+              GỬI
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center"
+      >
+        <p class="text-slate-500 text-xs">
+          © 2026 Nhà Thuốc Chưa Biết. Bảo lưu mọi quyền.
+        </p>
+      </div>
+    </footer>
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script>
+      let currentProductId = "";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        requestAnimationFrame(() => document.body.classList.add("page-ready"));
+        renderChiTietTheoId();
+        capNhatNavbar();
+        capNhatSoLuongGio(laySoLuongGio());
+        document.querySelectorAll("a[href]").forEach((link) => {
+          const href = link.getAttribute("href");
+          if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("http") ||
+            href.startsWith("mailto")
+          )
+            return;
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            document.body.classList.remove("page-ready");
+            document.body.classList.add("page-exit");
+            setTimeout(() => {
+              window.location.href = href;
+            }, 260);
+          });
+        });
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            mobileMenu.classList.toggle("flex");
+          });
+          mobileMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.add("hidden");
+              mobileMenu.classList.remove("flex");
+            });
+          });
+        }
+      });
+      function laySoLuongGio() {
+        return window.CartStore ? window.CartStore.getCount() : 0;
+      }
+      function capNhatNavbar() {
+        document.querySelectorAll(".nav-link[data-nav]").forEach((link) => {
+          const id = link.dataset.nav;
+          if (id === "thuoc") {
+            link.classList.add(
+              "text-emerald-700",
+              "border-b-2",
+              "border-emerald-500",
+              "pb-1",
+            );
+            link.classList.remove(
+              "text-slate-600",
+              "hover:text-emerald-600",
+              "transition-colors",
+            );
+          }
+        });
+      }
+      function capNhatSoLuongGio(n) {
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          return;
+        }
+        document
+          .querySelectorAll(".cart-badge")
+          .forEach((el) => (el.textContent = n));
+      }
+      function layInputSoLuong() {
+        return document.getElementById("product-qty-input");
+      }
+      function laySoLuongDangChon() {
+        const input = layInputSoLuong();
+        if (!input) return 1;
+        const value = Number.parseInt(input.value, 10);
+        return Number.isFinite(value) && value > 0 ? value : 1;
+      }
+      function datSoLuongDangChon(nextValue) {
+        const input = layInputSoLuong();
+        if (!input) return 1;
+        const sanitized = Math.max(1, Number.parseInt(nextValue, 10) || 1);
+        input.value = String(sanitized);
+        return sanitized;
+      }
+      function khoiTaoBoDemSoLuong() {
+        const input = layInputSoLuong();
+        if (!input || input.dataset.qtyInit === "1") return;
+
+        input.dataset.qtyInit = "1";
+        datSoLuongDangChon(input.value);
+
+        document
+          .querySelectorAll(
+            "[data-qty-action='decrease'], [data-qty-action='increase']",
+          )
+          .forEach((button) => {
+            button.addEventListener("click", () => {
+              const current = laySoLuongDangChon();
+              const delta = button.dataset.qtyAction === "increase" ? 1 : -1;
+              datSoLuongDangChon(current + delta);
+            });
+          });
+
+        input.addEventListener("input", () => {
+          const digits = input.value.replace(/[^0-9]/g, "");
+          input.value = digits;
+        });
+
+        input.addEventListener("blur", () => {
+          datSoLuongDangChon(input.value);
+        });
+      }
+      function khoiTaoTabsChiTiet() {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const panels = document.querySelectorAll('[role="tabpanel"]');
+        if (!tabButtons.length || !panels.length) return;
+
+        const setActiveTab = (target) => {
+          tabButtons.forEach((button) => {
+            const isActive = button.dataset.tabTarget === target;
+            button.setAttribute("aria-selected", String(isActive));
+            button.classList.toggle("border-primary", isActive);
+            button.classList.toggle("text-primary", isActive);
+            button.classList.toggle("font-bold", isActive);
+            button.classList.toggle("font-medium", !isActive);
+            button.classList.toggle("text-on-surface-variant", !isActive);
+            if (!isActive) {
+              button.classList.remove("border-b-2");
+            } else {
+              button.classList.add("border-b-2");
+            }
+          });
+
+          panels.forEach((panel) => {
+            panel.classList.toggle("hidden", panel.id !== `panel-${target}`);
+          });
+        };
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () =>
+            setActiveTab(button.dataset.tabTarget),
+          );
+        });
+
+        setActiveTab("mo-ta");
+      }
+      function taoDanhSachThanhPhan(product) {
+        const macDinh = [
+          {
+            name: product.category || "Hoạt chất chính",
+            detail: `Phù hợp với nhóm ${(
+              product.category || "sản phẩm chăm sóc sức khỏe"
+            ).toLowerCase()}.`,
+          },
+          {
+            name: product.form || "Dạng bào chế tiện dùng",
+            detail: `Thiết kế ở dạng ${(
+              product.form || "dễ sử dụng"
+            ).toLowerCase()} giúp thuận tiện khi dùng hằng ngày.`,
+          },
+          {
+            name: "Tá dược vừa đủ",
+            detail:
+              "Giúp ổn định chất lượng sản phẩm và hỗ trợ bảo quản theo tiêu chuẩn nhà sản xuất.",
+          },
+        ];
+
+        return product.ingredients || macDinh;
+      }
+      function taoHuongDanSuDung(product) {
+        return (
+          product.usageSteps || [
+            `Đọc kỹ nhãn sản phẩm ${product.name} và kiểm tra hạn dùng trước khi sử dụng.`,
+            `Sử dụng theo liều lượng phù hợp với ${(
+              product.form || "dạng dùng"
+            ).toLowerCase()} và hướng dẫn của nhà sản xuất.`,
+            "Uống đúng thời điểm trong ngày, không tự ý tăng liều để tránh phát sinh tác dụng không mong muốn.",
+            "Nếu đang mang thai, cho con bú hoặc có bệnh nền, nên hỏi ý kiến bác sĩ/dược sĩ trước khi dùng.",
+          ]
+        );
+      }
+      function taoDanhGiaMau(product) {
+        const soDanhGia = product.reviews ?? 0;
+        return (
+          product.reviewItems || [
+            {
+              name: "Minh Anh",
+              time: "2 ngày trước",
+              rating: product.rating || 5,
+              comment: `Đóng gói đẹp, dễ dùng và đúng mô tả. Mình chọn ${product.name} vì thương hiệu ${product.brand} khá yên tâm.`,
+            },
+            {
+              name: "Quốc Bảo",
+              time: "1 tuần trước",
+              rating: Math.max(4, Math.round(product.rating || 4)),
+              comment: `Giao nhanh, sản phẩm nguyên vẹn. Phần hướng dẫn rõ ràng nên dùng khá tiện cho cả nhà.`,
+            },
+            {
+              name: "Thanh Trúc",
+              time: `${Math.max(2, Math.min(4, Math.floor(soDanhGia / 40) || 2))} tuần trước`,
+              rating: Math.max(4, Math.round(product.rating || 4)),
+              comment: `Mức giá hợp lý so với quy cách ${(
+                product.pack || "đóng gói"
+              ).toLowerCase()}. Sẽ cân nhắc mua lại khi dùng hết.`,
+            },
+          ]
+        );
+      }
+      function renderSoSao(rating) {
+        const rounded = Math.round(Number(rating) || 0);
+        return Array.from({ length: 5 }, (_, index) => {
+          const filled = index < rounded;
+          return `<span class="material-symbols-outlined ${filled ? "text-amber-400" : "text-slate-300"}" style="font-variation-settings: 'FILL' ${filled ? 1 : 0}">star</span>`;
+        }).join("");
+      }
+      function renderNoiDungTabs(product) {
+        const qualityNote = document.getElementById("product-quality-note");
+        const benefitNote = document.getElementById("product-benefit-note");
+        if (qualityNote) {
+          qualityNote.textContent = `Sản phẩm ${product.brand || ""} được phân phối với thông tin xuất xứ ${product.origin || "rõ ràng"} và phù hợp tiêu chuẩn bảo quản tại nhà thuốc.`;
+        }
+        if (benefitNote) {
+          benefitNote.textContent = `Dạng ${(
+            product.form || "sản phẩm"
+          ).toLowerCase()} giúp thuận tiện sử dụng cho nhu cầu ${(
+            product.category || "chăm sóc sức khỏe"
+          ).toLowerCase()}.`;
+        }
+
+        const ingredientsList = document.getElementById("ingredients-list");
+        if (ingredientsList) {
+          ingredientsList.innerHTML = taoDanhSachThanhPhan(product)
+            .map(
+              (item) => `
+                <div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/10">
+                  <div class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-primary mt-0.5">medication</span>
+                    <div>
+                      <h4 class="font-bold text-on-surface mb-1">${item.name}</h4>
+                      <p class="text-sm text-on-surface-variant leading-relaxed">${item.detail}</p>
+                    </div>
+                  </div>
+                </div>`,
+            )
+            .join("");
+        }
+
+        const usageSteps = document.getElementById("usage-steps");
+        if (usageSteps) {
+          usageSteps.innerHTML = taoHuongDanSuDung(product)
+            .map(
+              (step, index) => `
+                <div class="flex gap-4 p-5 rounded-xl bg-surface-container-low border border-outline-variant/10">
+                  <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">${index + 1}</div>
+                  <p class="text-sm text-on-surface-variant leading-relaxed pt-2">${step}</p>
+                </div>`,
+            )
+            .join("");
+        }
+
+        const reviewAverage = document.getElementById("review-average");
+        const reviewStars = document.getElementById("review-stars");
+        const reviewCount = document.getElementById("review-count");
+        if (reviewAverage) {
+          reviewAverage.textContent = Number(product.rating || 0).toFixed(1);
+        }
+        if (reviewStars) {
+          reviewStars.innerHTML = renderSoSao(product.rating || 0);
+        }
+        if (reviewCount) {
+          reviewCount.textContent = `${product.reviews ?? 0} đánh giá đã xác minh`;
+        }
+
+        const reviewsList = document.getElementById("reviews-list");
+        if (reviewsList) {
+          reviewsList.innerHTML = taoDanhGiaMau(product)
+            .map(
+              (review) => `
+                <article class="p-6 rounded-2xl border border-outline-variant/15 bg-white shadow-sm">
+                  <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+                    <div>
+                      <h4 class="font-bold text-on-surface">${review.name}</h4>
+                      <p class="text-xs tracking-wide uppercase text-on-surface-variant">${review.time}</p>
+                    </div>
+                    <div class="flex">${renderSoSao(review.rating)}</div>
+                  </div>
+                  <p class="text-sm text-on-surface-variant leading-relaxed">${review.comment}</p>
+                </article>`,
+            )
+            .join("");
+        }
+      }
+      function khoiTaoThuVienAnh(hero, product) {
+        const mainImage =
+          hero.querySelector("#product-main-image") ||
+          hero.querySelector(".col-span-10 img");
+        const thumbWrappers = hero.querySelectorAll("[data-gallery-thumb]");
+        const thumbImages = hero.querySelectorAll(".col-span-2 img");
+        if (!mainImage || !thumbWrappers.length || !thumbImages.length) return;
+
+        const setActiveThumb = (activeIndex) => {
+          thumbWrappers.forEach((wrapper, index) => {
+            const isActive = index === activeIndex;
+            wrapper.classList.toggle("border-primary", isActive);
+            wrapper.classList.toggle("border-transparent", !isActive);
+            wrapper.classList.toggle("shadow-lg", isActive);
+            wrapper.classList.toggle("shadow-primary/10", isActive);
+          });
+        };
+
+        thumbImages.forEach((thumb, index) => {
+          const wrapper = thumb.closest("[data-gallery-thumb]");
+          const updateMainImage = () => {
+            mainImage.src = thumb.src;
+            mainImage.alt = thumb.alt || product.name;
+            mainImage.setAttribute(
+              "data-alt",
+              thumb.getAttribute("data-alt") || `Ảnh sản phẩm ${product.name}`,
+            );
+            setActiveThumb(index);
+          };
+
+          if (wrapper) {
+            wrapper.onclick = updateMainImage;
+            wrapper.onkeydown = (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                updateMainImage();
+              }
+            };
+          }
+        });
+
+        setActiveThumb(0);
+      }
+      function renderChiTietTheoId() {
+        if (!Array.isArray(window.PRODUCTS) || window.PRODUCTS.length === 0) {
+          return;
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const productId = params.get("id");
+        const product =
+          window.PRODUCTS.find((item) => item.id === productId) ||
+          window.PRODUCTS[0];
+        if (!product) return;
+        currentProductId = product.id;
+
+        const hero = document.querySelector(
+          ".grid.grid-cols-1.lg\\:grid-cols-12.gap-16.items-start.mb-24",
+        );
+        if (!hero) return;
+
+        const breadcrumbProduct = document.querySelector(
+          "nav span.text-primary",
+        );
+        if (breadcrumbProduct) breadcrumbProduct.textContent = product.name;
+
+        const title = hero.querySelector("h1");
+        if (title) title.textContent = product.name;
+
+        const badges = hero.querySelectorAll(
+          ".mb-4.flex.items-center.gap-3 > span",
+        );
+        if (badges[1])
+          badges[1].textContent = product.statusAlt || "Có thuốc thay thế";
+
+        const priceNow = hero.querySelector(
+          ".text-4xl.font-extrabold.text-primary.tracking-tighter",
+        );
+        const priceOld = hero.querySelector(
+          ".text-xl.text-on-surface-variant.line-through.decoration-tertiary\\/40",
+        );
+        const formattedNow = window.formatVnd
+          ? window.formatVnd(product.price)
+          : `${Number(product.price).toLocaleString("vi-VN")}đ`;
+        const formattedOld = window.formatVnd
+          ? window.formatVnd(product.oldPrice)
+          : `${Number(product.oldPrice).toLocaleString("vi-VN")}đ`;
+        if (priceNow) priceNow.textContent = formattedNow;
+        if (priceOld) priceOld.textContent = formattedOld;
+
+        const ratingValue = hero.querySelector(
+          ".text-sm.font-medium.text-on-surface-variant",
+        );
+        if (ratingValue) {
+          ratingValue.textContent = `(${product.reviews ?? 0} Đánh giá từ người dùng)`;
+        }
+
+        const mainImage = hero.querySelector(".col-span-10 img");
+        if (mainImage) {
+          mainImage.src = product.image || product.cardImage;
+          mainImage.alt = product.name;
+          mainImage.setAttribute("data-alt", `Ảnh sản phẩm ${product.name}`);
+        }
+
+        const thumbImages = hero.querySelectorAll(".col-span-2 img");
+        thumbImages.forEach((thumb, index) => {
+          const thumbSrc =
+            product.thumbs?.[index] || product.image || product.cardImage;
+          thumb.src = thumbSrc;
+          thumb.alt = `${product.name} ${index + 1}`;
+          thumb.setAttribute("data-alt", `${product.name} - ảnh ${index + 1}`);
+        });
+
+        khoiTaoThuVienAnh(hero, product);
+
+        document
+          .querySelectorAll(
+            "button.bg-secondary, button.bg-primary.text-white.py-4, button.bg-surface-container-high",
+          )
+          .forEach((btn) => {
+            btn.dataset.productId = product.id;
+          });
+
+        const infoSection = document.querySelector("section.mb-24");
+        if (infoSection) {
+          const descTitle = infoSection.querySelector(
+            "h3.text-2xl.font-bold.mb-6.text-on-surface",
+          );
+          if (descTitle)
+            descTitle.textContent = product.descTitle || product.name;
+
+          const descParagraphs = infoSection.querySelectorAll(".prose p");
+          if (descParagraphs[0])
+            descParagraphs[0].textContent = product.desc1 || "";
+          if (descParagraphs[1])
+            descParagraphs[1].textContent = product.desc2 || "";
+
+          renderNoiDungTabs(product);
+
+          const summaryValues = infoSection.querySelectorAll(
+            ".lg\\:col-span-4 ul li span.font-bold",
+          );
+          if (summaryValues[0])
+            summaryValues[0].textContent = product.brand || "";
+          if (summaryValues[1])
+            summaryValues[1].textContent = product.origin || "";
+          if (summaryValues[2])
+            summaryValues[2].textContent = product.pack || "";
+          if (summaryValues[3])
+            summaryValues[3].textContent = product.form || "";
+        }
+      }
+      function themVaoGio(btn) {
+        const productId = btn?.dataset?.productId || currentProductId;
+        const quantity = btn ? 1 : laySoLuongDangChon();
+        if (!window.CartStore || !productId) {
+          hienThiThongBao("⚠ Không xác định được sản phẩm để thêm giỏ.");
+          return;
+        }
+        window.CartStore.add(productId, quantity);
+        hienThiThongBao(`✓ Đã thêm ${quantity} sản phẩm vào giỏ hàng!`);
+      }
+      function hienThiThongBao(msg) {
+        const existing = document.getElementById("cp-toast");
+        if (existing) existing.remove();
+        const t = document.createElement("div");
+        t.id = "cp-toast";
+        t.style.cssText =
+          "position:fixed;bottom:6rem;left:50%;transform:translateX(-50%);background:#1e293b;color:#fff;padding:0.75rem 1.5rem;border-radius:9999px;font-size:0.875rem;font-weight:700;box-shadow:0 10px 40px rgba(0,0,0,0.3);z-index:9999;transition:opacity 0.3s";
+        t.textContent = msg;
+        document.body.appendChild(t);
+        setTimeout(() => {
+          t.style.opacity = "0";
+          setTimeout(() => t.remove(), 300);
+        }, 2000);
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+        khoiTaoBoDemSoLuong();
+        khoiTaoTabsChiTiet();
+        const btnAddCart = document.querySelector("button.bg-secondary");
+        const btnBuyNow = document.querySelector(
+          "button.bg-primary.text-white.py-4",
+        );
+        if (btnAddCart)
+          btnAddCart.addEventListener("click", () => themVaoGio());
+        if (btnBuyNow)
+          btnBuyNow.addEventListener("click", () => {
+            themVaoGio();
+            setTimeout(() => {
+              window.location.href = "thanh_toan.html";
+            }, 300);
+          });
+        document
+          .querySelectorAll("button.bg-surface-container-high")
+          .forEach((btn) => {
+            btn.addEventListener("click", () => themVaoGio(btn));
+          });
+
+        if (window.CartStore) {
+          window.CartStore.syncCountBadges();
+          window.CartStore.initMiniCart();
+        }
+      });
+    </script>
+  </body>
+</html>

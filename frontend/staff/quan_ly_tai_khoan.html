@@ -1,0 +1,480 @@
+<!doctype html>
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Quản lý tài khoản - Nhà Thuốc Chưa Biết</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#d9e4ea",
+              "inverse-surface": "#0b0f10",
+              "tertiary-dim": "#564f6b",
+              "outline-variant": "#a9b4b9",
+              "error-container": "#fe8983",
+              "on-primary-fixed": "#003798",
+              "on-background": "#2a3439",
+              tertiary: "#625b77",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#5b5b5f",
+              "surface-dim": "#cfdce3",
+              "secondary-dim": "#535356",
+              "on-primary": "#f8f7ff",
+              "error-dim": "#4e0309",
+              "on-tertiary-container": "#4f4964",
+              "surface-container-high": "#e1e9ee",
+              surface: "#f7f9fb",
+              primary: "#0053db",
+              "primary-dim": "#0048c1",
+              "on-secondary-fixed": "#3f3f43",
+              "surface-bright": "#f7f9fb",
+              "on-secondary": "#faf8fc",
+              "on-primary-fixed-variant": "#0050d4",
+              "on-error": "#fff7f6",
+              "secondary-fixed": "#e4e2e6",
+              "on-tertiary-fixed-variant": "#59526e",
+              "primary-container": "#dbe1ff",
+              "on-surface": "#2a3439",
+              "secondary-fixed-dim": "#d5d3d8",
+              "on-secondary-container": "#515155",
+              "surface-container-low": "#f0f4f7",
+              "primary-fixed-dim": "#c7d3ff",
+              "inverse-primary": "#618bff",
+              "tertiary-fixed": "#dfd5f7",
+              "on-tertiary": "#fdf7ff",
+              outline: "#717c82",
+              "on-tertiary-fixed": "#3c3650",
+              "on-primary-container": "#0048bf",
+              secondary: "#5f5f62",
+              background: "#f7f9fb",
+              "primary-fixed": "#dbe1ff",
+              "surface-container-highest": "#d9e4ea",
+              "on-error-container": "#752121",
+              "on-surface-variant": "#566166",
+              "tertiary-fixed-dim": "#d0c7e8",
+              "inverse-on-surface": "#9a9d9f",
+              "surface-container": "#e8eff3",
+              "tertiary-container": "#dfd5f7",
+              error: "#9f403d",
+              "surface-tint": "#0053db",
+              "secondary-container": "#e4e2e6",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface selection:bg-primary/10">
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 bg-[#e8eff3] dark:bg-slate-900 flex flex-col py-8 z-50"
+    >
+      <div class="px-6 mb-10">
+        <h1
+          class="text-xl font-bold text-[#0053db] dark:text-white leading-tight"
+        >
+          Nhà Thuốc Chưa Biết
+        </h1>
+        <p
+          class="text-[10px] uppercase tracking-widest text-slate-500 font-bold mt-0.5"
+        >
+          Quản lý nhà thuốc
+        </p>
+      </div>
+      <nav
+        class="flex-1 space-y-1 font-['Manrope'] font-medium text-sm tracking-tight overflow-y-auto no-scrollbar max-h-[calc(100vh-240px)]"
+      >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="Dashboard.html"
+          ><span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          ><span>Dashboard</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="quan_ly_thuoc.html"
+          ><span class="material-symbols-outlined" data-icon="medication"
+            >medication</span
+          ><span>Quản lý thuốc</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="quan_ly_ton_kho.html"
+          ><span class="material-symbols-outlined" data-icon="inventory_2"
+            >inventory_2</span
+          ><span>Quản lý tồn kho</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="quan_ly_don_thuoc.html"
+          ><span class="material-symbols-outlined" data-icon="prescriptions"
+            >prescriptions</span
+          ><span>Quản lý đơn thuốc</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="lap_hoa_don.html"
+          ><span class="material-symbols-outlined" data-icon="receipt_long"
+            >receipt_long</span
+          ><span>Lập hóa đơn</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="danh_sach_hoa_don.html"
+          ><span
+            class="material-symbols-outlined"
+            data-icon="format_list_bulleted"
+            >format_list_bulleted</span
+          ><span>Danh sách hóa đơn</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="quan_ly_don_hang.html"
+          ><span class="material-symbols-outlined" data-icon="shopping_cart"
+            >shopping_cart</span
+          ><span>Quản lý đơn hàng</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="goi_y_AI.html"
+          ><span class="material-symbols-outlined" data-icon="psychology"
+            >psychology</span
+          ><span>Gợi ý AI</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-[#0053db] dark:text-blue-300 font-bold border-l-4 border-[#0053db] bg-white/50 dark:bg-white/5 py-3 px-6 translate-x-1 transition-transform duration-200"
+          href="quan_ly_tai_khoan.html"
+          ><span class="material-symbols-outlined" data-icon="account_circle"
+            >account_circle</span
+          ><span>Quản lý tài khoản</span></a
+        >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors"
+          href="Bao_cao_doanh_thu.html"
+          ><span class="material-symbols-outlined" data-icon="assessment"
+            >assessment</span
+          ><span>Báo cáo doanh thu</span></a
+        >
+      </nav>
+
+      <div class="mt-auto px-6 pt-6">
+        <div class="bg-primary/5 rounded-xl p-4">
+          <p class="text-[10px] font-bold text-primary uppercase mb-2">
+            Hệ thống nhà thuốc chưa biết
+          </p>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                data-icon="verified_user"
+                >verified_user</span
+              >
+            </div>
+            <span class="text-xs font-bold text-on-surface"
+              >V.1.0.0 Stable</span
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="ml-64 min-h-screen">
+      <header
+        class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100/50 flex justify-between items-center px-8"
+      >
+        <div class="flex items-center gap-4 flex-1">
+          <div class="relative w-96 group">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg"
+              >search</span
+            >
+            <input
+              class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
+              placeholder="Tìm kiếm báo cáo, thuốc hoặc mã giao dịch..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-3">
+            <button
+              class="p-2 hover:bg-slate-50 rounded-lg transition-all relative"
+            >
+              <span
+                class="material-symbols-outlined text-slate-600"
+                data-icon="notifications"
+                >notifications</span
+              >
+              <span
+                class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+              ></span>
+            </button>
+            <button class="p-2 hover:bg-slate-50 rounded-lg transition-all">
+              <span
+                class="material-symbols-outlined text-slate-600"
+                data-icon="settings"
+                >settings</span
+              >
+            </button>
+          </div>
+          <div class="h-8 w-[1px] bg-slate-100"></div>
+          <div class="flex items-center gap-3">
+            <div class="text-right">
+              <p class="text-xs font-bold text-on-surface">Staff Name</p>
+              <p class="text-[10px] text-outline">Quản trị viên</p>
+              <p class="text-[10px] text-outline">thoi gian phan hoi :</p>
+            </div>
+            <img
+              class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/10"
+              data-alt="professional medical staff portrait wearing white lab coat in a bright clinical setting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCkkMbfxuR8kwS3JhTTAXwoJzsIFtWnnoN0n2EQtWdgfvynd4JivHNzFfH7uOzpR_8R2eooc5kjPDO5BYQ-UdKI1-ZqfBAjVO1gxou1094tuew7Tf-vG06SFVVV_Jr3U836soLHUq--CaqI5K5Oroqua2M09KAY6QlRhFMsFNg4T55ViT_BTBOezlsdenmUNu_OH9uahtKnWqMdZMnF3JbNa0Y77W39MiI7ilyig9NFJMC2RSSdijHQKxT3icXFQr-_zFtvUmiZ04o"
+            />
+            <button
+              class="p-1 hover:bg-error/10 hover:text-error rounded-md transition-all"
+            >
+              <span class="material-symbols-outlined text-lg" data-icon="logout"
+                >logout</span
+              >
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section class="p-8 pt-24 space-y-6">
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-bold font-headline">Quản lý tài khoản</h2>
+          <button
+            id="tk-add-btn"
+            class="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700"
+          >
+            <span class="material-symbols-outlined text-base">person_add</span>
+            Thêm nhân viên
+          </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl p-5 border border-slate-200">
+            <p class="text-xs text-slate-500 font-semibold uppercase">
+              Tổng nhân sự
+            </p>
+            <p id="tk-stat-total" class="text-3xl font-black mt-1">—</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-slate-200">
+            <p class="text-xs text-slate-500 font-semibold uppercase">
+              Đang hoạt động
+            </p>
+            <p id="tk-stat-active" class="text-3xl font-black mt-1">—</p>
+          </div>
+          <div class="bg-white rounded-xl p-5 border border-slate-200">
+            <p class="text-xs text-slate-500 font-semibold uppercase">
+              Đã khóa
+            </p>
+            <p id="tk-stat-locked" class="text-3xl font-black mt-1">—</p>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-xl border border-slate-200 overflow-hidden"
+        >
+          <div
+            class="p-4 border-b border-slate-100 flex items-center justify-between gap-3 flex-wrap"
+          >
+            <input
+              id="tk-search"
+              type="text"
+              placeholder="Tìm tên hoặc email..."
+              class="bg-slate-100 border-none rounded-lg px-3 py-2 text-sm w-64"
+            />
+            <select
+              id="tk-role-filter"
+              class="bg-slate-100 border-none rounded-lg px-3 py-2 text-sm"
+            >
+              <option value="">Tất cả vai trò</option>
+              <option value="QUAN_LY">Quản lý</option>
+              <option value="NHAN_VIEN">Nhân viên</option>
+            </select>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead class="bg-slate-50 border-b border-slate-100">
+                <tr>
+                  <th
+                    class="px-6 py-4 text-xs uppercase tracking-wide text-slate-500"
+                  >
+                    Nhân viên
+                  </th>
+                  <th
+                    class="px-6 py-4 text-xs uppercase tracking-wide text-slate-500"
+                  >
+                    Vai trò
+                  </th>
+                  <th
+                    class="px-6 py-4 text-xs uppercase tracking-wide text-slate-500"
+                  >
+                    Trạng thái
+                  </th>
+                  <th
+                    class="px-6 py-4 text-xs uppercase tracking-wide text-slate-500"
+                  >
+                    Tạo lúc
+                  </th>
+                  <th
+                    class="px-6 py-4 text-xs uppercase tracking-wide text-slate-500 text-right"
+                  >
+                    Thao tác
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tk-table-body" class="divide-y divide-slate-100">
+                <tr>
+                  <td colspan="5" class="px-6 py-14 text-center text-slate-400">
+                    Đang tải...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-4 border-t border-slate-100">
+            <p id="tk-count-label" class="text-xs text-slate-500">
+              Đang tải...
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div
+        id="tk-modal"
+        class="hidden fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center"
+      >
+        <div class="bg-white w-full max-w-lg rounded-xl shadow-2xl p-6 mx-4">
+          <div class="flex items-center justify-between mb-5">
+            <h3 class="font-bold text-lg" id="tk-modal-title">
+              Thêm nhân viên
+            </h3>
+            <button
+              id="tk-modal-close"
+              class="p-1 text-slate-500 hover:text-slate-700"
+            >
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <div id="tk-create-form" class="space-y-3">
+            <input
+              id="tk-new-name"
+              type="text"
+              placeholder="Họ tên"
+              class="w-full bg-slate-100 border-none rounded-lg px-3 py-2 text-sm"
+            />
+            <input
+              id="tk-new-email"
+              type="email"
+              placeholder="Email"
+              class="w-full bg-slate-100 border-none rounded-lg px-3 py-2 text-sm"
+            />
+            <input
+              id="tk-new-password"
+              type="password"
+              placeholder="Mật khẩu"
+              class="w-full bg-slate-100 border-none rounded-lg px-3 py-2 text-sm"
+            />
+            <select
+              id="tk-new-role"
+              class="w-full bg-slate-100 border-none rounded-lg px-3 py-2 text-sm"
+            >
+              <option value="NHAN_VIEN">Nhân viên</option>
+              <option value="QUAN_LY">Quản lý</option>
+            </select>
+            <button
+              id="tk-create-save"
+              class="w-full bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700"
+            >
+              Tạo tài khoản
+            </button>
+          </div>
+
+          <div id="tk-status-form" class="hidden space-y-3">
+            <p id="tk-status-user" class="text-sm font-semibold"></p>
+            <select
+              id="tk-status-select"
+              class="w-full bg-slate-100 border-none rounded-lg px-3 py-2 text-sm"
+            >
+              <option value="HOAT_DONG">Hoạt động</option>
+              <option value="KHOA">Khóa</option>
+            </select>
+            <button
+              id="tk-status-save"
+              class="w-full bg-blue-600 text-white py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700"
+            >
+              Cập nhật trạng thái
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="tk-toast"
+        class="fixed bottom-6 right-6 z-50 hidden bg-white border border-slate-100 rounded-xl shadow-xl px-4 py-3 flex items-center gap-2"
+      >
+        <span
+          id="tk-toast-icon"
+          class="material-symbols-outlined text-green-500"
+          >check_circle</span
+        >
+        <span id="tk-toast-msg" class="text-sm"></span>
+      </div>
+    </main>
+
+    <script src="js/staff_common.js"></script>
+    <script src="js/quan_ly_tai_khoan.js"></script>
+  </body>
+</html>

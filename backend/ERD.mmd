@@ -1,0 +1,263 @@
+erDiagram
+
+        VaiTro {
+            QUAN_LY QUAN_LY
+NHAN_VIEN NHAN_VIEN
+        }
+    
+
+
+        TrangThaiTaiKhoan {
+            HOAT_DONG HOAT_DONG
+KHOA KHOA
+        }
+    
+
+
+        TrangThaiDonThuoc {
+            MOI_TAO MOI_TAO
+DA_DUYET DA_DUYET
+TU_CHOI TU_CHOI
+        }
+    
+
+
+        TrangThaiGoiYAi {
+            CHO_DUYET CHO_DUYET
+DA_DUYET DA_DUYET
+TU_CHOI TU_CHOI
+        }
+    
+
+
+        LoaiGoiYAi {
+            TON_KHO_THAP TON_KHO_THAP
+SAP_HET_HAN SAP_HET_HAN
+XU_HUONG_MUA XU_HUONG_MUA
+        }
+    
+
+
+        TrangThaiDonHang {
+            MOI_TAO MOI_TAO
+DA_XAC_NHAN DA_XAC_NHAN
+DANG_GIAO DANG_GIAO
+HOAN_TAT HOAN_TAT
+HUY HUY
+        }
+    
+
+
+        LoaiTacNhan {
+            USER USER
+HE_THONG HE_THONG
+        }
+    
+
+
+        LiDoXuat {
+            BAN_HANG BAN_HANG
+HU_HANG HU_HANG
+KIEM_KE KIEM_KE
+HET_HAN HET_HAN
+        }
+    
+
+
+        LoaiThamChieu {
+            HOA_DON HOA_DON
+DON_HANG DON_HANG
+        }
+    
+  "nguoi_dung" {
+    Int id "🗝️"
+    String ho_ten 
+    String email 
+    String mat_khau 
+    VaiTro vai_tro 
+    TrangThaiTaiKhoan trang_thai 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "danh_muc_thuoc" {
+    Int id "🗝️"
+    String ten_danh_muc 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "thuoc" {
+    Int id "🗝️"
+    String ma_thuoc 
+    String ten_thuoc 
+    String hoat_chat "❓"
+    String ham_luong "❓"
+    String don_vi_tinh 
+    Decimal gia_ban 
+    Boolean can_don_thuoc 
+    Boolean con_kinh_doanh 
+    Int danh_muc_thuoc_id 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "lo_ton_kho" {
+    Int id "🗝️"
+    Int thuoc_id 
+    String so_lo 
+    DateTime han_su_dung 
+    Int so_luong_ton 
+    Decimal gia_nhap 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "don_thuoc" {
+    Int id "🗝️"
+    String ten_benh_nhan "❓"
+    String ten_bac_si "❓"
+    TrangThaiDonThuoc trang_thai 
+    Int nguoi_tao_id 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "chi_tiet_don_thuoc" {
+    Int id "🗝️"
+    Int don_thuoc_id 
+    Int thuoc_id 
+    Int so_luong 
+    String lieu_dung 
+    DateTime tao_luc 
+    }
+  
+
+  "hoa_don" {
+    Int id "🗝️"
+    Int nguoi_tao_id 
+    Int don_thuoc_id "❓"
+    Decimal tong_tien 
+    String phuong_thuc_thanh_toan 
+    DateTime tao_luc 
+    }
+  
+
+  "chi_tiet_hoa_don" {
+    Int id "🗝️"
+    Int hoa_don_id 
+    Int thuoc_id 
+    Int so_luong 
+    String don_vi_tinh 
+    Decimal don_gia 
+    Decimal thanh_tien 
+    }
+  
+
+  "goi_y_ai" {
+    Int id "🗝️"
+    LoaiGoiYAi loai 
+    Json du_lieu_dau_vao 
+    Json du_lieu_dau_ra 
+    Float do_tin_cay 
+    TrangThaiGoiYAi trang_thai 
+    Int duyet_boi_id "❓"
+    String ghi_chu_duyet "❓"
+    DateTime tao_luc 
+    }
+  
+
+  "nhat_ky_he_thong" {
+    Int id "🗝️"
+    Int nguoi_thuc_hien_id "❓"
+    LoaiTacNhan loai_tac_nhan 
+    String hanh_dong 
+    String doi_tuong 
+    Int doi_tuong_id "❓"
+    Json truoc_thay_doi "❓"
+    Json sau_thay_doi "❓"
+    DateTime tao_luc 
+    }
+  
+
+  "khach_hang" {
+    Int id "🗝️"
+    String ho_ten 
+    String email 
+    String so_dien_thoai 
+    String dia_chi "❓"
+    String mat_khau 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "don_hang" {
+    Int id "🗝️"
+    String ma_don_hang 
+    Int khach_hang_id "❓"
+    String ten_nguoi_nhan 
+    String so_dien_thoai_nhan 
+    String email_nguoi_nhan "❓"
+    String dia_chi_giao 
+    String ghi_chu "❓"
+    Decimal tong_tien_hang 
+    Decimal phi_giao_hang 
+    Decimal tong_thanh_toan 
+    TrangThaiDonHang trang_thai 
+    DateTime tao_luc 
+    DateTime cap_nhat_luc 
+    }
+  
+
+  "chi_tiet_don_hang" {
+    Int id "🗝️"
+    Int don_hang_id 
+    Int thuoc_id 
+    Int so_luong 
+    Decimal don_gia 
+    Decimal thanh_tien 
+    }
+  
+
+  "lich_su_xuat_kho" {
+    Int id "🗝️"
+    Int lo_ton_kho_id 
+    Int so_luong_xuat 
+    Int nguoi_xuat_id 
+    LiDoXuat li_do_xuat 
+    Int tham_chieu_id "❓"
+    LoaiThamChieu loai_tham_chieu "❓"
+    DateTime tao_luc 
+    }
+  
+    "nguoi_dung" |o--|| "VaiTro" : "enum:vai_tro"
+    "nguoi_dung" |o--|| "TrangThaiTaiKhoan" : "enum:trang_thai"
+    "thuoc" }o--|| danh_muc_thuoc : "danhMucThuoc"
+    "lo_ton_kho" }o--|| thuoc : "thuoc"
+    "don_thuoc" |o--|| "TrangThaiDonThuoc" : "enum:trang_thai"
+    "don_thuoc" }o--|| nguoi_dung : "nguoiTao"
+    "chi_tiet_don_thuoc" }o--|| don_thuoc : "donThuoc"
+    "chi_tiet_don_thuoc" }o--|| thuoc : "thuoc"
+    "hoa_don" }o--|| nguoi_dung : "nguoiTao"
+    "hoa_don" }o--|o don_thuoc : "donThuoc"
+    "chi_tiet_hoa_don" }o--|| hoa_don : "hoaDon"
+    "chi_tiet_hoa_don" }o--|| thuoc : "thuoc"
+    "goi_y_ai" |o--|| "LoaiGoiYAi" : "enum:loai"
+    "goi_y_ai" |o--|| "TrangThaiGoiYAi" : "enum:trang_thai"
+    "goi_y_ai" }o--|o nguoi_dung : "duyetBoi"
+    "nhat_ky_he_thong" |o--|| "LoaiTacNhan" : "enum:loai_tac_nhan"
+    "nhat_ky_he_thong" }o--|o nguoi_dung : "nguoiThucHien"
+    "don_hang" |o--|| "TrangThaiDonHang" : "enum:trang_thai"
+    "don_hang" }o--|o khach_hang : "khachHang"
+    "chi_tiet_don_hang" }o--|| don_hang : "donHang"
+    "chi_tiet_don_hang" }o--|| thuoc : "thuoc"
+    "lich_su_xuat_kho" |o--|| "LiDoXuat" : "enum:li_do_xuat"
+    "lich_su_xuat_kho" |o--|o "LoaiThamChieu" : "enum:loai_tham_chieu"
+    "lich_su_xuat_kho" }o--|| lo_ton_kho : "loTonKho"
+    "lich_su_xuat_kho" }o--|| nguoi_dung : "nguoiXuat"

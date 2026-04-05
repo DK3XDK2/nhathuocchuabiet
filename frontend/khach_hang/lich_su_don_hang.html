@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lịch sử đơn hàng | Clinical Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#842225",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ffdad7",
+                    "primary-container": "#10b981",
+                    "on-primary": "#ffffff",
+                    "surface-container": "#e5eeff",
+                    "on-secondary-container": "#fefcff",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-container": "#2170e4",
+                    "surface": "#f8f9ff",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#fc7c78",
+                    "on-tertiary-container": "#711419",
+                    "surface-tint": "#006c49",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-primary": "#4edea3",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary-fixed": "#410005",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#002113",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-secondary": "#ffffff",
+                    "background": "#f8f9ff",
+                    "primary-fixed": "#6ffbbe",
+                    "on-surface": "#0b1c30",
+                    "on-background": "#0b1c30",
+                    "surface-container-low": "#eff4ff",
+                    "inverse-surface": "#213145",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#cbdbf5",
+                    "on-secondary-fixed": "#001a42",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed-dim": "#ffb3af",
+                    "on-surface-variant": "#3c4a42",
+                    "primary-fixed-dim": "#4edea3",
+                    "outline-variant": "#bbcabf",
+                    "primary": "#006c49",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-error": "#ffffff",
+                    "tertiary": "#a43a3a",
+                    "secondary": "#0058be",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "surface-container-high": "#dce9ff",
+                    "outline": "#6c7a71",
+                    "on-primary-container": "#00422b",
+                    "surface-bright": "#f8f9ff",
+                    "on-primary-fixed-variant": "#005236"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-none shadow-sm font-manrope antialiased tracking-tight">
+<div class="flex justify-between items-center px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-slate-900">Clinical Editorial</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-300" href="#">Cửa hàng</a>
+<a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-300" href="#">Dịch vụ</a>
+<a class="text-slate-600 font-medium hover:text-emerald-500 transition-colors duration-300" href="#">Về chúng tôi</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-600 hover:text-emerald-500 active:scale-95 duration-200">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-2 text-slate-600 hover:text-emerald-500 active:scale-95 duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-slate-100">
+<img alt="Ảnh đại diện người dùng" data-alt="Close-up portrait of a professional man with a friendly expression in a brightly lit modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCukYl3t_YjwGsX697_SyBFvslC2dYPmmT_-gQd2R44Cfar_vwGMbkyX3QMXxo6hyxeJ8aFVNwA9cwuZVDnL9Zgz89xuRwBP0BSpo_9R0_X9xbmLb46kalhSBIlipzTHb59kdDe70tE_yHO6-M60c7SxV97KFPwhnSYT8wwo0EHtC5_vufK01xv3ULGkhm9lo5iHcaHsotaQsipAOUlYv9PhO7BAg03jWsG98WndfRkNO5rmwu3CL72dM5NtDzR4_1zjXPZxTvvuNhr"/>
+</div>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 hidden lg:flex flex-col border-r border-slate-100 bg-slate-50 fixed left-0 top-16 bottom-0 p-4 z-40">
+<div class="mb-8 px-4 py-2">
+<h3 class="text-lg font-bold text-slate-900 font-manrope">Tài khoản của bạn</h3>
+<p class="text-xs text-slate-500 font-inter">Quản lý sức khỏe &amp; đơn hàng</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active Tab: Đơn hàng của tôi -->
+<a class="cursor-pointer p-3 my-1 flex items-center gap-3 bg-white text-emerald-600 shadow-sm rounded-lg font-inter text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Đơn hàng của tôi</span>
+</a>
+<a class="cursor-pointer p-3 my-1 flex items-center gap-3 text-slate-500 hover:bg-slate-100 rounded-lg font-inter text-sm font-medium transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">person</span>
+<span>Thông tin cá nhân</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-slate-200 pt-4">
+<a class="cursor-pointer p-3 flex items-center gap-3 text-tertiary font-inter text-sm font-medium hover:bg-tertiary-fixed rounded-lg transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Đăng xuất</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 lg:ml-64 p-6 md:p-10 lg:p-12 bg-surface">
+<div class="max-w-5xl mx-auto space-y-12">
+<!-- Header Section -->
+<header class="space-y-2">
+<span class="text-[0.6875rem] font-bold uppercase tracking-widest text-emerald-600 font-label">Tài khoản &amp; Hoạt động</span>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface font-headline">Lịch sử đơn hàng</h1>
+<p class="text-slate-500 font-body max-w-2xl">Xem lại thông tin các sản phẩm chăm sóc sức khỏe và đơn thuốc bạn đã đặt tại Clinical Editorial.</p>
+</header>
+<!-- Filters Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+<div class="md:col-span-2 bg-surface-container-low p-6 rounded-xl flex items-center justify-between shadow-sm">
+<div class="space-y-1">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Tổng chi tiêu</p>
+<p class="text-2xl font-bold text-on-surface font-headline">12.450.000đ</p>
+</div>
+<span class="material-symbols-outlined text-emerald-500 bg-white p-3 rounded-full">payments</span>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-center shadow-sm">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Đơn hàng</p>
+<p class="text-2xl font-bold text-on-surface font-headline">24</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl flex flex-col justify-center shadow-sm">
+<p class="text-xs font-bold text-slate-400 uppercase tracking-tighter">Hoàn thành</p>
+<p class="text-2xl font-bold text-emerald-600 font-headline">22</p>
+</div>
+</div>
+<!-- Orders Table Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_20px_40px_rgba(11,28,48,0.06)] overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-wider text-slate-500 font-label">Mã đơn hàng</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-wider text-slate-500 font-label">Ngày đặt</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-wider text-slate-500 font-label">Tổng tiền</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-wider text-slate-500 font-label">Trạng thái</th>
+<th class="px-6 py-4 text-[0.6875rem] font-bold uppercase tracking-wider text-slate-500 font-label text-right">Thao tác</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5 font-bold text-on-surface">#CL-88291</td>
+<td class="px-6 py-5 text-slate-600 font-body">14/03/2024</td>
+<td class="px-6 py-5 font-semibold text-on-surface">1.250.000đ</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-emerald-50 text-emerald-700">
+                                            Hoàn thành
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-emerald-600 hover:text-emerald-700 font-bold text-sm tracking-tight transition-all duration-200">Xem chi tiết</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5 font-bold text-on-surface">#CL-88245</td>
+<td class="px-6 py-5 text-slate-600 font-body">10/03/2024</td>
+<td class="px-6 py-5 font-semibold text-on-surface">450.000đ</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-secondary-fixed text-on-secondary-fixed-variant">
+                                            Đang giao
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-emerald-600 hover:text-emerald-700 font-bold text-sm tracking-tight transition-all duration-200">Xem chi tiết</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5 font-bold text-on-surface">#CL-88190</td>
+<td class="px-6 py-5 text-slate-600 font-body">05/03/2024</td>
+<td class="px-6 py-5 font-semibold text-on-surface">2.100.000đ</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-surface-container-highest text-slate-600">
+                                            Đang xử lý
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-emerald-600 hover:text-emerald-700 font-bold text-sm tracking-tight transition-all duration-200">Xem chi tiết</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 transition-colors">
+<td class="px-6 py-5 font-bold text-on-surface">#CL-88012</td>
+<td class="px-6 py-5 text-slate-600 font-body">28/02/2024</td>
+<td class="px-6 py-5 font-semibold text-on-surface">890.000đ</td>
+<td class="px-6 py-5">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-emerald-50 text-emerald-700">
+                                            Hoàn thành
+                                        </span>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="text-emerald-600 hover:text-emerald-700 font-bold text-sm tracking-tight transition-all duration-200">Xem chi tiết</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Placeholder -->
+<div class="px-6 py-4 flex items-center justify-between border-t border-slate-50">
+<p class="text-xs text-slate-400 font-body">Hiển thị 4 trong 24 đơn hàng</p>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-emerald-600 text-white flex items-center justify-center text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded border border-slate-100 flex items-center justify-center text-xs text-slate-600 hover:bg-slate-50">2</button>
+<button class="w-8 h-8 rounded border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Removed bottom CTA cards section -->
+</div>
+</main>
+</div>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 w-full lg:hidden border-t border-slate-100 bg-white/90 backdrop-blur-lg shadow-[0_-4px_12px_rgba(0,0,0,0.03)] z-50">
+<div class="flex justify-around items-center h-20 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center text-slate-400 font-inter text-[10px] font-bold uppercase tracking-widest transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+                Trang chủ
+            </a>
+<!-- Active Mobile Tab -->
+<a class="flex flex-col items-center justify-center text-emerald-600 bg-emerald-50 rounded-xl px-4 py-1 font-inter text-[10px] font-bold uppercase tracking-widest transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">history_edu</span>
+                Đơn hàng
+            </a>
+<a class="flex flex-col items-center justify-center text-slate-400 font-inter text-[10px] font-bold uppercase tracking-widest transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">notifications</span>
+                Thông báo
+            </a>
+<a class="flex flex-col items-center justify-center text-slate-400 font-inter text-[10px] font-bold uppercase tracking-widest transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">account_circle</span>
+                Tài khoản
+            </a>
+</div>
+</nav>
+</body></html>

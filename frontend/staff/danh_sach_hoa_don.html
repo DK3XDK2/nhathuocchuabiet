@@ -1,0 +1,652 @@
+<!doctype html>
+
+<html class="light" lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Danh sách hóa đơn | Clinical Precision</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#d9e4ea",
+              "inverse-surface": "#0b0f10",
+              "tertiary-dim": "#564f6b",
+              "outline-variant": "#a9b4b9",
+              "error-container": "#fe8983",
+              "on-primary-fixed": "#003798",
+              "on-background": "#2a3439",
+              tertiary: "#625b77",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#5b5b5f",
+              "surface-dim": "#cfdce3",
+              "secondary-dim": "#535356",
+              "on-primary": "#f8f7ff",
+              "error-dim": "#4e0309",
+              "on-tertiary-container": "#4f4964",
+              "surface-container-high": "#e1e9ee",
+              surface: "#f7f9fb",
+              primary: "#0053db",
+              "primary-dim": "#0048c1",
+              "on-secondary-fixed": "#3f3f43",
+              "surface-bright": "#f7f9fb",
+              "on-secondary": "#faf8fc",
+              "on-primary-fixed-variant": "#0050d4",
+              "on-error": "#fff7f6",
+              "secondary-fixed": "#e4e2e6",
+              "on-tertiary-fixed-variant": "#59526e",
+              "primary-container": "#dbe1ff",
+              "on-surface": "#2a3439",
+              "secondary-fixed-dim": "#d5d3d8",
+              "on-secondary-container": "#515155",
+              "surface-container-low": "#f0f4f7",
+              "primary-fixed-dim": "#c7d3ff",
+              "inverse-primary": "#618bff",
+              "tertiary-fixed": "#dfd5f7",
+              "on-tertiary": "#fdf7ff",
+              outline: "#717c82",
+              "on-tertiary-fixed": "#3c3650",
+              "on-primary-container": "#0048bf",
+              secondary: "#5f5f62",
+              background: "#f7f9fb",
+              "primary-fixed": "#dbe1ff",
+              "surface-container-highest": "#d9e4ea",
+              "on-error-container": "#752121",
+              "on-surface-variant": "#566166",
+              "tertiary-fixed-dim": "#d0c7e8",
+              "inverse-on-surface": "#9a9d9f",
+              "surface-container": "#e8eff3",
+              "tertiary-container": "#dfd5f7",
+              error: "#9f403d",
+              "surface-tint": "#0053db",
+              "secondary-container": "#e4e2e6",
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+            fontFamily: {
+              headline: ["Manrope"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Manrope", sans-serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface selection:bg-primary-container overflow-x-hidden"
+  >
+    <!-- SideNavBar -->
+    <aside
+      class="h-screen w-64 fixed left-0 top-0 bg-[#e8eff3] dark:bg-slate-900 flex flex-col py-8 z-50"
+    >
+      <div class="px-6 mb-10">
+        <h1 class="text-xl font-bold text-primary font-headline tracking-tight">
+          Nhà thuốc chưa biết
+        </h1>
+        <p
+          class="text-[10px] uppercase tracking-widest text-outline mt-1 font-semibold"
+        >
+          Quản lý nhà thuốc
+        </p>
+      </div>
+      <nav
+        class="flex-1 space-y-1 overflow-y-auto overflow-x-hidden no-scrollbar max-h-[calc(100vh-240px)]"
+      >
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="dashboard"
+            >dashboard</span
+          >
+          Dashboard
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="medication"
+            >medication</span
+          >
+          Quản lý thuốc
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="inventory_2"
+            >inventory_2</span
+          >
+          Quản lý tồn kho
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="prescriptions"
+            >prescriptions</span
+          >
+          Quản lý đơn thuốc
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="receipt_long"
+            >receipt_long</span
+          >
+          Lập hóa đơn
+        </a>
+        <!-- Active State: Danh sách hóa đơn -->
+        <a
+          class="flex items-center gap-3 text-[#0053db] dark:text-blue-300 font-bold border-l-4 border-[#0053db] bg-white/50 dark:bg-white/5 py-3 px-6 font-['Manrope'] text-sm tracking-tight translate-x-1 transition-transform duration-200"
+          href="#"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="format_list_bulleted"
+            >format_list_bulleted</span
+          >
+          Danh sách hóa đơn
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="shopping_cart"
+            >shopping_cart</span
+          >
+          Quản lý đơn hàng
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="psychology"
+            >psychology</span
+          >
+          Gợi ý AI
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="account_circle"
+            >account_circle</span
+          >
+          Quản lý tài khoản
+        </a>
+        <a
+          class="flex items-center gap-3 text-slate-600 dark:text-slate-400 py-3 px-6 hover:bg-[#f7f9fb] dark:hover:bg-slate-800 transition-colors font-['Manrope'] font-medium text-sm tracking-tight"
+          href="#"
+        >
+          <span class="material-symbols-outlined" data-icon="assessment"
+            >assessment</span
+          >
+          Báo cáo doanh thu
+        </a>
+      </nav>
+      <div class="mt-auto px-6 pt-6">
+        <div class="bg-primary/5 rounded-xl p-4">
+          <p class="text-[10px] font-bold text-primary uppercase mb-2">
+            Hệ thống nhà thuốc chưa biết
+          </p>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-sm"
+                data-icon="verified_user"
+                >verified_user</span
+              >
+            </div>
+            <span class="text-xs font-bold text-on-surface"
+              >V.1.0.0 Stable</span
+            >
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/80 backdrop-blur-md border-b border-slate-100/50 flex justify-between items-center px-8"
+    >
+      <div class="flex items-center gap-4 flex-1">
+        <div class="relative w-96 group">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg"
+            >search</span
+          >
+          <input
+            class="w-full bg-surface-container-low border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all"
+            placeholder="Tìm kiếm báo cáo, thuốc hoặc mã giao dịch..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-3">
+          <button
+            class="p-2 hover:bg-slate-50 rounded-lg transition-all relative"
+          >
+            <span
+              class="material-symbols-outlined text-slate-600"
+              data-icon="notifications"
+              >notifications</span
+            >
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+            ></span>
+          </button>
+          <button class="p-2 hover:bg-slate-50 rounded-lg transition-all">
+            <span
+              class="material-symbols-outlined text-slate-600"
+              data-icon="settings"
+              >settings</span
+            >
+          </button>
+        </div>
+        <div class="h-8 w-[1px] bg-slate-100"></div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <p class="text-xs font-bold text-on-surface">Staff Name</p>
+            <p class="text-[10px] text-outline">Quản trị viên</p>
+            <p class="text-[10px] text-outline">thoi gian phan hoi :</p>
+          </div>
+          <img
+            class="w-9 h-9 rounded-full object-cover ring-2 ring-primary/10"
+            data-alt="professional medical staff portrait wearing white lab coat in a bright clinical setting"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCkkMbfxuR8kwS3JhTTAXwoJzsIFtWnnoN0n2EQtWdgfvynd4JivHNzFfH7uOzpR_8R2eooc5kjPDO5BYQ-UdKI1-ZqfBAjVO1gxou1094tuew7Tf-vG06SFVVV_Jr3U836soLHUq--CaqI5K5Oroqua2M09KAY6QlRhFMsFNg4T55ViT_BTBOezlsdenmUNu_OH9uahtKnWqMdZMnF3JbNa0Y77W39MiI7ilyig9NFJMC2RSSdijHQKxT3icXFQr-_zFtvUmiZ04o"
+          />
+          <button
+            class="p-1 hover:bg-error/10 hover:text-error rounded-md transition-all"
+          >
+            <span class="material-symbols-outlined text-lg" data-icon="logout"
+              >logout</span
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-64 pt-16 min-h-screen bg-surface">
+      <div class="p-8 max-w-[1600px] mx-auto">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10"
+        >
+          <div>
+            <nav class="flex items-center gap-2 text-xs text-outline mb-2">
+              <span>Management</span>
+              <span
+                class="material-symbols-outlined text-[10px]"
+                data-icon="chevron_right"
+                >chevron_right</span
+              >
+              <span class="text-primary font-medium">Danh sách hóa đơn</span>
+            </nav>
+            <h1 class="text-3xl font-extrabold text-on-surface tracking-tight">
+              Danh sách hóa đơn
+            </h1>
+            <p class="text-on-surface-variant text-sm mt-1">
+              Quản lý và tra cứu lịch sử giao dịch thuốc
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button
+              id="hdl-export-btn"
+              class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant/30 text-on-surface px-4 py-2.5 rounded-xl text-sm font-semibold hover:bg-surface-container-low transition-colors shadow-sm"
+            >
+              <span
+                class="material-symbols-outlined text-lg"
+                data-icon="file_download"
+                >file_download</span
+              >
+              Xuất báo cáo
+            </button>
+            <button
+              id="hdl-new-btn"
+              class="flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-xl text-sm font-bold shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+            >
+              <span class="material-symbols-outlined text-lg" data-icon="add"
+                >add</span
+              >
+              Tạo hóa đơn mới
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="bg-surface-container-lowest p-5 rounded-2xl shadow-sm mb-8 flex flex-wrap items-center gap-6"
+        >
+          <div class="flex flex-col gap-1.5">
+            <label
+              class="text-[10px] font-bold uppercase tracking-wider text-outline px-1"
+              >Tìm kiếm</label
+            >
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-base"
+                >search</span
+              >
+              <input
+                id="hdl-search"
+                class="pl-9 pr-4 py-2 rounded-xl bg-surface-container-low border-none text-sm focus:ring-2 focus:ring-primary/10 w-56"
+                placeholder="Mã hóa đơn, nhân viên..."
+                type="text"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label
+              class="text-[10px] font-bold uppercase tracking-wider text-outline px-1"
+              >Khoảng thời gian</label
+            >
+            <div
+              class="flex items-center gap-2 bg-surface-container-low px-3 py-2 rounded-xl"
+            >
+              <span
+                class="material-symbols-outlined text-outline text-sm"
+                data-icon="calendar_today"
+                >calendar_today</span
+              >
+              <input
+                id="hdl-date-from"
+                class="bg-transparent border-none p-0 text-sm focus:ring-0 w-32 font-medium"
+                type="date"
+              />
+              <span class="text-outline">to</span>
+              <input
+                id="hdl-date-to"
+                class="bg-transparent border-none p-0 text-sm focus:ring-0 w-32 font-medium"
+                type="date"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <label
+              class="text-[10px] font-bold uppercase tracking-wider text-outline px-1"
+              >Phương thức</label
+            >
+            <select
+              id="hdl-pm-filter"
+              class="bg-surface-container-low border-none rounded-xl py-2 px-4 text-sm font-medium min-w-[140px] focus:ring-2 focus:ring-primary/10"
+            >
+              <option value="">Tất cả</option>
+              <option value="TIEN_MAT">Tiền mặt</option>
+              <option value="CHUYEN_KHOAN">Chuyển khoản</option>
+              <option value="THE_ATM">Thẻ ATM</option>
+            </select>
+          </div>
+          <div class="ml-auto self-end">
+            <button
+              id="hdl-clear-filter"
+              class="bg-surface-container-highest text-on-surface-variant px-4 py-2 rounded-xl text-sm font-bold hover:text-primary transition-colors flex items-center gap-2"
+            >
+              <span
+                class="material-symbols-outlined text-lg"
+                data-icon="filter_list"
+                >filter_list</span
+              >
+              Xóa bộ lọc
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden border border-slate-100/50"
+        >
+          <table class="w-full text-left border-collapse">
+            <thead class="bg-surface-container-low">
+              <tr>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px]"
+                >
+                  Mã hóa đơn
+                </th>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px]"
+                >
+                  Ngày lập
+                </th>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px]"
+                >
+                  Nhân viên
+                </th>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px]"
+                >
+                  Tổng tiền
+                </th>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px]"
+                >
+                  Phương thức
+                </th>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px]"
+                >
+                  Trạng thái
+                </th>
+                <th
+                  class="px-6 py-4 label-sm font-bold text-outline uppercase tracking-wider text-[11px] text-right"
+                >
+                  Thao tác
+                </th>
+              </tr>
+            </thead>
+            <tbody id="hdl-table-body" class="divide-y divide-slate-50"></tbody>
+          </table>
+          <div
+            class="bg-surface-container-low p-4 flex items-center justify-between border-t border-slate-100/50"
+          >
+            <p id="hdl-count-label" class="text-xs text-outline font-medium">
+              Đang tải...
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+          <div
+            class="md:col-span-1 bg-primary text-white p-6 rounded-2xl shadow-xl shadow-primary/10"
+          >
+            <p
+              class="text-primary-fixed-dim text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              Doanh thu hôm nay
+            </p>
+            <h3
+              id="hdl-stat-doanh-thu"
+              class="text-3xl font-extrabold tracking-tighter"
+            >
+              -- đ
+            </h3>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100/50"
+          >
+            <p
+              class="text-outline text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              Tổng hóa đơn
+            </p>
+            <h3
+              id="hdl-stat-total"
+              class="text-2xl font-extrabold text-on-surface"
+            >
+              --
+            </h3>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100/50"
+          >
+            <p
+              class="text-outline text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              Hôm nay
+            </p>
+            <h3
+              id="hdl-stat-today"
+              class="text-2xl font-extrabold text-on-surface"
+            >
+              --
+            </h3>
+          </div>
+          <div
+            class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-slate-100/50"
+          >
+            <p
+              class="text-outline text-xs font-bold uppercase tracking-widest mb-1"
+            >
+              TB / hóa đơn
+            </p>
+            <h3
+              id="hdl-stat-avg"
+              class="text-2xl font-extrabold text-on-surface"
+            >
+              -- đ
+            </h3>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div
+      id="hdl-detail-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
+      >
+        <div
+          class="px-8 py-6 border-b border-outline-variant/10 flex justify-between items-center"
+        >
+          <div>
+            <h3 class="font-headline font-bold text-xl" id="hdl-detail-title">
+              Chi tiết hóa đơn
+            </h3>
+            <p
+              class="text-xs text-on-surface-variant mt-0.5"
+              id="hdl-detail-date"
+            ></p>
+          </div>
+          <button
+            id="hdl-detail-close"
+            class="p-2 hover:bg-surface-container rounded-lg transition-colors"
+            type="button"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="px-8 py-6 space-y-4 max-h-[60vh] overflow-y-auto">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <p
+                class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1"
+              >
+                Nhân viên lập
+              </p>
+              <p
+                id="hdl-detail-nhanvien"
+                class="font-semibold text-on-surface text-sm"
+              >
+                --
+              </p>
+            </div>
+            <div>
+              <p
+                class="text-[10px] font-bold text-outline uppercase tracking-widest mb-1"
+              >
+                Phương thức
+              </p>
+              <p
+                id="hdl-detail-pm"
+                class="font-semibold text-on-surface text-sm"
+              >
+                --
+              </p>
+            </div>
+          </div>
+          <div>
+            <p
+              class="text-[10px] font-bold text-outline uppercase tracking-widest mb-3"
+            >
+              Chi tiết sản phẩm
+            </p>
+            <div id="hdl-detail-items" class="space-y-2"></div>
+          </div>
+          <div
+            class="pt-3 border-t border-outline-variant/10 flex justify-between items-center"
+          >
+            <span class="font-bold text-lg text-on-surface">Tổng cộng</span>
+            <span
+              id="hdl-detail-tong"
+              class="font-extrabold text-2xl text-primary"
+              >--</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="hdl-toast" class="fixed bottom-6 right-6 z-50 hidden">
+      <div
+        class="bg-on-surface text-surface px-5 py-3 rounded-xl shadow-xl text-sm font-medium flex items-center gap-3"
+      >
+        <span id="hdl-toast-icon" class="material-symbols-outlined text-base"
+          >check_circle</span
+        >
+        <span id="hdl-toast-msg"></span>
+      </div>
+    </div>
+
+    <script src="js/staff_common.js"></script>
+    <script src="js/danh_sach_hoa_don.js"></script>
+  </body>
+</html>

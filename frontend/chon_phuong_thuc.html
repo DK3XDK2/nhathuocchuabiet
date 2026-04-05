@@ -742,6 +742,39 @@
         setTimeout(() => t.remove(), 3000);
       }
 
+      function layTokenKhachHang() {
+        const danhSachKhoa = [
+          "khachHangToken",
+          "tokenKhachHang",
+          "khach_hang_token",
+          "customerToken",
+          "authToken",
+        ];
+
+        for (const khoa of danhSachKhoa) {
+          const giaTri = localStorage.getItem(khoa);
+          if (giaTri && giaTri.trim()) {
+            return giaTri.trim();
+          }
+        }
+
+        return "";
+      }
+
+      function damBaoDangNhapKhachHang() {
+        const token = layTokenKhachHang();
+        if (token) {
+          return true;
+        }
+
+        localStorage.setItem("redirectAfterLogin", window.location.href);
+        hienLoiForm("Vui lòng đăng nhập/đăng ký để tiếp tục đặt hàng.");
+        setTimeout(() => {
+          window.location.href = "dang_nhap.html";
+        }, 450);
+        return false;
+      }
+
       function renderPaymentSummary() {
         if (!window.CartStore) return;
 
@@ -849,6 +882,10 @@
       }
 
       document.addEventListener("DOMContentLoaded", () => {
+        if (!damBaoDangNhapKhachHang()) {
+          return;
+        }
+
         if (window.CartStore) {
           window.CartStore.syncCountBadges();
           window.CartStore.initMiniCart();
