@@ -5,8 +5,6 @@ const prisma = new PrismaClient();
 
 async function main() {
   try {
-    console.log("🌱 Bắt đầu seeding database...\n");
-
     const staffAccounts = [
       {
         hoTen: "Admin Quản Lý",
@@ -43,14 +41,7 @@ async function main() {
           trangThai: "HOAT_DONG",
         },
       });
-
-      console.log(`✓ Tạo tài khoản thành công:`);
-      console.log(`  Email: ${user.email}`);
-      console.log(`  Mật khẩu: ${account.matKhau}`);
-      console.log(`  Vai trò: ${user.vaiTro}\n`);
     }
-
-    console.log("✅ Hoàn thành seeding!");
   } catch (error) {
     console.error("❌ Lỗi:", error);
     process.exit(1);
